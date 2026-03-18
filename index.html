@@ -95,13 +95,13 @@
     .about__social-btn svg{width:16px;height:16px}
     /* GALLERY PANELS - HYROX STYLE */
     .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer}
+    .about__panel{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer}
     .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .5s;filter:saturate(.4) brightness(.65)}
     .about__panel:hover img{transform:scale(1.08);filter:saturate(.7) brightness(.75)}
     .about__panel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,3vw,2.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.7) 0%,transparent 60%)}
     .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.5rem}
-    .about__panel-sub{font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
-    .about__panel-desc{font-family:'Lora',serif;font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.5}
+    .about__panel-sub{font-family:'Times New Roman',Times,serif;font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
+    .about__panel-desc{display:none}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -133,7 +133,7 @@
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
-    .program__coach-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);filter:saturate(.5) contrast(1.05);flex-shrink:0}
+    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);flex-shrink:0}
     .program__header{display:grid;grid-template-columns:50px 40px 1fr 2.5fr 40px;align-items:center;gap:1.2rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
     .program:hover .program__header{padding-left:clamp(2rem,6vw,5rem)}
     .program__number{color:var(--text-dim);font-size:.7rem;font-weight:500;letter-spacing:.05em}
@@ -432,7 +432,7 @@
       .hero{min-height:100svh;align-items:center}.hero__content{padding-bottom:0;text-align:center;max-width:100%}.hero__ctas{justify-content:center}.hero__sub{margin-left:auto;margin-right:auto}.hero__label{justify-content:center}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
       .about__grid{grid-template-columns:1fr}.about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
-      .program__header{grid-template-columns:35px 35px 1fr 32px;gap:.75rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
+      .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
@@ -444,7 +444,7 @@
     }
     @media(max-width:480px){
       .text-display{font-size:clamp(2.5rem,12vw,4rem)}
-      .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+      .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:repeat(3,1fr);gap:4px}
       .footer__columns{grid-template-columns:1fr;gap:2rem}
     }
   </style>
@@ -470,7 +470,7 @@
   <div class="hero__bg"><img src="img/hero-bg.jpg" alt="Imperio Elite Fitness Club"><div class="hero__overlay"></div></div>
   <div class="hero__content">
     <p class="hero__label text-label">Normand&iacute;a, Bogot&aacute;</p>
-    <h1 class="text-display">Donde nace tu<br><span class="hero__accent">verdadera fuerza.</span></h1>
+    <h1 class="text-display">Donde nace tu <span class="hero__accent">verdadera fuerza.</span></h1>
     <p class="hero__sub">Disciplina, gu&iacute;a correcta y un entorno que te reta a ser mejor. Esto es Imperio.</p>
     <div class="hero__ctas">
       <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Agenda tu d&iacute;a de cortes&iacute;a</a>
@@ -576,7 +576,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">01</span>
-          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
+          <span class="program__coach-avatar">&#x1F4AA;</span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -612,7 +612,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">02</span>
-          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
+          <span class="program__coach-avatar">&#x1F3B5;</span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -648,7 +648,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">03</span>
-          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
+          <span class="program__coach-avatar">&#x1F525;</span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Super Abdomen</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -684,7 +684,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">04</span>
-          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
+          <span class="program__coach-avatar">&#x1F3CB;</span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona Co-Working</h3><span class="program__motto-inline">"Tus reglas, nuestras herramientas"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -720,7 +720,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">05</span>
-          <img class="program__coach-avatar" src="img/foto/2.png" alt="Coach">
+          <span class="program__coach-avatar">&#x1F9D1;&#x200D;&#x1F3EB;</span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Personal Training</h3><span class="program__motto-inline">"No hay atajos, hay estrategia"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
