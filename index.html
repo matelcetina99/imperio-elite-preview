@@ -95,18 +95,31 @@
     .about__social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--text-muted);transition:all .3s}
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
-    .carousel{position:relative;overflow:hidden;aspect-ratio:4/5;border:1px solid var(--border);border-radius:var(--radius)}
-    .carousel__track{display:flex;height:100%;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
-    .carousel__slide{min-width:100%;height:100%}
-    .carousel__slide img{width:100%;height:100%;object-fit:cover;border-radius:0}
-    .carousel__slide-caption{position:absolute;bottom:2.5rem;left:0;right:0;text-align:center;font-family:'Lora',serif;font-size:.75rem;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.03em;text-shadow:0 1px 6px rgba(0,0,0,.6);padding:0 1rem;z-index:2}
-    .carousel__slide{min-width:100%;height:100%;position:relative}
-    .carousel__dots{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:3}
-    .carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:all .3s}
-    .carousel__dot.active{background:var(--gold);transform:scale(1.2)}
-    .carousel__nav{position:absolute;top:50%;transform:translateY(-50%);width:40px;height:40px;background:rgba(8,8,10,.7);border:1px solid var(--border);border-radius:50%;color:var(--silver);font-size:1.1rem;display:flex;align-items:center;justify-content:center;transition:all .2s;z-index:3}
-    .carousel__nav:hover{background:var(--gold);color:#08080A}
-    .carousel__nav--prev{left:.75rem}.carousel__nav--next{right:.75rem}
+    /* GALLERY PANELS */
+    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius);cursor:pointer;border:1px solid var(--border)}
+    .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94),filter .4s;filter:saturate(.3) brightness(.7)}
+    .about__panel:hover img{transform:scale(1.12);filter:saturate(.7) brightness(.85)}
+    .about__panel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;z-index:2}
+    .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
+    .about__panel-count{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+    /* GALLERY MODAL (IG style) */
+    .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
+    .gallery-overlay.active{opacity:1;pointer-events:auto}
+    .gallery-overlay__header{position:sticky;top:0;z-index:10;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,10,.9);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+    .gallery-overlay__title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.2rem;text-transform:uppercase;letter-spacing:.06em}
+    .gallery-overlay__close{background:none;border:none;color:var(--silver);font-size:2rem;cursor:pointer;padding:.5rem;line-height:1}
+    .gallery-overlay__grid{max-width:600px;margin:0 auto;padding:1rem}
+    .ig-card{border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:1.5rem;background:var(--surface)}
+    .ig-card__header{display:flex;align-items:center;gap:.7rem;padding:.8rem 1rem}
+    .ig-card__avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--gold),#e8a020);display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.7rem;color:#08080A}
+    .ig-card__user{font-size:.8rem;font-weight:700;letter-spacing:.02em}
+    .ig-card__location{font-size:.6rem;color:var(--text-dim)}
+    .ig-card__img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .ig-card__body{padding:.8rem 1rem}
+    .ig-card__caption{font-size:.85rem;color:var(--text-muted);line-height:1.6}
+    .ig-card__caption strong{color:var(--text);font-weight:700}
+    .ig-card__tags{font-size:.75rem;color:var(--gold);margin-top:.4rem}
 
     /* PROGRAMS / CLASES */
     .programs__header{margin-bottom:clamp(2rem,4vh,4rem)}
@@ -161,31 +174,35 @@
     .coach-card__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem}
     .coach-card__role{font-size:.6rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
 
-    /* TRAINERS - FIFA 26 STYLE */
+    /* TRAINERS - FIFA 26 ULTIMATE TEAM */
     .trainers__header{margin-bottom:clamp(2rem,4vh,3rem)}
     .trainers__label{color:var(--gold);margin-bottom:1rem}
     .trainers__intro{color:var(--text-muted);font-size:1rem;line-height:1.7;max-width:600px;margin-top:1.25rem}
-    .trainers__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
-    .trainer{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;background:linear-gradient(160deg,#1a1a1a 0%,#0d0d0d 40%,#1a1507 100%);border:1px solid rgba(201,168,76,.25);transition:transform .4s,box-shadow .4s}
-    .trainer:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,.15),0 0 40px rgba(201,168,76,.08)}
-    .trainer__card-top{position:relative;display:flex;align-items:flex-start;padding:1.2rem 1rem .5rem}
-    .trainer__rating{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2.8rem;line-height:1;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
-    .trainer__pos{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-top:.3rem}
-    .trainer__card-badge{position:absolute;top:1rem;right:1rem;width:28px;height:28px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08)}
-    .trainer__card-badge svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
-    .trainer__img-wrap{aspect-ratio:1/1;overflow:hidden;margin:0 1.5rem;position:relative}
-    .trainer__img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,#0d0d0d,transparent)}
-    .trainer__img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.3) contrast(1.15) brightness(.85);transition:filter .5s,transform .6s;border-radius:12px}
-    .trainer:hover .trainer__img-wrap img{filter:saturate(.7) contrast(1.1) brightness(.9);transform:scale(1.05)}
-    .trainer__info{padding:.8rem 1.2rem .5rem;text-align:center;border-top:1px solid rgba(201,168,76,.15)}
-    .trainer__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.04em}
-    .trainer__role{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-    .trainer__view-cv{display:inline-block;margin-top:.4rem;font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .2s}
+    .trainers__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+    @keyframes fifaShine{0%{left:-150%}100%{left:150%}}
+    @keyframes fifaGlow{0%,100%{box-shadow:0 0 15px rgba(201,168,76,.15),0 0 30px rgba(201,168,76,.05)}50%{box-shadow:0 0 30px rgba(201,168,76,.3),0 0 60px rgba(201,168,76,.1),0 0 100px rgba(201,168,76,.05)}}
+    .trainer{position:relative;overflow:hidden;border-radius:20px 20px 14px 14px;cursor:pointer;background:linear-gradient(170deg,#2a2211 0%,#14120a 35%,#1a1507 70%,#0d0d0d 100%);border:2px solid rgba(201,168,76,.3);transition:transform .4s,box-shadow .4s;animation:fifaGlow 4s ease-in-out infinite}
+    .trainer::before{content:'';position:absolute;top:0;left:-150%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(201,168,76,.08),rgba(255,255,255,.05),transparent);z-index:5;pointer-events:none;animation:fifaShine 5s ease-in-out infinite}
+    .trainer:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 25px 70px rgba(201,168,76,.25),0 0 50px rgba(201,168,76,.12);border-color:rgba(201,168,76,.6)}
+    .trainer__card-logo{text-align:center;padding:.8rem 0 0;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,168,76,.5)}
+    .trainer__card-top{position:relative;display:flex;align-items:flex-start;padding:.4rem 1rem .3rem}
+    .trainer__rating{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2.6rem;line-height:1;color:var(--gold);text-shadow:0 0 25px rgba(201,168,76,.4)}
+    .trainer__pos{font-size:.5rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-top:.2rem}
+    .trainer__card-badge{position:absolute;top:.5rem;right:1rem;width:26px;height:26px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.1)}
+    .trainer__card-badge svg{width:13px;height:13px;stroke:var(--gold);fill:none;stroke-width:2}
+    .trainer__img-wrap{aspect-ratio:1/1;overflow:hidden;margin:0 1rem;position:relative;border-radius:12px;border:1px solid rgba(201,168,76,.15)}
+    .trainer__img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:35%;background:linear-gradient(to top,rgba(13,13,10,.9),transparent)}
+    .trainer__img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.35) contrast(1.15) brightness(.8);transition:filter .5s,transform .6s}
+    .trainer:hover .trainer__img-wrap img{filter:saturate(.75) contrast(1.1) brightness(.9);transform:scale(1.06)}
+    .trainer__info{padding:.7rem 1rem .4rem;text-align:center;border-top:1px solid rgba(201,168,76,.12)}
+    .trainer__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1rem;margin-bottom:.15rem;text-transform:uppercase;letter-spacing:.05em}
+    .trainer__role{font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+    .trainer__view-cv{display:inline-block;margin-top:.35rem;font-size:.48rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .2s}
     .trainer:hover .trainer__view-cv{color:var(--gold)}
-    .trainer__fifa-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem;padding:.6rem 1.2rem 1rem;text-align:center}
-    .trainer__fifa-stat-val{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;color:var(--silver-light);line-height:1.2}
-    .trainer__fifa-stat-lbl{font-size:.45rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
-    .trainer__card-line{height:1px;margin:0 1.2rem;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
+    .trainer__fifa-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.2rem;padding:.5rem 1rem .8rem;text-align:center}
+    .trainer__fifa-stat-val{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1rem;color:var(--silver-light);line-height:1.2}
+    .trainer__fifa-stat-lbl{font-size:.4rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+    .trainer__card-line{height:1px;margin:0 1rem;background:linear-gradient(90deg,transparent,rgba(201,168,76,.35),transparent)}
 
     /* CV MODAL */
     .cv-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
@@ -338,9 +355,9 @@
       .nav__links{display:none}.nav__address{display:none}.nav__hamburger{display:flex}
       .hero{min-height:100svh;align-items:center}.hero__content{padding-bottom:0;text-align:center;max-width:100%}.hero__ctas{justify-content:center}.hero__sub{margin-left:auto;margin-right:auto}.hero__label{justify-content:center}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
-      .about__grid{grid-template-columns:1fr}.carousel{aspect-ratio:3/4}
+      .about__grid{grid-template-columns:1fr}.about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
       .program__header{grid-template-columns:35px 35px 1fr 32px;gap:.75rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
-      .trainers__grid{grid-template-columns:1fr 1fr;gap:.75rem}
+      .trainers__grid{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
@@ -351,7 +368,7 @@
     }
     @media(max-width:480px){
       .text-display{font-size:clamp(2.5rem,12vw,4rem)}
-      .trainers__grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+      .trainers__grid{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:1fr;max-width:320px;margin:0 auto}
       .footer__inner{grid-template-columns:1fr;gap:2rem}
     }
   </style>
@@ -437,17 +454,28 @@
           <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
         </div>
       </div>
-      <div class="carousel reveal" style="transition-delay:.15s;" id="aboutCarousel">
-        <div class="carousel__track" id="carouselTrack">
-          <div class="carousel__slide"><img src="img/foto/1.png" alt="High five neon"><span class="carousel__slide-caption">La energia que se vive en cada sesion</span></div>
-          <div class="carousel__slide"><img src="img/blanco/1.png" alt="Clase neon"><span class="carousel__slide-caption">Clases nocturnas con ambiente unico</span></div>
-          <div class="carousel__slide"><img src="img/foto/2.png" alt="Personal training"><span class="carousel__slide-caption">Entrenamiento personalizado 1 a 1</span></div>
-          <div class="carousel__slide"><img src="img/blanco/4.png" alt="Comunidad Imperio"><span class="carousel__slide-caption">Una comunidad que te impulsa</span></div>
-          <div class="carousel__slide"><img src="img/blanco/9.png" alt="Grupo Imperio"><span class="carousel__slide-caption">El equipo que construye resultados</span></div>
+      <div class="about__panels reveal" style="transition-delay:.15s;">
+        <div class="about__panel" onclick="openGallery('atletas')">
+          <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Nuestros Atletas</p>
+            <p class="about__panel-count">12 publicaciones</p>
+          </div>
         </div>
-        <div class="carousel__dots" id="carouselDots"></div>
-        <button class="carousel__nav carousel__nav--prev" onclick="moveCarousel(-1)">&#8249;</button>
-        <button class="carousel__nav carousel__nav--next" onclick="moveCarousel(1)">&#8250;</button>
+        <div class="about__panel" onclick="openGallery('salidas')">
+          <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Salidas Imperio</p>
+            <p class="about__panel-count">8 publicaciones</p>
+          </div>
+        </div>
+        <div class="about__panel" onclick="openGallery('clases')">
+          <img src="img/Foto - Web 15.png" alt="Clases Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Clases</p>
+            <p class="about__panel-count">10 publicaciones</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -662,6 +690,15 @@
   </div>
 </section>
 
+<!-- GALLERY MODAL -->
+<div class="gallery-overlay" id="galleryOverlay" onclick="if(event.target===this)closeGallery()">
+  <div class="gallery-overlay__header">
+    <p class="gallery-overlay__title" id="galleryTitle"></p>
+    <button class="gallery-overlay__close" onclick="closeGallery()">&times;</button>
+  </div>
+  <div class="gallery-overlay__grid" id="galleryGrid"></div>
+</div>
+
 <!-- TRAINERS -->
 <section id="trainers" class="section">
   <div class="container">
@@ -672,6 +709,7 @@
     </div>
     <div class="trainers__grid reveal-stagger">
       <div class="trainer" onclick="openCV('coach1')">
+        <p class="trainer__card-logo">Imperio</p>
         <div class="trainer__card-top">
           <div><p class="trainer__rating">92</p><p class="trainer__pos">HC</p></div>
           <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
@@ -693,6 +731,7 @@
         </div>
       </div>
       <div class="trainer" onclick="openCV('coach2')">
+        <p class="trainer__card-logo">Imperio</p>
         <div class="trainer__card-top">
           <div><p class="trainer__rating">90</p><p class="trainer__pos">BTS</p></div>
           <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
@@ -714,6 +753,7 @@
         </div>
       </div>
       <div class="trainer" onclick="openCV('coach3')">
+        <p class="trainer__card-logo">Imperio</p>
         <div class="trainer__card-top">
           <div><p class="trainer__rating">88</p><p class="trainer__pos">FNC</p></div>
           <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
@@ -734,6 +774,28 @@
           <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
         </div>
       </div>
+      <div class="trainer" onclick="openCV('nutri')">
+        <p class="trainer__card-logo">Imperio</p>
+        <div class="trainer__card-top">
+          <div><p class="trainer__rating">91</p><p class="trainer__pos">NUT</p></div>
+          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
+        <div class="trainer__img-wrap"><img src="img/Web 1.png" alt="Nutricionista"></div>
+        <div class="trainer__info">
+          <p class="trainer__name">Nutricionista</p>
+          <p class="trainer__role">Nutricion Deportiva</p>
+          <span class="trainer__view-cv">Ver perfil</span>
+        </div>
+        <div class="trainer__card-line"></div>
+        <div class="trainer__fifa-stats">
+          <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+          <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+          <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+          <div><p class="trainer__fifa-stat-val">65</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -750,7 +812,7 @@
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24"><defs><linearGradient id="ig1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="url(#ig1)"/></svg><span>Instagram</span></div>
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg><span>TikTok</span></div>
-        <div class="testimonials__source-badge"><svg viewBox="0 0 512 512" style="width:16px;height:16px;"><defs><linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0668E1"/><stop offset="50%" style="stop-color:#0080FB"/><stop offset="100%" style="stop-color:#00C0FF"/></linearGradient></defs><path fill="url(#metaGrad)" d="M115.2 272c0-56.4 22.8-108.4 51.7-142.5C192.5 98.9 223.5 80 248.8 80c16.9 0 35.8 12.2 55.5 38.2 8.1 10.7 16.3 23.5 24.4 38.2l7.8 14.2c12.5 22.7 21.2 37 27.5 45.3 11.3 14.8 21.3 20.1 32.8 20.1 16.2 0 31.8-13.5 44.3-37.5 10.8-20.7 17-44.8 17-68.5 0-42.2-14.8-79.5-42.4-106.7C388.4-4.1 349.2-20 304.8-20c-54.3 0-103.8 24.2-143.5 63.8C121.6 83.4 88 143.2 88 216v80c0 72.8 33.6 132.6 73.3 172.2C200.9 507.8 250.4 532 304.8 532c44.4 0 83.6-16.1 110.9-43.3 27.6-27.2 42.4-64.5 42.4-106.7 0-23.7-6.2-47.8-17-68.5-12.5-24-28.1-37.5-44.3-37.5-11.5 0-21.5 5.3-32.8 20.1-6.3 8.3-15 22.6-27.5 45.3l-7.8 14.2c-8.1 14.7-16.3 27.5-24.4 38.2-19.7 26-38.6 38.2-55.5 38.2-25.3 0-56.3-18.9-81.9-49.5C138 351.4 115.2 328.4 115.2 272z"/></svg><span>Meta</span></div>
+        <div class="testimonials__source-badge"><svg viewBox="0 0 32 16" style="width:18px;height:9px;" fill="none"><defs><linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0668E1"/><stop offset="100%" stop-color="#00C0FF"/></linearGradient></defs><path d="M8 3C5.2 3 3 5.7 3 8s2.2 5 5 5c1.5 0 2.8-.9 4.2-3L16 4.5 19.8 10c1.4 2.1 2.7 3 4.2 3 2.8 0 5-2.7 5-5s-2.2-5-5-5c-1.5 0-2.8.9-4.2 3L16 11.5 12.2 6C10.8 3.9 9.5 3 8 3z" stroke="url(#metaGrad)" stroke-width="2" stroke-linecap="round"/></svg><span>Meta</span></div>
       </div>
     </div>
     <div class="testimonials__grid reveal-stagger">
@@ -859,7 +921,7 @@
   <div class="footer__bottom">
     <p class="footer__copy">&copy; 2026 Imperio Elite Fitness Club. Todos los derechos reservados.</p>
     <div class="footer__socials">
-      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Meta"><svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M115.2 272c0-56.4 22.8-108.4 51.7-142.5C192.5 98.9 223.5 80 248.8 80c16.9 0 35.8 12.2 55.5 38.2 8.1 10.7 16.3 23.5 24.4 38.2l7.8 14.2c12.5 22.7 21.2 37 27.5 45.3 11.3 14.8 21.3 20.1 32.8 20.1 16.2 0 31.8-13.5 44.3-37.5 10.8-20.7 17-44.8 17-68.5 0-42.2-14.8-79.5-42.4-106.7C388.4-4.1 349.2-20 304.8-20c-54.3 0-103.8 24.2-143.5 63.8C121.6 83.4 88 143.2 88 216v80c0 72.8 33.6 132.6 73.3 172.2C200.9 507.8 250.4 532 304.8 532c44.4 0 83.6-16.1 110.9-43.3 27.6-27.2 42.4-64.5 42.4-106.7 0-23.7-6.2-47.8-17-68.5-12.5-24-28.1-37.5-44.3-37.5-11.5 0-21.5 5.3-32.8 20.1-6.3 8.3-15 22.6-27.5 45.3l-7.8 14.2c-8.1 14.7-16.3 27.5-24.4 38.2-19.7 26-38.6 38.2-55.5 38.2-25.3 0-56.3-18.9-81.9-49.5C138 351.4 115.2 328.4 115.2 272z"/></svg></a>
+      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Meta"><svg viewBox="0 0 32 16" fill="none" width="22" height="11"><path d="M8 3C5.2 3 3 5.7 3 8s2.2 5 5 5c1.5 0 2.8-.9 4.2-3L16 4.5 19.8 10c1.4 2.1 2.7 3 4.2 3 2.8 0 5-2.7 5-5s-2.2-5-5-5c-1.5 0-2.8.9-4.2 3L16 11.5 12.2 6C10.8 3.9 9.5 3 8 3z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
       <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
       <a href="#" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg></a>
       <a href="https://wa.me/573124167919" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -1016,14 +1078,34 @@
   const obs=new IntersectionObserver(e=>e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('is-visible')}),{threshold:.1});
   document.querySelectorAll('.reveal,.reveal-stagger').forEach(el=>obs.observe(el));
 
-  let carouselIndex=0;const track=document.getElementById('carouselTrack');const slides=track.children;const dotsC=document.getElementById('carouselDots');
-  for(let i=0;i<slides.length;i++){const d=document.createElement('button');d.className='carousel__dot'+(i===0?' active':'');d.onclick=()=>goToSlide(i);dotsC.appendChild(d)}
-  function goToSlide(i){carouselIndex=i;track.style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.carousel__dot').forEach((d,idx)=>d.classList.toggle('active',idx===i))}
-  function moveCarousel(dir){carouselIndex=(carouselIndex+dir+slides.length)%slides.length;goToSlide(carouselIndex)}
-  setInterval(()=>moveCarousel(1),4500);
-  let touchStartX=0;const carouselEl=document.getElementById('aboutCarousel');
-  carouselEl.addEventListener('touchstart',e=>{touchStartX=e.touches[0].clientX},{passive:true});
-  carouselEl.addEventListener('touchend',e=>{const diff=touchStartX-e.changedTouches[0].clientX;if(Math.abs(diff)>50)moveCarousel(diff>0?1:-1)},{passive:true});
+  // Gallery data (IG-style)
+  const galleryData={
+    atletas:[
+      {img:'img/Foto - Web 1.png',caption:'<strong>imperioelitefitness</strong> Cada repeticion cuenta. Nuestros atletas demuestran que el compromiso no tiene dias libres.',tags:'#ImperioElite #Atletas #FuerzaReal #GymBogota'},
+      {img:'img/Web 10.png',caption:'<strong>imperioelitefitness</strong> Espalda fuerte, postura perfecta. El camino se construye con constancia y buena tecnica.',tags:'#BackDay #ImperioAtletas #Disciplina'},
+      {img:'img/Foto - Web 5.png',caption:'<strong>imperioelitefitness</strong> El equipo que te respalda en cada PR. Asi se entrena en Imperio.',tags:'#PersonalTraining #CoachLife #ImperioElite'},
+      {img:'img/Web 1.png',caption:'<strong>imperioelitefitness</strong> La movilidad es la base de todo movimiento. Cuerpo funcional, vida funcional.',tags:'#Movilidad #Funcional #ImperioFit'}
+    ],
+    salidas:[
+      {img:'img/Foto - Web 25.png',caption:'<strong>imperioelitefitness</strong> Salida Imperio: battle ropes bajo las estrellas. Entrenamiento sin limites.',tags:'#SalidaImperio #OutdoorTraining #BattleRopes'},
+      {img:'img/blanco/4.png',caption:'<strong>imperioelitefitness</strong> Comunidad que se mueve junta. Las salidas Imperio son donde se forja el equipo.',tags:'#ComunidadImperio #TeamWork #FitnessOutdoor'},
+      {img:'img/blanco/9.png',caption:'<strong>imperioelitefitness</strong> Cuando el gimnasio se queda pequeno, salimos a conquistar. Asi es el espiritu Imperio.',tags:'#ImperioSale #Normandia #GymLife'}
+    ],
+    clases:[
+      {img:'img/Foto - Web 15.png',caption:'<strong>imperioelitefitness</strong> Clase de Beats: luces, musica y energia pura. Asi se vive cada sesion grupal.',tags:'#ClaseBeats #GrupalImperio #Ritmo #Cardio'},
+      {img:'img/Foto - Web 20.png',caption:'<strong>imperioelitefitness</strong> Super Abdomen: 30 minutos de core puro. El dolor es temporal, los resultados permanentes.',tags:'#SuperAbdomen #CoreStrong #ClasesImperio'},
+      {img:'img/Foto - Web 10.png',caption:'<strong>imperioelitefitness</strong> Coach liderando con ejemplo. Las clases grupales son el corazon de Imperio.',tags:'#CoachLife #GrupalFitness #ImperioElite'},
+      {img:'img/blanco/1.png',caption:'<strong>imperioelitefitness</strong> Ambiente nocturno unico. Las luces neon hacen que cada clase sea una experiencia.',tags:'#NeonGym #ClaseNocturna #ImperioVibes'}
+    ]
+  };
+  const galleryTitles={atletas:'Nuestros Atletas',salidas:'Salidas Imperio',clases:'Clases'};
+  function openGallery(cat){
+    document.getElementById('galleryTitle').textContent=galleryTitles[cat]||cat;
+    const grid=document.getElementById('galleryGrid');
+    grid.innerHTML=galleryData[cat].map(p=>`<div class="ig-card"><div class="ig-card__header"><div class="ig-card__avatar">IE</div><div><p class="ig-card__user">imperioelitefitness</p><p class="ig-card__location">Imperio Elite · Normandia, Bogota</p></div></div><img class="ig-card__img" src="${p.img}" alt=""><div class="ig-card__body"><p class="ig-card__caption">${p.caption}</p><p class="ig-card__tags">${p.tags}</p></div></div>`).join('');
+    document.getElementById('galleryOverlay').classList.add('active');document.body.style.overflow='hidden';
+  }
+  function closeGallery(){document.getElementById('galleryOverlay').classList.remove('active');document.body.style.overflow='';}
 
   function toggleProgram(el){const was=el.classList.contains('active');document.querySelectorAll('.program').forEach(p=>{p.classList.remove('active');p.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width='0%')});if(!was){el.classList.add('active');setTimeout(()=>{el.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width=b.dataset.width)},100)}}
 
@@ -1031,7 +1113,8 @@
   const cvData={
     coach1:{photo:'img/blanco/8.png',name:'Nicolas Garcia',badge:'Imperio Certified Crew Member',title:'Head Coach · Strength & Conditioning',quote:'"El cuerpo logra lo que la mente cree."',radar:[{label:'Fuerza',value:95},{label:'Tecnica',value:90},{label:'Experiencia',value:88},{label:'Liderazgo',value:92},{label:'Cardio',value:70},{label:'Motivacion',value:85}],strengths:['Especialista en gluteos indestructibles','Maestro del PR (Personal Record)','Arquitecto de espaldas anchas','Domador de la barra olimpica'],education:['<strong>Profesional en Ciencias del Deporte</strong> — U. Cundinamarca','<strong>Certificacion NSCA-CPT</strong> — National Strength & Conditioning','<strong>Especialista Entrenamiento Funcional</strong> — FMS Level 2','<strong>Nutricion Deportiva</strong> — ISSA'],specialties:['Entrenamiento de fuerza e hipertrofia','Periodizacion y programacion de rutinas','Prevencion y rehabilitacion de lesiones','Preparacion fisica para competidores'],achievements:['Fundador y Head Coach de Imperio Elite Fitness Club','Entrenador de atletas powerlifting nivel regional','Creador del programa Beats','Speaker en eventos de fitness en Bogota']},
     coach2:{photo:'img/blanco/3.png',name:'Coach Beats',badge:'Imperio Certified Crew Member',title:'Instructor · Beats & Ritmo',quote:'"La energia que pones en cada clase es la que te llevas a la vida."',radar:[{label:'Fuerza',value:60},{label:'Tecnica',value:75},{label:'Experiencia',value:72},{label:'Liderazgo',value:88},{label:'Cardio',value:95},{label:'Motivacion',value:93}],strengths:['Rey del cardio sin piedad','Creador de playlists letales','Maestro del burpee infinito','Destructor de calorias con ritmo'],education:['<strong>Licenciatura Educacion Fisica</strong> — U. Pedagogica Nacional','<strong>Group Fitness</strong> — ACE','<strong>Indoor Cycling</strong> — Schwinn','<strong>Ritmo y Movimiento</strong> — Les Mills BODYCOMBAT'],specialties:['Clases grupales alta intensidad con musica','Coordinacion ritmica y coreografia fitness','Indoor cycling y cardio','Motivacion grupal'],achievements:['Creador de la clase de Beats mas popular de Normandia','Mas de 300 clases con cupo lleno','Reconocido por la mejor energia en cada sesion','Referente en ritmo y cardio dance']},
-    coach3:{photo:'img/blanco/7.png',name:'Coach Funcional',badge:'Imperio Certified Crew Member',title:'Instructor · Functional Training',quote:'"Entrenar funcional es preparar tu cuerpo para la vida real."',radar:[{label:'Fuerza',value:80},{label:'Tecnica',value:92},{label:'Experiencia',value:78},{label:'Liderazgo',value:75},{label:'Cardio',value:82},{label:'Motivacion',value:80}],strengths:['Verdugo del core debil','Experto en sentadillas perfectas','Maestro de la movilidad articular','Especialista en cuerpos funcionales'],education:['<strong>Cultura Fisica y Deporte</strong> — UDCA','<strong>Entrenamiento Funcional</strong> — FMS Level 1 & 2','<strong>CrossTraining</strong> — ISSA','<strong>Movilidad y Flexibilidad</strong> — NASM-CES'],specialties:['Entrenamiento funcional y movilidad articular','Preparacion fisica general y resistencia','Peso corporal y kettlebells','Rehabilitacion funcional post-lesion'],achievements:['400+ clientes con mejora en movilidad funcional','Programa de funcional para todas las edades','Referente en correccion postural','Competidor CrossTraining regional']}
+    coach3:{photo:'img/blanco/7.png',name:'Coach Funcional',badge:'Imperio Certified Crew Member',title:'Instructor · Functional Training',quote:'"Entrenar funcional es preparar tu cuerpo para la vida real."',radar:[{label:'Fuerza',value:80},{label:'Tecnica',value:92},{label:'Experiencia',value:78},{label:'Liderazgo',value:75},{label:'Cardio',value:82},{label:'Motivacion',value:80}],strengths:['Verdugo del core debil','Experto en sentadillas perfectas','Maestro de la movilidad articular','Especialista en cuerpos funcionales'],education:['<strong>Cultura Fisica y Deporte</strong> — UDCA','<strong>Entrenamiento Funcional</strong> — FMS Level 1 & 2','<strong>CrossTraining</strong> — ISSA','<strong>Movilidad y Flexibilidad</strong> — NASM-CES'],specialties:['Entrenamiento funcional y movilidad articular','Preparacion fisica general y resistencia','Peso corporal y kettlebells','Rehabilitacion funcional post-lesion'],achievements:['400+ clientes con mejora en movilidad funcional','Programa de funcional para todas las edades','Referente en correccion postural','Competidor CrossTraining regional']},
+    nutri:{photo:'img/Web 1.png',name:'Nutricionista',badge:'Nutricion Deportiva Profesional',title:'Nutricionista · Rendimiento & Composicion',quote:'"La nutricion correcta es el 70% de tus resultados."',radar:[{label:'Fuerza',value:55},{label:'Tecnica',value:95},{label:'Experiencia',value:85},{label:'Liderazgo',value:90},{label:'Cardio',value:50},{label:'Motivacion',value:92}],strengths:['Creador de planes nutricionales a medida','Maestro de la composicion corporal','Experto en suplementacion deportiva','Arquitecto de dietas sostenibles'],education:['<strong>Nutricion y Dietetica</strong> — U. Nacional de Colombia','<strong>Nutricion Deportiva Avanzada</strong> — ISSN','<strong>Antropometria y Composicion Corporal</strong> — ISAK Level 2','<strong>Suplementacion y Rendimiento</strong> — ISSA'],specialties:['Planes de alimentacion para ganancia muscular','Estrategias de definicion y corte','Nutricion para rendimiento deportivo','Valoracion InBody y seguimiento'],achievements:['Responsable de los planes nutricionales de Imperio','Mas de 200 transformaciones corporales guiadas','Speaker en eventos de nutricion deportiva','Creador del menu Power Station Imperio']}
   };
   function buildRadar(data){const cx=160,cy=160,r=120,n=data.length,colors=['#C9A84C','#C0C0C0','#e74c3c','#3498db','#2ecc71','#9b59b6'];let svg=`<svg viewBox="0 0 320 330" xmlns="http://www.w3.org/2000/svg">`;for(let lvl=1;lvl<=4;lvl++){let pts=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;const lr=r*lvl/4;pts.push(`${cx+lr*Math.cos(a)},${cy+lr*Math.sin(a)}`);}svg+=`<polygon points="${pts.join(' ')}" fill="none" stroke="rgba(192,192,192,.15)" stroke-width="1"/>`;}for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;svg+=`<line x1="${cx}" y1="${cy}" x2="${cx+r*Math.cos(a)}" y2="${cy+r*Math.sin(a)}" stroke="rgba(192,192,192,.1)" stroke-width="1"/>`;}let pts=[];data.forEach((d,i)=>{const a=Math.PI*2*i/n-Math.PI/2;const vr=r*d.value/100;pts.push(`${cx+vr*Math.cos(a)},${cy+vr*Math.sin(a)}`);});svg+=`<polygon points="${pts.join(' ')}" fill="rgba(201,168,76,.12)" stroke="var(--gold)" stroke-width="2"/>`;data.forEach((d,i)=>{const a=Math.PI*2*i/n-Math.PI/2;const vr=r*d.value/100;svg+=`<circle cx="${cx+vr*Math.cos(a)}" cy="${cy+vr*Math.sin(a)}" r="4" fill="${colors[i]}" stroke="#fff" stroke-width="1.5"/>`;const lr=r+22;const lx=cx+lr*Math.cos(a);const ly=cy+lr*Math.sin(a);const anch=Math.abs(Math.cos(a))<.1?'middle':Math.cos(a)>0?'start':'end';svg+=`<text x="${lx}" y="${ly}" text-anchor="${anch}" dominant-baseline="middle" fill="${colors[i]}" font-size="10" font-weight="600" font-family="Lora,serif">${d.label}</text>`;svg+=`<text x="${lx}" y="${ly+13}" text-anchor="${anch}" dominant-baseline="middle" fill="rgba(255,255,255,.5)" font-size="9" font-family="Lora,serif">${d.value}%</text>`;});svg+=`</svg>`;return svg;}
   function openCV(id){const d=cvData[id];if(!d)return;document.getElementById('cvContent').innerHTML=`<button class="cv-overlay__close" onclick="closeCV()">&times;</button><div class="cv__header"><div class="cv__header-bg"></div><div class="cv__header-accent"></div><img class="cv__photo" src="${d.photo}" alt="${d.name}"><div style="display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;margin-bottom:.3rem;"><h2 class="cv__name" style="margin-bottom:0">${d.name}</h2><span style="font-size:.5rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);padding:.2rem .5rem;border:1px solid rgba(201,168,76,.3);border-radius:4px;white-space:nowrap;">${d.badge}</span></div><p class="cv__title" style="margin-bottom:.6rem;">${d.title}</p><p class="cv__quote">${d.quote}</p></div><div class="cv__body" style="display:flex;flex-direction:column;gap:1.8rem;"><div class="cv__section" style="margin-bottom:0;"><h3 class="cv__section-title">Perfil de Habilidades</h3><div class="cv__radar-wrap">${buildRadar(d.radar)}</div></div><div class="cv__section" style="margin-bottom:0;"><h3 class="cv__section-title">Fortalezas</h3>${d.strengths.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section" style="margin-bottom:0;"><h3 class="cv__section-title">Formacion Academica</h3>${d.education.map(e=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${e}</p></div>`).join('')}</div><div class="cv__section" style="margin-bottom:0;"><h3 class="cv__section-title">Especialidades</h3>${d.specialties.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section" style="margin-bottom:0;"><h3 class="cv__section-title">Logros</h3>${d.achievements.map(a=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${a}</p></div>`).join('')}</div></div>`;document.getElementById('cvOverlay').classList.add('active');document.body.style.overflow='hidden'}
@@ -1040,7 +1123,7 @@
   function switchPlanPrice(tab,plan){const tabs=tab.parentElement.querySelectorAll('.plan-card__price-tab');tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');const period=tab.textContent;const d=planPrices[plan][period];const el=document.getElementById(plan+'-price');el.querySelector('.plan-card__price-amount').style.animation='none';el.querySelector('.plan-card__price-amount').offsetHeight;el.querySelector('.plan-card__price-amount').style.animation='priceIn .3s ease';el.querySelector('.plan-card__price-amount').textContent=d.price;el.querySelector('.plan-card__price-period').textContent=d.period;const sv=document.getElementById(plan+'-saving');sv.textContent=d.saving;sv.classList.toggle('visible',d.saving!=='')}
   function openPlans(){document.getElementById('plansOverlay').classList.add('active');document.body.style.overflow='hidden'}
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');document.body.style.overflow='';closeMobileMenu()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');closeGallery();document.body.style.overflow='';closeMobileMenu()}});
 </script>
 </body>
 </html>
