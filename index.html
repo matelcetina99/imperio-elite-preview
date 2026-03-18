@@ -129,7 +129,7 @@
     .programs__badge svg{width:40px;height:40px;stroke:var(--silver)!important}
     .programs__badge svg circle{stroke:var(--silver)!important}
     .programs__badge svg path{fill:var(--silver)!important;stroke:var(--silver)!important}
-    .programs__badge span{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+    .programs__badge span{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff}
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
@@ -453,35 +453,27 @@
 
 <nav class="nav" id="mainNav">
   <div class="nav__left">
-    <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank" class="nav__logo">IMPERIO<span>Cra. 71c #53-18 &middot; Normandia, Bogota</span></a>
+    <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank" class="nav__logo">IMPERIO<span>Cra. 71c #53-18 &middot; Normand&iacute;a, Bogot&aacute;</span></a>
   </div>
   <ul class="nav__links">
-    <li><a href="#about" class="nav__link">El Club</a></li>
-    <li><a href="#programs" class="nav__link">Clases</a></li>
-    <li><a href="#trainers" class="nav__link">Trainers</a></li>
-    <li><a href="#" class="nav__link" onclick="openPlans();return false;">Precios</a></li>
-    <li><a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold" style="padding:.55rem 1.3rem;font-size:.7rem;">Agenda tu dia</a></li>
+    <li><a href="#" class="btn btn--gold" style="padding:.55rem 1.3rem;font-size:.7rem;" onclick="openPlans();return false;">&Uacute;nete ahora</a></li>
   </ul>
   <div class="nav__hamburger" id="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about" onclick="closeMobileMenu()">El Club</a>
-  <a href="#programs" onclick="closeMobileMenu()">Clases</a>
-  <a href="#trainers" onclick="closeMobileMenu()">Trainers</a>
-  <a href="#" onclick="closeMobileMenu();openPlans();return false;">Precios</a>
-  <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold" style="margin-top:1rem;" onclick="closeMobileMenu()">Agenda tu dia</a>
+  <a href="#" onclick="closeMobileMenu();openPlans();return false;" class="btn btn--gold" style="margin-top:1rem;">&Uacute;nete ahora</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero__bg"><img src="img/hero-bg.jpg" alt="Imperio Elite Fitness Club"><div class="hero__overlay"></div></div>
   <div class="hero__content">
-    <p class="hero__label text-label">Normandia, Bogota</p>
+    <p class="hero__label text-label">Normand&iacute;a, Bogot&aacute;</p>
     <h1 class="text-display">Donde nace tu<br><span class="hero__accent">verdadera fuerza.</span></h1>
-    <p class="hero__sub">Los resultados no son un accidente. Son disciplina, guia correcta y un entorno que te reta a ser mejor todos los dias. Esto es Imperio: donde tu mejor version empieza a construirse.</p>
+    <p class="hero__sub">Disciplina, gu&iacute;a correcta y un entorno que te reta a ser mejor. Esto es Imperio.</p>
     <div class="hero__ctas">
-      <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Agenda tu dia de cortesia</a>
+      <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Agenda tu d&iacute;a de cortes&iacute;a</a>
       <a href="#" class="btn btn--outline btn--large" onclick="openPlans();return false;">Ver planes</a>
     </div>
   </div>
@@ -494,21 +486,18 @@
       <div>
         <span class="text-stat">4.9</span>
         <span class="text-label">&#9733; Rating en <span style="letter-spacing:0;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span></span>
-        <span class="stats__phrase">La calificacion habla por si sola</span>
       </div>
     </div>
     <div class="stats__item">
       <div>
         <span class="text-stat">20+</span>
-        <span class="text-label">Resenas 5 estrellas</span>
-        <span class="stats__phrase">Cada resena es una historia real de transformacion</span>
+        <span class="text-label">Rese&ntilde;as 5 estrellas</span>
       </div>
     </div>
     <div class="stats__item">
       <div>
         <span class="text-stat">7+</span>
         <span class="text-label">Clases semanales</span>
-        <span class="stats__phrase">Variedad para que nunca te aburras</span>
       </div>
     </div>
   </div>
@@ -519,10 +508,9 @@
   <div class="container">
     <div class="about__grid">
       <div class="reveal" style="text-align:center;">
-        <p class="about__label text-label">En que creemos</p>
-        <h2 class="text-heading">Construimos<br>resultados.</h2>
-        <p class="about__body">En Imperio nos regimos por disciplina, respeto y compromiso. Creemos que la transformacion real nace del esfuerzo constante, de la mentalidad correcta y de rodearte de personas que te retan a ser mejor.</p>
-        <p class="about__body" style="margin-top:0;">Nuestros parametros son claros: honestidad en el proceso, trabajo en equipo, cero excusas y resultados reales. Aqui no se venden milagros, se construyen con sudor.</p>
+        <p class="about__label text-label">En qu&eacute; creemos</p>
+        <h2 class="text-heading">Construimos resultados.</h2>
+        <p class="about__body">Disciplina, respeto y compromiso. La transformaci&oacute;n real nace del esfuerzo constante y de rodearte de personas que te retan a ser mejor. Aqu&iacute; no se venden milagros, se construyen con sudor.</p>
         <hr style="border:none;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);max-width:120px;margin:0 auto 1.5rem;">
         <div class="about__socials" style="justify-content:center;">
           <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
@@ -536,7 +524,7 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Atletas</p>
             <p class="about__panel-sub">Nuestros guerreros</p>
-            <p class="about__panel-desc">El compromiso no tiene dias libres. Cada repeticion cuenta.</p>
+            <p class="about__panel-desc">El compromiso no tiene d&iacute;as libres. Cada repetici&oacute;n cuenta.</p>
           </div>
         </div>
         <div class="about__panel" onclick="openGallery('salidas')">
@@ -544,7 +532,7 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Salidas</p>
             <p class="about__panel-sub">Imperio al aire libre</p>
-            <p class="about__panel-desc">Cuando el espacio se queda pequeno, salimos a conquistar.</p>
+            <p class="about__panel-desc">Cuando el espacio se queda peque&ntilde;o, salimos a conquistar.</p>
           </div>
         </div>
         <div class="about__panel" onclick="openGallery('clases')">
@@ -552,7 +540,7 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Clases</p>
             <p class="about__panel-sub">Beats & grupales</p>
-            <p class="about__panel-desc">Luces, musica y energia pura en cada sesion.</p>
+            <p class="about__panel-desc">Luces, m&uacute;sica y energ&iacute;a pura en cada sesi&oacute;n.</p>
           </div>
         </div>
       </div>
@@ -565,7 +553,7 @@
   <div class="container">
     <div class="programs__header reveal" style="text-align:center;">
       <p class="text-label" style="color:var(--gold);margin-bottom:1rem;">Nuestras Clases</p>
-      <h2 class="text-heading">Entrena con<br>proposito.</h2>
+      <h2 class="text-heading">Entrena con prop&oacute;sito.</h2>
       <div class="programs__badges">
         <div class="programs__badge">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M14 26V14h3v12h-3zm6 0V18h3v8h-3zm6 0V11h3v15h-3z" fill="var(--gold)"/></svg>
@@ -577,7 +565,7 @@
         </div>
         <div class="programs__badge">
           <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M20 10v4M16 12h8" stroke="var(--gold)" stroke-width="1.8" stroke-linecap="round"/><path d="M13 18h14v1c0 5-3 9-7 9s-7-4-7-9v-1z" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M17 22h6M18 25h4" stroke="var(--gold)" stroke-width="1" stroke-linecap="round"/></svg>
-          <span>Nutricion profesional</span>
+          <span>Nutrici&oacute;n profesional</span>
         </div>
       </div>
     </div>
@@ -593,13 +581,13 @@
             <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
           </div>
-          <p class="program__desc">Nuestro staff corrige tu tecnica en cada levantamiento.</p>
+          <p class="program__desc">Nuestro staff corrige tu t&eacute;cnica en cada levantamiento.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"El hierro no miente. Lo que levantas hoy, te sostiene manana."</p>
+              <p class="program__video-motto">"El hierro no miente. Lo que levantas hoy, te sostiene ma&ntilde;ana."</p>
               <div class="program__video">
                 <img class="program__video-img" src="img/blanco/8.png" alt="Zona de Fuerza">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
@@ -609,7 +597,7 @@
               <div class="program__stats-grid">
                 <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="95%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="60%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="85%"></div></div></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="85%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="70%"></div></div></div>
               </div>
               <div class="coach-card" style="margin-top:1rem;">
@@ -626,16 +614,16 @@
           <span class="program__number">02</span>
           <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
           <div>
-            <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la musica mueve el cuerpo"</span></div>
+            <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
           </div>
-          <p class="program__desc">Flow, energia y ritmo. Alta intensidad con musica.</p>
+          <p class="program__desc">Flow, energ&iacute;a y ritmo. Alta intensidad con m&uacute;sica.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"Donde la musica mueve el cuerpo y la energia no para."</p>
+              <p class="program__video-motto">"Donde la m&uacute;sica mueve el cuerpo y la energ&iacute;a no para."</p>
               <div class="program__video">
                 <img class="program__video-img" src="img/blanco/3.png" alt="Clase de Beats">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
@@ -645,7 +633,7 @@
               <div class="program__stats-grid">
                 <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="35%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="80%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Coordinacion</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="90%"></div></div></div>
+                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="90%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="95%"></div></div></div>
               </div>
               <div class="coach-card" style="margin-top:1rem;">
@@ -753,7 +741,7 @@
               <div class="program__stats-grid">
                 <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="100%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="95%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="100%"></div></div></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="100%"></div></div></div>
                 <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="90%"></div></div></div>
               </div>
               <div class="coach-card" style="margin-top:1rem;">
@@ -784,7 +772,7 @@
     <div class="trainers__header reveal" style="text-align:center;">
       <p class="trainers__label text-label">Nuestro Equipo</p>
       <h2 class="text-heading">Un imperio se define<br>por su gente.</h2>
-      <p class="trainers__intro" style="margin-left:auto;margin-right:auto;">Queremos que sepas con quien vas a entrenar. Conoce a las personas que te van a guiar, motivar y acompanar en cada paso de tu transformacion.</p>
+      <p class="trainers__intro" style="margin-left:auto;margin-right:auto;">Queremos que sepas con qui&eacute;n vas a entrenar. Conoce a las personas que te van a guiar, motivar y acompa&ntilde;ar en cada paso de tu transformaci&oacute;n.</p>
     </div>
     <div class="trainers__carousel reveal">
       <button class="trainers__arrow trainers__arrow--prev" onclick="moveTrainerPage(-1)">&#8249;</button>
@@ -876,10 +864,10 @@
               <div class="trainer__flag"><span class="f-y"></span><span class="f-b"></span><span class="f-r"></span></div>
               <div class="trainer__club-badge">IMPERIO<span>Elite Fitness</span></div>
             </div>
-            <div class="trainer__img-wrap"><img src="img/staff-placeholder.jpg" alt="Nutricionista"></div>
+            <div class="trainer__img-wrap"><img src="img/staff-placeholder.jpg" alt="Nutrici&oacute;nista"></div>
             <div class="trainer__info">
-              <p class="trainer__name">Nutricionista</p>
-              <p class="trainer__role">Nutricion Deportiva Profesional</p>
+              <p class="trainer__name">Nutrici&oacute;nista</p>
+              <p class="trainer__role">Nutrici&oacute;n Deportiva Profesional</p>
               <span class="trainer__view-cv">Ver perfil</span>
             </div>
             <div class="trainer__card-line"></div>
@@ -907,7 +895,7 @@
             <div class="trainer__img-wrap"><img src="img/staff-placeholder.jpg" alt="Recepcion"></div>
             <div class="trainer__info">
               <p class="trainer__name">Recepcion</p>
-              <p class="trainer__role">Atencion al Cliente</p>
+              <p class="trainer__role">Atenci&oacute;n al Cliente</p>
             </div>
             <div class="trainer__card-line"></div>
             <div class="trainer__fifa-stats">
@@ -931,7 +919,7 @@
             <div class="trainer__img-wrap"><img src="img/staff-placeholder.jpg" alt="Seguridad"></div>
             <div class="trainer__info">
               <p class="trainer__name">Seguridad</p>
-              <p class="trainer__role">Vigilancia & Proteccion</p>
+              <p class="trainer__role">Vigilancia & Protecci&oacute;n</p>
             </div>
             <div class="trainer__card-line"></div>
             <div class="trainer__fifa-stats">
@@ -1054,7 +1042,7 @@
             <div class="trainer__img-wrap"><img src="img/staff-placeholder.jpg" alt="Power Station"></div>
             <div class="trainer__info">
               <p class="trainer__name">Power Station</p>
-              <p class="trainer__role">Cafeteria & Nutricion</p>
+              <p class="trainer__role">Cafeteria & Nutrici&oacute;n</p>
             </div>
             <div class="trainer__card-line"></div>
             <div class="trainer__fifa-stats">
@@ -1137,7 +1125,7 @@
       </div>
     </div>
     <div class="testimonials__more reveal">
-      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club/reviews" target="_blank" class="btn btn--outline">Ver mas resenas</a>
+      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club/reviews" target="_blank" class="btn btn--outline">Ver m&aacute;s rese&ntilde;as</a>
     </div>
   </div>
 </section>
@@ -1151,7 +1139,7 @@
         <p class="text-label" style="color:var(--gold);margin-bottom:1rem;">Imperio sin fronteras</p>
         <p class="global__stat-big">12+</p>
         <p class="global__stat-label">Paises nos han visitado</p>
-        <p class="global__stat-sub">No importa de donde vengas. Si buscas un centro fitness real, con gente real y resultados reales, vas a sentirte en casa. Imperio es tu casa en Bogota.</p>
+        <p class="global__stat-sub">No importa de donde vengas. Si buscas un centro fitness real, con gente real y resultados reales, vas a sentirte en casa. Imperio es tu casa en Bogot&aacute;.</p>
         <div class="global__visitors">
           <div class="global__visitor"><span class="global__visitor-flag">&#127482;&#127480;</span><div class="global__visitor-info"><span class="global__visitor-country">Estados Unidos</span><span class="global__visitor-quote">"Best fitness club in Bogota"</span></div></div>
           <div class="global__visitor"><span class="global__visitor-flag">&#127465;&#127476;</span><div class="global__visitor-info"><span class="global__visitor-country">Rep. Dominicana</span><span class="global__visitor-quote">"El ambiente es increible"</span></div></div>
@@ -1178,7 +1166,7 @@
     <p class="text-label" style="color:var(--gold);margin-bottom:1.5rem;">Empieza hoy</p>
     <h2 class="text-display" style="font-size:clamp(2.5rem,6vw,5rem);">Tu primer dia<br>es <span style="color:var(--gold);">gratis.</span></h2>
     <p class="cta__sub">Enfocate. Confia. Lo que estas construyendo va a cambiarlo todo.</p>
-    <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Reclama tu dia de cortesia</a>
+    <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Reclama tu d&iacute;a de cortes&iacute;a</a>
   </div>
 </section>
 
@@ -1234,8 +1222,8 @@
         <a href="#about">Nosotros</a>
         <a href="#programs">Entrenamiento</a>
         <a href="#trainers">Nuestro Staff</a>
-        <a href="#" onclick="openPlans();return false;">Membresias</a>
-        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa" target="_blank">Dia de cortesia <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="#" onclick="openPlans();return false;">Membres&iacute;as</a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa" target="_blank">D&iacute;a de cortes&iacute;a <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
         <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20planes%20corporativos" target="_blank">Corporativo <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
         <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20Personal%20Training" target="_blank">Personal Training <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
         <a href="#schedule">Power Station</a>
@@ -1259,11 +1247,11 @@
       <div>
         <p class="footer__heading">Legal</p>
         <a href="#" onclick="document.getElementById('faqOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Preguntas Frecuentes</a>
-        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Terminos y Condiciones</a>
-        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Politica de Privacidad</a>
+        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">T&eacute;rminos y Condiciones</a>
+        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Pol&iacute;tica de Privacidad</a>
         <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Tratamiento de Datos Personales</a>
         <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20tengo%20una%20PQR" target="_blank">PQRs <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
-        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20necesito%20comunicarme%20con%20la%20l%C3%ADnea%20de%20atenci%C3%B3n" target="_blank">Linea de Atencion <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20necesito%20comunicarme%20con%20la%20l%C3%ADnea%20de%20atenci%C3%B3n" target="_blank">Linea de Atenci&oacute;n <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
       </div>
     </div>
   </div>
@@ -1302,7 +1290,7 @@
           <h3 class="plan-row__name">Silver</h3>
           <ul class="plan-row__features">
             <li><span class="check">&#10003;</span> Ingreso de lunes a viernes de 08:30 am a 04:00 pm.</li>
-            <li><span class="check">&#10003;</span> Sin clausula de permanencia minima.</li>
+            <li><span class="check">&#10003;</span> Sin cl&aacute;usula de permanencia minima.</li>
             <li><span class="cross">&#10005;</span> No incluye aplicacion.</li>
             <li><span class="cross">&#10005;</span> No incluye acceso a clases grupales.</li>
             <li><span class="check">&#10003;</span> Sabado y domingo con acceso libre.</li>
@@ -1328,7 +1316,7 @@
             <li><span class="check">&#10003;</span> Incluye valoracion de Composicion Corporal InBody cada 3 meses.</li>
             <li><span class="check">&#10003;</span> Incluye acceso a clases grupales.</li>
             <li><span class="check">&#10003;</span> Incluye 4 invitados al mes.</li>
-            <li><span class="check">&#10003;</span> Sin clausula de permanencia minima.</li>
+            <li><span class="check">&#10003;</span> Sin cl&aacute;usula de permanencia minima.</li>
             <li><span class="check">&#10003;</span> Sin cobros adicionales por mantenimiento.</li>
           </ul>
           <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20suscribirme%20con%20el%20plan%20Platinum" target="_blank" class="btn btn--gold btn--small" style="margin-top:1rem;">Quiero unirme</a>
@@ -1340,7 +1328,7 @@
         <div class="plan-uni__inner">
           <img src="img/logo-unilibre.jpg" alt="Universidad Libre" class="plan-uni__logo">
           <div class="plan-uni__text">
-            <p class="plan-uni__headline">Presenta tu carne universitario y accede a una membresia especial por</p>
+            <p class="plan-uni__headline">Presenta tu carne universitario y accede a una membres&iacute;a especial por</p>
             <p class="plan-uni__price">$79.900</p>
             <p class="plan-uni__terms">Aplican terminos y condiciones</p>
           </div>
@@ -1369,21 +1357,21 @@
     </div>
     <div class="cv__body">
       <div class="cv__section">
-        <h3 class="cv__section-title">Membresias</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Puedo congelar mi membresia?</strong><br>Si, puedes congelar hasta 15 dias por trimestre. Contactanos por WhatsApp para gestionar la solicitud.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Hay clausula de permanencia?</strong><br>No. Ninguno de nuestros planes tiene clausula de permanencia. Puedes cancelar en cualquier momento.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Que incluye el plan Platinum?</strong><br>Acceso ilimitado, app de entrenamiento, plan personalizado, InBody cada 3 meses, clases grupales y 4 invitados mensuales.</p></div>
+        <h3 class="cv__section-title">Membres&iacute;as</h3>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Puedo congelar mi membres&iacute;a?</strong><br>S&iacute;, puedes congelar hasta 15 dias por trimestre. Cont&aacute;ctanos por WhatsApp para gestionar la solicitud.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Hay cl&aacute;usula de permanencia?</strong><br>No. Ninguno de nuestros planes tiene cl&aacute;usula de permanencia. Puedes cancelar en cualquier momento.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Qu&eacute; incluye el plan Platinum?</strong><br>Acceso ilimitado, app de entrenamiento, plan personalizado, InBody cada 3 meses, clases grupales y 4 invitados mensuales.</p></div>
       </div>
       <div class="cv__section">
         <h3 class="cv__section-title">Clases y Horarios</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Necesito reservar las clases?</strong><br>Si, las clases grupales se reservan por medio de la app. Los cupos son limitados para garantizar la mejor experiencia.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Puedo tomar una clase de prueba?</strong><br>Si! Tu primer dia en Imperio es completamente gratis. Solo agenda tu visita por WhatsApp.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>A que hora abren y cierran?</strong><br>Lunes a viernes 5:30am a 9:30pm, sabados 7:00am a 2:00pm, domingos 8:00am a 1:00pm.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Necesito reservar las clases?</strong><br>S&iacute;, las clases grupales se reservan por medio de la app. Los cupos son limitados para garantizar la mejor experiencia.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Puedo tomar una clase de prueba?</strong><br>&iexcl;S&iacute;! Tu primer d&iacute;a en Imperio es completamente gratis. Solo agenda tu visita por WhatsApp.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;A qu&eacute; hora abren y cierran?</strong><br>Lunes a viernes 5:30am a 9:30pm, s&aacute;bados 7:00am a 2:00pm, domingos 8:00am a 1:00pm.</p></div>
       </div>
       <div class="cv__section">
         <h3 class="cv__section-title">General</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Tienen parqueadero?</strong><br>Contamos con zonas de parqueo cercanas. Consulta disponibilidad directamente en recepcion.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>Puedo llevar invitados?</strong><br>El plan Platinum incluye 4 invitados al mes. Los demas planes pueden adquirir pases de dia.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Tienen parqueadero?</strong><br>Contamos con zonas de parqueo cercanas. Consulta disponibilidad directamente en recepci&oacute;n.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text"><strong>&iquest;Puedo llevar invitados?</strong><br>El plan Platinum incluye 4 invitados al mes. Los dem&aacute;s planes pueden adquirir pases de d&iacute;a.</p></div>
       </div>
     </div>
   </div>
@@ -1396,31 +1384,31 @@
     <div class="cv__header">
       <div class="cv__header-bg"></div>
       <div class="cv__header-accent"></div>
-      <h2 class="cv__name" style="font-size:1.6rem;">Terminos y Condiciones</h2>
-      <p class="cv__title">Politicas del Club</p>
+      <h2 class="cv__name" style="font-size:1.6rem;">T&eacute;rminos y Condiciones</h2>
+      <p class="cv__title">Pol&iacute;ticas del club</p>
     </div>
     <div class="cv__body">
       <div class="cv__section">
         <h3 class="cv__section-title">Uso de las Instalaciones</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El uso de las instalaciones esta limitado al horario de atencion establecido y al plan contratado.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Es obligatorio el uso de toalla y ropa deportiva adecuada dentro de las areas de entrenamiento.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El miembro debe limpiar los equipos despues de su uso.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El uso de las instalaciones est&aacute; limitado al horario de atenci&oacute;n establecido y al plan contratado.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Es obligatorio el uso de toalla y ropa deportiva adecuada dentro de las &aacute;reas de entrenamiento.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El miembro debe limpiar los equipos despu&eacute;s de su uso.</p></div>
       </div>
       <div class="cv__section">
-        <h3 class="cv__section-title">Membresias y Pagos</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Las membresias son personales e intransferibles.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Los pagos deben realizarse antes del inicio del periodo contratado. El incumplimiento puede resultar en la suspension del acceso.</p></div>
+        <h3 class="cv__section-title">Membres&iacute;as y Pagos</h3>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Las membres&iacute;as son personales e intransferibles.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Los pagos deben realizarse antes del inicio del periodo contratado. El incumplimiento puede resultar en la suspensi&oacute;n del acceso.</p></div>
         <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">No se realizan reembolsos por periodos no utilizados, salvo en casos de congelamiento autorizado.</p></div>
       </div>
       <div class="cv__section">
         <h3 class="cv__section-title">Responsabilidad</h3>
         <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Imperio Elite Fitness Club no se hace responsable por objetos de valor dejados en las instalaciones. Se recomienda el uso de casilleros.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El miembro asume la responsabilidad de su condicion fisica y se recomienda consultar a un medico antes de iniciar cualquier programa de entrenamiento.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">El miembro asume la responsabilidad de su condici&oacute;n f&iacute;sica y se recomienda consultar a un m&eacute;dico antes de iniciar cualquier programa de entrenamiento.</p></div>
       </div>
       <div class="cv__section">
         <h3 class="cv__section-title">Privacidad</h3>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Los datos personales seran tratados conforme a la Ley 1581 de 2012 de Proteccion de Datos Personales de Colombia.</p></div>
-        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Las imagenes y videos tomados en las instalaciones podran ser utilizados con fines promocionales, salvo solicitud expresa del miembro.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Los datos personales ser&aacute;n tratados conforme a la Ley 1581 de 2012 de Protecci&oacute;n de Datos Personales de Colombia.</p></div>
+        <div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">Las im&aacute;genes y videos tomados en las instalaciones podr&aacute;n ser utilizados con fines promocionales, salvo solicitud expresa del miembro.</p></div>
       </div>
     </div>
   </div>
@@ -1441,21 +1429,21 @@
   // Gallery data (IG-style)
   const galleryData={
     atletas:[
-      {img:'img/Foto - Web 1.png',caption:'<strong>imperioelitefitness</strong> Cada repeticion cuenta. Nuestros atletas demuestran que el compromiso no tiene dias libres.',tags:'#ImperioElite #Atletas #FuerzaReal #FitnessBogota'},
-      {img:'img/Web 10.png',caption:'<strong>imperioelitefitness</strong> Espalda fuerte, postura perfecta. El camino se construye con constancia y buena tecnica.',tags:'#BackDay #ImperioAtletas #Disciplina'},
-      {img:'img/Foto - Web 5.png',caption:'<strong>imperioelitefitness</strong> El equipo que te respalda en cada PR. Asi se entrena en Imperio.',tags:'#PersonalTraining #CoachLife #ImperioElite'},
+      {img:'img/Foto - Web 1.png',caption:'<strong>imperioelitefitness</strong> Cada repetici&oacute;n cuenta. Nuestros atletas demuestran que el compromiso no tiene d&iacute;as libres.',tags:'#ImperioElite #Atletas #FuerzaReal #FitnessBogota'},
+      {img:'img/Web 10.png',caption:'<strong>imperioelitefitness</strong> Espalda fuerte, postura perfecta. El camino se construye con constancia y buena t&eacute;cnica.',tags:'#BackDay #ImperioAtletas #Disciplina'},
+      {img:'img/Foto - Web 5.png',caption:'<strong>imperioelitefitness</strong> El equipo que te respalda en cada PR. As&iacute;se entrena en Imperio.',tags:'#PersonalTraining #CoachLife #ImperioElite'},
       {img:'img/Web 1.png',caption:'<strong>imperioelitefitness</strong> La movilidad es la base de todo movimiento. Cuerpo funcional, vida funcional.',tags:'#Movilidad #Funcional #ImperioFit'}
     ],
     salidas:[
       {img:'img/Foto - Web 25.png',caption:'<strong>imperioelitefitness</strong> Salida Imperio: battle ropes bajo las estrellas. Entrenamiento sin limites.',tags:'#SalidaImperio #OutdoorTraining #BattleRopes'},
       {img:'img/blanco/4.png',caption:'<strong>imperioelitefitness</strong> Comunidad que se mueve junta. Las salidas Imperio son donde se forja el equipo.',tags:'#ComunidadImperio #TeamWork #FitnessOutdoor'},
-      {img:'img/blanco/9.png',caption:'<strong>imperioelitefitness</strong> Cuando el espacio se queda pequeno, salimos a conquistar. Asi es el espiritu Imperio.',tags:'#ImperioSale #Normandia #FitnessLife'}
+      {img:'img/blanco/9.png',caption:'<strong>imperioelitefitness</strong> Cuando el espacio se queda peque&ntilde;o, salimos a conquistar. As&iacute;es el esp&iacute;ritu Imperio.',tags:'#ImperioSale #Normandia #FitnessLife'}
     ],
     clases:[
-      {img:'img/Foto - Web 15.png',caption:'<strong>imperioelitefitness</strong> Clase de Beats: luces, musica y energia pura. Asi se vive cada sesion grupal.',tags:'#ClaseBeats #GrupalImperio #Ritmo #Cardio'},
+      {img:'img/Foto - Web 15.png',caption:'<strong>imperioelitefitness</strong> Clase de Beats: luces, m&uacute;sica y energ&iacute;a pura. As&iacute;se vive cada sesi&oacute;n grupal.',tags:'#ClaseBeats #GrupalImperio #Ritmo #Cardio'},
       {img:'img/Foto - Web 20.png',caption:'<strong>imperioelitefitness</strong> Super Abdomen: 30 minutos de core puro. El dolor es temporal, los resultados permanentes.',tags:'#SuperAbdomen #CoreStrong #ClasesImperio'},
       {img:'img/Foto - Web 10.png',caption:'<strong>imperioelitefitness</strong> Coach liderando con ejemplo. Las clases grupales son el corazon de Imperio.',tags:'#CoachLife #GrupalFitness #ImperioElite'},
-      {img:'img/blanco/1.png',caption:'<strong>imperioelitefitness</strong> Ambiente nocturno unico. Las luces neon hacen que cada clase sea una experiencia.',tags:'#NeonFitness #ClaseNocturna #ImperioVibes'}
+      {img:'img/blanco/1.png',caption:'<strong>imperioelitefitness</strong> Ambiente nocturno &uacute;nico. Las luces neon hacen que cada clase sea una experiencia.',tags:'#NeonFitness #ClaseNocturna #ImperioVibes'}
     ]
   };
   const galleryTitles={atletas:'Nuestros Atletas',salidas:'Salidas Imperio',clases:'Clases'};
@@ -1471,10 +1459,10 @@
 
 
   const cvData={
-    coach1:{photo:'img/blanco/8.png',name:'Nicolas Garcia',badge:'Imperio Certified Crew Member',title:'Head Coach · Strength & Conditioning',quote:'"El cuerpo logra lo que la mente cree."',radar:[{label:'Fuerza',value:95},{label:'Tecnica',value:90},{label:'Experiencia',value:88},{label:'Liderazgo',value:92},{label:'Cardio',value:70},{label:'Motivacion',value:85}],strengths:['Especialista en gluteos indestructibles','Maestro del PR (Personal Record)','Arquitecto de espaldas anchas','Domador de la barra olimpica'],education:['<strong>Profesional en Ciencias del Deporte</strong> — U. Cundinamarca','<strong>Certificacion NSCA-CPT</strong> — National Strength & Conditioning','<strong>Especialista Entrenamiento Funcional</strong> — FMS Level 2','<strong>Nutricion Deportiva</strong> — ISSA'],specialties:['Entrenamiento de fuerza e hipertrofia','Periodizacion y programacion de rutinas','Prevencion y rehabilitacion de lesiones','Preparacion fisica para competidores'],achievements:['Fundador y Head Coach de Imperio Elite Fitness Club','Entrenador de atletas powerlifting nivel regional','Creador del programa Beats','Speaker en eventos de fitness en Bogota']},
-    coach2:{photo:'img/blanco/3.png',name:'Coach Beats',badge:'Imperio Certified Crew Member',title:'Instructor · Beats & Ritmo',quote:'"La energia que pones en cada clase es la que te llevas a la vida."',radar:[{label:'Fuerza',value:60},{label:'Tecnica',value:75},{label:'Experiencia',value:72},{label:'Liderazgo',value:88},{label:'Cardio',value:95},{label:'Motivacion',value:93}],strengths:['Rey del cardio sin piedad','Creador de playlists letales','Maestro del burpee infinito','Destructor de calorias con ritmo'],education:['<strong>Licenciatura Educacion Fisica</strong> — U. Pedagogica Nacional','<strong>Group Fitness</strong> — ACE','<strong>Indoor Cycling</strong> — Schwinn','<strong>Ritmo y Movimiento</strong> — Les Mills BODYCOMBAT'],specialties:['Clases grupales alta intensidad con musica','Coordinacion ritmica y coreografia fitness','Indoor cycling y cardio','Motivacion grupal'],achievements:['Creador de la clase de Beats mas popular de Normandia','Mas de 300 clases con cupo lleno','Reconocido por la mejor energia en cada sesion','Referente en ritmo y cardio dance']},
+    coach1:{photo:'img/blanco/8.png',name:'Nicolas Garcia',badge:'Imperio Certified Crew Member',title:'Head Coach · Strength & Conditioning',quote:'"El cuerpo logra lo que la mente cree."',radar:[{label:'Fuerza',value:95},{label:'Tecnica',value:90},{label:'Experiencia',value:88},{label:'Liderazgo',value:92},{label:'Cardio',value:70},{label:'Motivacion',value:85}],strengths:['Especialista en gluteos indestructibles','Maestro del PR (Personal Record)','Arquitecto de espaldas anchas','Domador de la barra olimpica'],education:['<strong>Profesional en Ciencias del Deporte</strong> — U. Cundinamarca','<strong>Certificacion NSCA-CPT</strong> — National Strength & Conditioning','<strong>Especialista Entrenamiento Funcional</strong> — FMS Level 2','<strong>Nutrici&oacute;n Deportiva</strong> — ISSA'],specialties:['Entrenamiento de fuerza e hipertrofia','Periodizacion y programacion de rutinas','Prevencion y rehabilitacion de lesiones','Preparacion fisica para competidores'],achievements:['Fundador y Head Coach de Imperio Elite Fitness Club','Entrenador de atletas powerlifting nivel regional','Creador del programa Beats','Speaker en eventos de fitness en Bogota']},
+    coach2:{photo:'img/blanco/3.png',name:'Coach Beats',badge:'Imperio Certified Crew Member',title:'Instructor · Beats & Ritmo',quote:'"La energ&iacute;a que pones en cada clase es la que te llevas a la vida."',radar:[{label:'Fuerza',value:60},{label:'Tecnica',value:75},{label:'Experiencia',value:72},{label:'Liderazgo',value:88},{label:'Cardio',value:95},{label:'Motivacion',value:93}],strengths:['Rey del cardio sin piedad','Creador de playlists letales','Maestro del burpee infinito','Destructor de calorias con ritmo'],education:['<strong>Licenciatura Educacion Fisica</strong> — U. Pedagogica Nacional','<strong>Group Fitness</strong> — ACE','<strong>Indoor Cycling</strong> — Schwinn','<strong>Ritmo y Movimiento</strong> — Les Mills BODYCOMBAT'],specialties:['Clases grupales alta intensidad con m&uacute;sica','Coordinaci&oacute;n ritmica y coreografia fitness','Indoor cycling y cardio','Motivacion grupal'],achievements:['Creador de la clase de Beats mas popular de Normandia','Mas de 300 clases con cupo lleno','Reconocido por la mejor energ&iacute;a en cada sesi&oacute;n','Referente en ritmo y cardio dance']},
     coach3:{photo:'img/blanco/7.png',name:'Coach Funcional',badge:'Imperio Certified Crew Member',title:'Instructor · Functional Training',quote:'"Entrenar funcional es preparar tu cuerpo para la vida real."',radar:[{label:'Fuerza',value:80},{label:'Tecnica',value:92},{label:'Experiencia',value:78},{label:'Liderazgo',value:75},{label:'Cardio',value:82},{label:'Motivacion',value:80}],strengths:['Verdugo del core debil','Experto en sentadillas perfectas','Maestro de la movilidad articular','Especialista en cuerpos funcionales'],education:['<strong>Cultura Fisica y Deporte</strong> — UDCA','<strong>Entrenamiento Funcional</strong> — FMS Level 1 & 2','<strong>CrossTraining</strong> — ISSA','<strong>Movilidad y Flexibilidad</strong> — NASM-CES'],specialties:['Entrenamiento funcional y movilidad articular','Preparacion fisica general y resistencia','Peso corporal y kettlebells','Rehabilitacion funcional post-lesion'],achievements:['400+ clientes con mejora en movilidad funcional','Programa de funcional para todas las edades','Referente en correccion postural','Competidor CrossTraining regional']},
-    nutri:{photo:'img/Web 1.png',name:'Nutricionista',badge:'Nutricion Deportiva Profesional',title:'Nutricionista · Rendimiento & Composicion',quote:'"La nutricion correcta es el 70% de tus resultados."',radar:[{label:'Fuerza',value:55},{label:'Tecnica',value:95},{label:'Experiencia',value:85},{label:'Liderazgo',value:90},{label:'Cardio',value:50},{label:'Motivacion',value:92}],strengths:['Creador de planes nutricionales a medida','Maestro de la composicion corporal','Experto en suplementacion deportiva','Arquitecto de dietas sostenibles'],education:['<strong>Nutricion y Dietetica</strong> — U. Nacional de Colombia','<strong>Nutricion Deportiva Avanzada</strong> — ISSN','<strong>Antropometria y Composicion Corporal</strong> — ISAK Level 2','<strong>Suplementacion y Rendimiento</strong> — ISSA'],specialties:['Planes de alimentacion para ganancia muscular','Estrategias de definicion y corte','Nutricion para rendimiento deportivo','Valoracion InBody y seguimiento'],achievements:['Responsable de los planes nutricionales de Imperio','Mas de 200 transformaciones corporales guiadas','Speaker en eventos de nutricion deportiva','Creador del menu Power Station Imperio']}
+    nutri:{photo:'img/Web 1.png',name:'Nutrici&oacute;nista',badge:'Nutrici&oacute;n Deportiva Profesional',title:'Nutrici&oacute;nista · Rendimiento & Composicion',quote:'"La nutricion correcta es el 70% de tus resultados."',radar:[{label:'Fuerza',value:55},{label:'Tecnica',value:95},{label:'Experiencia',value:85},{label:'Liderazgo',value:90},{label:'Cardio',value:50},{label:'Motivacion',value:92}],strengths:['Creador de planes nutricionales a medida','Maestro de la composicion corporal','Experto en suplementacion deportiva','Arquitecto de dietas sostenibles'],education:['<strong>Nutrici&oacute;n y Dietetica</strong> — U. Nacional de Colombia','<strong>Nutrici&oacute;n Deportiva Avanzada</strong> — ISSN','<strong>Antropometria y Composicion Corporal</strong> — ISAK Level 2','<strong>Suplementacion y Rendimiento</strong> — ISSA'],specialties:['Planes de alimentacion para ganancia muscular','Estrategias de definicion y corte','Nutrici&oacute;n para rendimiento deportivo','Valoracion InBody y seguimiento'],achievements:['Responsable de los planes nutricionales de Imperio','Mas de 200 transformaci&oacute;nes corporales guiadas','Speaker en eventos de nutricion deportiva','Creador del menu Power Station Imperio']}
   };
   function buildRadar(data){const cx=160,cy=160,r=120,n=data.length,colors=['#C9A84C','#C0C0C0','#e74c3c','#3498db','#2ecc71','#9b59b6'];let svg=`<svg viewBox="0 0 320 330" xmlns="http://www.w3.org/2000/svg">`;for(let lvl=1;lvl<=4;lvl++){let pts=[];for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;const lr=r*lvl/4;pts.push(`${cx+lr*Math.cos(a)},${cy+lr*Math.sin(a)}`);}svg+=`<polygon points="${pts.join(' ')}" fill="none" stroke="rgba(192,192,192,.15)" stroke-width="1"/>`;}for(let i=0;i<n;i++){const a=Math.PI*2*i/n-Math.PI/2;svg+=`<line x1="${cx}" y1="${cy}" x2="${cx+r*Math.cos(a)}" y2="${cy+r*Math.sin(a)}" stroke="rgba(192,192,192,.1)" stroke-width="1"/>`;}let pts=[];data.forEach((d,i)=>{const a=Math.PI*2*i/n-Math.PI/2;const vr=r*d.value/100;pts.push(`${cx+vr*Math.cos(a)},${cy+vr*Math.sin(a)}`);});svg+=`<polygon points="${pts.join(' ')}" fill="rgba(201,168,76,.12)" stroke="var(--gold)" stroke-width="2"/>`;data.forEach((d,i)=>{const a=Math.PI*2*i/n-Math.PI/2;const vr=r*d.value/100;svg+=`<circle cx="${cx+vr*Math.cos(a)}" cy="${cy+vr*Math.sin(a)}" r="4" fill="${colors[i]}" stroke="#fff" stroke-width="1.5"/>`;const lr=r+22;const lx=cx+lr*Math.cos(a);const ly=cy+lr*Math.sin(a);const anch=Math.abs(Math.cos(a))<.1?'middle':Math.cos(a)>0?'start':'end';svg+=`<text x="${lx}" y="${ly}" text-anchor="${anch}" dominant-baseline="middle" fill="${colors[i]}" font-size="10" font-weight="600" font-family="Lora,serif">${d.label}</text>`;svg+=`<text x="${lx}" y="${ly+13}" text-anchor="${anch}" dominant-baseline="middle" fill="rgba(255,255,255,.5)" font-size="9" font-family="Lora,serif">${d.value}%</text>`;});svg+=`</svg>`;return svg;}
   function openCV(id){const d=cvData[id];if(!d)return;document.getElementById('cvContent').innerHTML=`<button class="cv-overlay__close" onclick="closeCV()">&times;</button><div class="cv__header"><div class="cv__header-bg"></div><div class="cv__header-accent"></div><img class="cv__photo" src="${d.photo}" alt="${d.name}"><div class="cv__header-info"><div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;"><h2 class="cv__name" style="margin-bottom:0">${d.name}</h2><span style="font-size:.45rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);padding:.15rem .4rem;border:1px solid rgba(201,168,76,.3);border-radius:4px;white-space:nowrap;">${d.badge}</span></div><p class="cv__title">${d.title}</p><p class="cv__quote">${d.quote}</p></div></div><div class="cv__body"><div class="cv__two-col"><div class="cv__radar-wrap">${buildRadar(d.radar)}</div><div class="cv__sections-col"><div class="cv__section"><h3 class="cv__section-title">Fortalezas</h3>${d.strengths.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section"><h3 class="cv__section-title">Formacion</h3>${d.education.map(e=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${e}</p></div>`).join('')}</div></div></div><div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1rem;"><div class="cv__section"><h3 class="cv__section-title">Especialidades</h3>${d.specialties.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section"><h3 class="cv__section-title">Logros</h3>${d.achievements.map(a=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${a}</p></div>`).join('')}</div></div></div>`;document.getElementById('cvOverlay').classList.add('active');document.body.style.overflow='hidden'}
