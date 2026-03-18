@@ -324,7 +324,12 @@
 
     /* PLANS MODAL - Estilo Ver Programas */
     .plan-row{display:grid;grid-template-columns:1fr 1.3fr;gap:2rem;padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:rgba(192,192,192,.02);transition:all .4s}
-    .plan-row:hover{border-color:rgba(201,168,76,.4);box-shadow:0 0 30px rgba(201,168,76,.08);background:rgba(201,168,76,.02)}
+    .plan-row--silver{border-color:rgba(192,192,192,.3);animation:silverGlow 3s ease-in-out infinite}
+    .plan-row--silver:hover{border-color:var(--silver);box-shadow:0 0 30px rgba(192,192,192,.15)}
+    .plan-row--platinum{border-color:rgba(201,168,76,.4);animation:platGlow 3s ease-in-out infinite}
+    .plan-row--platinum:hover{border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,.2)}
+    @keyframes silverGlow{0%,100%{box-shadow:0 0 15px rgba(192,192,192,.08)}50%{box-shadow:0 0 25px rgba(192,192,192,.2),0 0 50px rgba(192,192,192,.06)}}
+    @keyframes platGlow{0%,100%{box-shadow:0 0 15px rgba(201,168,76,.1)}50%{box-shadow:0 0 25px rgba(201,168,76,.25),0 0 50px rgba(201,168,76,.08)}}
     .plan-row__prices{display:flex;flex-direction:column;gap:.8rem}
     .plan-row__price-item{padding:.6rem .8rem;border:1px solid rgba(192,192,192,.12);border-radius:8px;background:rgba(8,8,10,.4);text-align:center;transition:all .3s}
     .plan-row__price-item:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
@@ -1266,7 +1271,7 @@
       </div>
 
       <!-- SILVER -->
-      <div class="plan-row">
+      <div class="plan-row plan-row--silver">
         <div class="plan-row__prices">
           <div class="plan-row__price-item"><span class="plan-row__price-val" style="color:var(--gold);">$79.900</span><span class="plan-row__price-lbl">Mensual debito automatico</span></div>
           <div class="plan-row__price-item"><span class="plan-row__price-val">$99.900</span><span class="plan-row__price-lbl">Mensual</span></div>
@@ -1282,12 +1287,12 @@
             <li><span class="cross">&#10005;</span> No incluye acceso a clases grupales.</li>
             <li><span class="check">&#10003;</span> Sabado y domingo con acceso libre.</li>
           </ul>
-          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Silver%20de%20Imperio" target="_blank" class="btn btn--outline btn--small" style="margin-top:1rem;">Quiero unirme</a>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20suscribirme%20con%20el%20plan%20Silver" target="_blank" class="btn btn--outline btn--small" style="margin-top:1rem;">Quiero unirme</a>
         </div>
       </div>
 
       <!-- PLATINUM -->
-      <div class="plan-row" style="margin-top:2rem;">
+      <div class="plan-row plan-row--platinum" style="margin-top:2rem;">
         <div class="plan-row__prices">
           <div class="plan-row__price-item"><span class="plan-row__price-val" style="color:var(--gold);">$139.900</span><span class="plan-row__price-lbl">Mensual debito automatico</span></div>
           <div class="plan-row__price-item"><span class="plan-row__price-val">$159.900</span><span class="plan-row__price-lbl">Mensual</span></div>
@@ -1306,7 +1311,7 @@
             <li><span class="check">&#10003;</span> Sin clausula de permanencia minima.</li>
             <li><span class="check">&#10003;</span> Sin cobros adicionales por mantenimiento.</li>
           </ul>
-          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Platinum%20de%20Imperio" target="_blank" class="btn btn--gold btn--small" style="margin-top:1rem;">Quiero unirme</a>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20suscribirme%20con%20el%20plan%20Platinum" target="_blank" class="btn btn--gold btn--small" style="margin-top:1rem;">Quiero unirme</a>
         </div>
       </div>
 
@@ -1319,7 +1324,7 @@
             <p class="plan-uni__price">$79.900</p>
             <p class="plan-uni__terms">Aplican terminos y condiciones</p>
           </div>
-          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Universitario%20de%20Imperio" target="_blank" class="btn btn--outline btn--small">Info plan universitario</a>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20suscribirme%20con%20el%20plan%20Universitario" target="_blank" class="btn btn--outline btn--small">Quiero unirme</a>
         </div>
       </div>
 
