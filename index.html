@@ -26,10 +26,16 @@
     .btn--gold::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);transition:left .5s}
     .btn--gold:hover::before{left:100%}
     .btn--gold:hover{background:var(--gold-light);box-shadow:0 0 40px var(--gold-glow),0 0 80px rgba(201,168,76,.15);transform:translateY(-3px)}
-    @keyframes heroGlow{0%,100%{box-shadow:0 0 20px rgba(201,168,76,.2)}50%{box-shadow:0 0 40px rgba(201,168,76,.4),0 0 80px rgba(201,168,76,.15)}}
-    .hero__ctas .btn--gold{animation:heroGlow 2.5s ease-in-out infinite}
-    .hero__ctas .btn--outline{border-width:2px;font-weight:700}
-    .hero__ctas .btn--outline:hover{background:rgba(192,192,192,.08);box-shadow:0 0 30px rgba(192,192,192,.1);transform:translateY(-3px)}
+    @keyframes heroGlow{0%,100%{box-shadow:0 0 20px rgba(201,168,76,.3),inset 0 0 20px rgba(201,168,76,.05)}50%{box-shadow:0 0 50px rgba(201,168,76,.5),0 0 100px rgba(201,168,76,.2),inset 0 0 30px rgba(201,168,76,.08)}}
+    @keyframes heroPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+    @keyframes heroShimmer{0%{left:-100%}100%{left:200%}}
+    .hero__ctas .btn--gold{animation:heroGlow 2.5s ease-in-out infinite,heroPulse 3s ease-in-out infinite;font-size:.85rem;padding:1.1rem 2.8rem;letter-spacing:.18em;border:2px solid rgba(255,215,0,.4)}
+    .hero__ctas .btn--gold::before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:heroShimmer 3s ease-in-out infinite}
+    .hero__ctas .btn--gold::after{content:'';position:absolute;inset:-3px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(201,168,76,.4),transparent,rgba(201,168,76,.4));z-index:-1;filter:blur(8px);opacity:.6}
+    .hero__ctas .btn--outline{border-width:2px;font-weight:700;font-size:.85rem;padding:1.1rem 2.8rem;letter-spacing:.18em;position:relative;overflow:hidden}
+    .hero__ctas .btn--outline::before{content:'';position:absolute;inset:0;border-radius:var(--radius);background:linear-gradient(135deg,rgba(192,192,192,.06),transparent,rgba(192,192,192,.06));opacity:0;transition:opacity .3s}
+    .hero__ctas .btn--outline:hover::before{opacity:1}
+    .hero__ctas .btn--outline:hover{background:rgba(192,192,192,.08);box-shadow:0 0 30px rgba(192,192,192,.15),0 0 60px rgba(192,192,192,.05);transform:translateY(-3px);border-color:var(--silver)}
     .btn--outline{background:transparent;color:var(--silver);border-color:rgba(192,192,192,.3)}
     .btn--outline:hover{border-color:var(--silver);color:var(--text)}
     .btn--large{padding:1.1rem 3rem;font-size:.8rem}
@@ -155,26 +161,31 @@
     .coach-card__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem}
     .coach-card__role{font-size:.6rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
 
-    /* TRAINERS */
+    /* TRAINERS - FIFA 26 STYLE */
     .trainers__header{margin-bottom:clamp(2rem,4vh,3rem)}
     .trainers__label{color:var(--gold);margin-bottom:1rem}
     .trainers__intro{color:var(--text-muted);font-size:1rem;line-height:1.7;max-width:600px;margin-top:1.25rem}
-    .trainers__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-    .trainer{position:relative;overflow:hidden;border:1px solid var(--border);border-radius:var(--radius);cursor:pointer}
-    .trainer__img-wrap{aspect-ratio:3/4;overflow:hidden}
-    .trainer__img-wrap img{width:100%;height:100%;object-fit:cover;filter:saturate(.2) contrast(1.1) brightness(.85);transition:filter .5s,transform .6s;border-radius:0}
-    .trainer:hover .trainer__img-wrap img{filter:saturate(.6) contrast(1.05) brightness(.9);transform:scale(1.04)}
-    .trainer__info{position:absolute;bottom:0;left:0;right:0;padding:1.5rem 1.25rem;background:linear-gradient(to top,rgba(8,8,10,.95) 0%,transparent 100%)}
-    .trainer__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.2rem;margin-bottom:.15rem}
-    .trainer__role{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
-    .trainer__view-cv{display:inline-block;margin-top:.5rem;font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .2s}
+    .trainers__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+    .trainer{position:relative;overflow:hidden;border-radius:16px;cursor:pointer;background:linear-gradient(160deg,#1a1a1a 0%,#0d0d0d 40%,#1a1507 100%);border:1px solid rgba(201,168,76,.25);transition:transform .4s,box-shadow .4s}
+    .trainer:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(201,168,76,.15),0 0 40px rgba(201,168,76,.08)}
+    .trainer__card-top{position:relative;display:flex;align-items:flex-start;padding:1.2rem 1rem .5rem}
+    .trainer__rating{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2.8rem;line-height:1;color:var(--gold);text-shadow:0 0 20px rgba(201,168,76,.3)}
+    .trainer__pos{font-size:.55rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:.8;margin-top:.3rem}
+    .trainer__card-badge{position:absolute;top:1rem;right:1rem;width:28px;height:28px;border:1px solid rgba(201,168,76,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08)}
+    .trainer__card-badge svg{width:14px;height:14px;stroke:var(--gold);fill:none;stroke-width:2}
+    .trainer__img-wrap{aspect-ratio:1/1;overflow:hidden;margin:0 1.5rem;position:relative}
+    .trainer__img-wrap::after{content:'';position:absolute;bottom:0;left:0;right:0;height:40%;background:linear-gradient(to top,#0d0d0d,transparent)}
+    .trainer__img-wrap img{width:100%;height:100%;object-fit:cover;object-position:top;filter:saturate(.3) contrast(1.15) brightness(.85);transition:filter .5s,transform .6s;border-radius:12px}
+    .trainer:hover .trainer__img-wrap img{filter:saturate(.7) contrast(1.1) brightness(.9);transform:scale(1.05)}
+    .trainer__info{padding:.8rem 1.2rem .5rem;text-align:center;border-top:1px solid rgba(201,168,76,.15)}
+    .trainer__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;margin-bottom:.2rem;text-transform:uppercase;letter-spacing:.04em}
+    .trainer__role{font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+    .trainer__view-cv{display:inline-block;margin-top:.4rem;font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .2s}
     .trainer:hover .trainer__view-cv{color:var(--gold)}
-    .trainer__stats{position:absolute;top:0;right:0;bottom:0;width:58%;background:rgba(8,8,10,.92);backdrop-filter:blur(8px);padding:1.2rem 1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;transform:translateX(100%);opacity:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94),opacity .3s;border-left:1px solid var(--gold)}
-    .trainer__stats-name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.9rem;color:var(--silver-light);margin-top:-.2rem;margin-bottom:.1rem}
-    .trainer__stats .stat-bar{width:100%}
-    .trainer:hover .trainer__stats,.trainer.trainer--touched .trainer__stats{transform:translateX(0);opacity:1}
-    .trainer__stats-title{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-    .trainer__stats-photo{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-bottom:.5rem;box-shadow:0 0 20px rgba(201,168,76,.25)}
+    .trainer__fifa-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.3rem;padding:.6rem 1.2rem 1rem;text-align:center}
+    .trainer__fifa-stat-val{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;color:var(--silver-light);line-height:1.2}
+    .trainer__fifa-stat-lbl{font-size:.45rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
+    .trainer__card-line{height:1px;margin:0 1.2rem;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent)}
 
     /* CV MODAL */
     .cv-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
@@ -340,7 +351,7 @@
     }
     @media(max-width:480px){
       .text-display{font-size:clamp(2.5rem,12vw,4rem)}
-      .trainers__grid{grid-template-columns:1fr;max-width:400px;margin:0 auto}.trainer__stats{width:60%}
+      .trainers__grid{grid-template-columns:1fr;max-width:320px;margin:0 auto}
       .footer__inner{grid-template-columns:1fr;gap:2rem}
     }
   </style>
@@ -661,54 +672,66 @@
     </div>
     <div class="trainers__grid reveal-stagger">
       <div class="trainer" onclick="openCV('coach1')">
+        <div class="trainer__card-top">
+          <div><p class="trainer__rating">92</p><p class="trainer__pos">HC</p></div>
+          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
         <div class="trainer__img-wrap"><img src="img/blanco/8.png" alt="Coach Nicolas"></div>
         <div class="trainer__info">
           <p class="trainer__name">Nicolas Garcia</p>
           <p class="trainer__role">Head Coach &middot; Strength</p>
           <span class="trainer__view-cv">Ver perfil</span>
         </div>
-        <div class="trainer__stats">
-          <img class="trainer__stats-photo" src="img/blanco/8.png" alt="Nicolas Garcia">
-          <p class="trainer__stats-name">Nicolas Garcia</p>
-          <p class="trainer__stats-title">Habilidades</p>
-          <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="98%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="92%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="88%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Motivacion</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="95%"></div></div></div>
+        <div class="trainer__card-line"></div>
+        <div class="trainer__fifa-stats">
+          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+          <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+          <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+          <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+          <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
         </div>
       </div>
       <div class="trainer" onclick="openCV('coach2')">
+        <div class="trainer__card-top">
+          <div><p class="trainer__rating">90</p><p class="trainer__pos">BTS</p></div>
+          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
         <div class="trainer__img-wrap"><img src="img/blanco/3.png" alt="Coach Beats"></div>
         <div class="trainer__info">
           <p class="trainer__name">Coach Beats</p>
           <p class="trainer__role">Beats & Ritmo</p>
           <span class="trainer__view-cv">Ver perfil</span>
         </div>
-        <div class="trainer__stats">
-          <img class="trainer__stats-photo" src="img/blanco/3.png" alt="Coach Beats">
-          <p class="trainer__stats-name">Coach Beats</p>
-          <p class="trainer__stats-title">Habilidades</p>
-          <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="99%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Energia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="96%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Coordinacion</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="94%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Carisma</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--flexibilidad" data-width="100%"></div></div></div>
+        <div class="trainer__card-line"></div>
+        <div class="trainer__fifa-stats">
+          <div><p class="trainer__fifa-stat-val">60</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+          <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+          <div><p class="trainer__fifa-stat-val">72</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+          <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+          <div><p class="trainer__fifa-stat-val">93</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
         </div>
       </div>
       <div class="trainer" onclick="openCV('coach3')">
+        <div class="trainer__card-top">
+          <div><p class="trainer__rating">88</p><p class="trainer__pos">FNC</p></div>
+          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+        </div>
         <div class="trainer__img-wrap"><img src="img/blanco/7.png" alt="Coach Funcional"></div>
         <div class="trainer__info">
           <p class="trainer__name">Coach Funcional</p>
           <p class="trainer__role">Functional Training</p>
           <span class="trainer__view-cv">Ver perfil</span>
         </div>
-        <div class="trainer__stats">
-          <img class="trainer__stats-photo" src="img/blanco/7.png" alt="Coach Funcional">
-          <p class="trainer__stats-name">Coach Funcional</p>
-          <p class="trainer__stats-title">Habilidades</p>
-          <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="85%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="88%"></div></div></div>
-          <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="92%"></div></div></div>
+        <div class="trainer__card-line"></div>
+        <div class="trainer__fifa-stats">
+          <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+          <div><p class="trainer__fifa-stat-val">78</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+          <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+          <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+          <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
         </div>
       </div>
     </div>
@@ -727,7 +750,7 @@
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg><span>Google</span></div>
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24"><defs><linearGradient id="ig1" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#feda75"/><stop offset="25%" style="stop-color:#fa7e1e"/><stop offset="50%" style="stop-color:#d62976"/><stop offset="75%" style="stop-color:#962fbf"/><stop offset="100%" style="stop-color:#4f5bd5"/></linearGradient></defs><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="url(#ig1)"/></svg><span>Instagram</span></div>
         <div class="testimonials__source-badge"><svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg><span>TikTok</span></div>
-        <div class="testimonials__source-badge"><svg viewBox="0 0 36 36" style="width:16px;height:16px;"><path d="M15 35.8C6.5 34.3 0 26.9 0 18 0 8.1 8.1 0 18 0s18 8.1 18 18c0 8.9-6.5 16.3-15 17.8l-1-.8h-4l-1 .8z" fill="#0866FF"/><path d="M25 23l.8-5H21v-3.5c0-1.4.5-2.5 2.7-2.5H26V7.4c-1.3-.2-2.7-.4-4-.4-4.1 0-7 2.5-7 7v4h-4.5v5H15v12.7c1 .2 2 .3 3 .3s2-.1 3-.3V23h4z" fill="white"/></svg><span>Meta</span></div>
+        <div class="testimonials__source-badge"><svg viewBox="0 0 512 512" style="width:16px;height:16px;"><defs><linearGradient id="metaGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0668E1"/><stop offset="50%" style="stop-color:#0080FB"/><stop offset="100%" style="stop-color:#00C0FF"/></linearGradient></defs><path fill="url(#metaGrad)" d="M115.2 272c0-56.4 22.8-108.4 51.7-142.5C192.5 98.9 223.5 80 248.8 80c16.9 0 35.8 12.2 55.5 38.2 8.1 10.7 16.3 23.5 24.4 38.2l7.8 14.2c12.5 22.7 21.2 37 27.5 45.3 11.3 14.8 21.3 20.1 32.8 20.1 16.2 0 31.8-13.5 44.3-37.5 10.8-20.7 17-44.8 17-68.5 0-42.2-14.8-79.5-42.4-106.7C388.4-4.1 349.2-20 304.8-20c-54.3 0-103.8 24.2-143.5 63.8C121.6 83.4 88 143.2 88 216v80c0 72.8 33.6 132.6 73.3 172.2C200.9 507.8 250.4 532 304.8 532c44.4 0 83.6-16.1 110.9-43.3 27.6-27.2 42.4-64.5 42.4-106.7 0-23.7-6.2-47.8-17-68.5-12.5-24-28.1-37.5-44.3-37.5-11.5 0-21.5 5.3-32.8 20.1-6.3 8.3-15 22.6-27.5 45.3l-7.8 14.2c-8.1 14.7-16.3 27.5-24.4 38.2-19.7 26-38.6 38.2-55.5 38.2-25.3 0-56.3-18.9-81.9-49.5C138 351.4 115.2 328.4 115.2 272z"/></svg><span>Meta</span></div>
       </div>
     </div>
     <div class="testimonials__grid reveal-stagger">
@@ -836,7 +859,7 @@
   <div class="footer__bottom">
     <p class="footer__copy">&copy; 2026 Imperio Elite Fitness Club. Todos los derechos reservados.</p>
     <div class="footer__socials">
-      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Meta"><svg viewBox="0 0 512 512" fill="currentColor" width="20" height="20"><path d="M115.2 272c0-56.4 22.8-108.4 51.7-142.5C192.5 98.9 223.5 80 248.8 80c16.9 0 35.8 12.2 55.5 38.2 8.1 10.7 16.3 23.5 24.4 38.2l7.8 14.2c12.5 22.7 21.2 37 27.5 45.3 11.3 14.8 21.3 20.1 32.8 20.1 16.2 0 31.8-13.5 44.3-37.5 10.8-20.7 17-44.8 17-68.5 0-42.2-14.8-79.5-42.4-106.7C388.4-4.1 349.2-20 304.8-20c-54.3 0-103.8 24.2-143.5 63.8C121.6 83.4 88 143.2 88 216v80c0 72.8 33.6 132.6 73.3 172.2C200.9 507.8 250.4 532 304.8 532c44.4 0 83.6-16.1 110.9-43.3 27.6-27.2 42.4-64.5 42.4-106.7 0-23.7-6.2-47.8-17-68.5-12.5-24-28.1-37.5-44.3-37.5-11.5 0-21.5 5.3-32.8 20.1-6.3 8.3-15 22.6-27.5 45.3l-7.8 14.2c-8.1 14.7-16.3 27.5-24.4 38.2-19.7 26-38.6 38.2-55.5 38.2-25.3 0-56.3-18.9-81.9-49.5C138 351.4 115.2 328.4 115.2 272z"/></svg></a>
       <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
       <a href="#" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg></a>
       <a href="https://wa.me/573124167919" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
@@ -1004,16 +1027,6 @@
 
   function toggleProgram(el){const was=el.classList.contains('active');document.querySelectorAll('.program').forEach(p=>{p.classList.remove('active');p.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width='0%')});if(!was){el.classList.add('active');setTimeout(()=>{el.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width=b.dataset.width)},100)}}
 
-  // Trainer stat bars - hover AND touch
-  document.querySelectorAll('.trainer').forEach(t=>{
-    t.addEventListener('mouseenter',()=>{setTimeout(()=>{t.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width=b.dataset.width)},100)});
-    t.addEventListener('mouseleave',()=>{t.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width='0%');t.classList.remove('trainer--touched')});
-    t.addEventListener('touchstart',e=>{
-      const wasActive=t.classList.contains('trainer--touched');
-      document.querySelectorAll('.trainer').forEach(tr=>{tr.classList.remove('trainer--touched');tr.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width='0%')});
-      if(!wasActive){t.classList.add('trainer--touched');setTimeout(()=>{t.querySelectorAll('.stat-bar__fill').forEach(b=>b.style.width=b.dataset.width)},100)}
-    },{passive:true});
-  });
 
   const cvData={
     coach1:{photo:'img/blanco/8.png',name:'Nicolas Garcia',badge:'Imperio Certified Crew Member',title:'Head Coach · Strength & Conditioning',quote:'"El cuerpo logra lo que la mente cree."',radar:[{label:'Fuerza',value:95},{label:'Tecnica',value:90},{label:'Experiencia',value:88},{label:'Liderazgo',value:92},{label:'Cardio',value:70},{label:'Motivacion',value:85}],strengths:['Especialista en gluteos indestructibles','Maestro del PR (Personal Record)','Arquitecto de espaldas anchas','Domador de la barra olimpica'],education:['<strong>Profesional en Ciencias del Deporte</strong> — U. Cundinamarca','<strong>Certificacion NSCA-CPT</strong> — National Strength & Conditioning','<strong>Especialista Entrenamiento Funcional</strong> — FMS Level 2','<strong>Nutricion Deportiva</strong> — ISSA'],specialties:['Entrenamiento de fuerza e hipertrofia','Periodizacion y programacion de rutinas','Prevencion y rehabilitacion de lesiones','Preparacion fisica para competidores'],achievements:['Fundador y Head Coach de Imperio Elite Fitness Club','Entrenador de atletas powerlifting nivel regional','Creador del programa Beats','Speaker en eventos de fitness en Bogota']},
