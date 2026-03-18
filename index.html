@@ -81,9 +81,7 @@
     /* STATS */
     .stats{padding:clamp(2rem,4vh,3.5rem) clamp(1.25rem,5vw,4rem);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
     .stats__grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;text-align:center}
-    .stats__item a{text-decoration:none;display:flex;flex-direction:column;gap:.3rem;transition:transform .2s}
-    .stats__item a:hover{transform:translateY(-3px)}
-    .stats__item a:hover .text-stat{color:var(--gold)}
+    .stats__item div{display:flex;flex-direction:column;gap:.3rem}
     .stats__item .text-label{color:var(--text-dim)}
     .stats__item .stats__phrase{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4}
 
@@ -125,7 +123,9 @@
     /* PROGRAMS / CLASES */
     .programs__header{margin-bottom:clamp(2rem,4vh,4rem)}
     .programs__badges{display:flex;justify-content:center;gap:2.5rem;margin-top:1.5rem}
-    .programs__badge{display:flex;flex-direction:column;align-items:center;gap:.5rem}
+    @keyframes badgeShine{0%,100%{filter:drop-shadow(0 0 3px rgba(192,192,192,.2))}50%{filter:drop-shadow(0 0 10px rgba(201,168,76,.5))}}
+    .programs__badge{display:flex;flex-direction:column;align-items:center;gap:.5rem;animation:badgeShine 3s ease-in-out infinite}
+    .programs__badge:nth-child(2){animation-delay:1s}.programs__badge:nth-child(3){animation-delay:2s}
     .programs__badge svg{width:40px;height:40px;stroke:var(--silver)!important}
     .programs__badge svg circle{stroke:var(--silver)!important}
     .programs__badge svg path{fill:var(--silver)!important;stroke:var(--silver)!important}
@@ -253,8 +253,8 @@
     .testimonials__sources{display:flex;gap:.75rem;align-items:center}
     .testimonials__source-badge{display:flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);font-size:.65rem;font-weight:500;color:var(--text-muted);letter-spacing:.03em}
     .testimonials__source-badge svg{width:16px;height:16px}
-    .testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-    .testimonial{padding:2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;gap:1.25rem;transition:border-color .3s}
+    .testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .testimonial{padding:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;gap:.8rem;transition:border-color .3s}
     .testimonial:hover{border-color:rgba(201,168,76,.2)}
     .testimonial__platform{display:flex;align-items:center;gap:.5rem;font-size:.58rem;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em}
     .testimonial__platform svg{width:14px;height:14px}
@@ -264,7 +264,7 @@
     .testimonial__avatar{width:36px;height:36px;border-radius:50%;background:var(--surface-alt);display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',serif;font-weight:700;font-size:.85rem;color:var(--gold);border:1px solid var(--border)}
     .testimonial__name{font-weight:600;font-size:.9rem}
     .testimonial__handle{font-size:.6rem;color:var(--text-dim)}
-    .testimonials__more{text-align:center;margin-top:2.5rem}
+    .testimonials__more{text-align:center;margin-top:1.5rem}
 
     /* CTA */
     .cta{text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -486,25 +486,25 @@
 <section class="stats">
   <div class="stats__grid reveal-stagger">
     <div class="stats__item">
-      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank">
+      <div>
         <span class="text-stat">4.9</span>
         <span class="text-label">&#9733; Rating en <span style="letter-spacing:0;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span></span>
         <span class="stats__phrase">La calificacion habla por si sola</span>
-      </a>
+      </div>
     </div>
     <div class="stats__item">
-      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank">
+      <div>
         <span class="text-stat">20+</span>
         <span class="text-label">Resenas 5 estrellas</span>
         <span class="stats__phrase">Cada resena es una historia real de transformacion</span>
-      </a>
+      </div>
     </div>
     <div class="stats__item">
-      <a href="#programs">
+      <div>
         <span class="text-stat">7+</span>
         <span class="text-label">Clases semanales</span>
         <span class="stats__phrase">Variedad para que nunca te aburras</span>
-      </a>
+      </div>
     </div>
   </div>
 </section>
@@ -1132,7 +1132,7 @@
       </div>
     </div>
     <div class="testimonials__more reveal">
-      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank" class="btn btn--outline">Ver mas resenas</a>
+      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club/reviews" target="_blank" class="btn btn--outline">Ver mas resenas</a>
     </div>
   </div>
 </section>
@@ -1504,13 +1504,13 @@
     ];
     // Pin locations: [lon+180, 90-lat]
     const pins=[
-      {x:83,y:51,l:'USA'},{x:110,y:71,l:'Dominicana'},
-      {x:106,y:86,l:'Colombia',home:true},
-      {x:100,y:92,l:'Ecuador'},{x:103,y:100,l:'Peru'},
-      {x:114,y:80,l:'Venezuela'},{x:132,y:100,l:'Brasil'},
-      {x:116,y:125,l:'Argentina'},{x:108,y:123,l:'Chile'},
-      {x:176,y:50,l:'Espana'},{x:182,y:42,l:'Francia'},
-      {x:190,y:39,l:'Alemania'},{x:171,y:51,l:'Portugal'}
+      {x:103,y:51,l:'USA'},{x:110,y:71,l:'Dominicana'},
+      {x:106,y:85,l:'Colombia',home:true},
+      {x:102,y:90,l:'Ecuador'},{x:103,y:102,l:'Peru'},
+      {x:113,y:80,l:'Venezuela'},{x:132,y:105,l:'Brasil'},
+      {x:122,y:124,l:'Argentina'},{x:109,y:123,l:'Chile'},
+      {x:176,y:50,l:'Espana'},{x:182,y:41,l:'Francia'},
+      {x:193,y:38,l:'Alemania'},{x:171,y:51,l:'Portugal'}
     ];
     let svg=`<svg viewBox="0 0 360 180" xmlns="http://www.w3.org/2000/svg">`;
     svg+=`<defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>`;
@@ -1534,7 +1534,7 @@
     // Lines from Colombia to each country
     pins.forEach(p=>{
       if(!p.home){
-        svg+=`<line x1="106" y1="86" x2="${p.x}" y2="${p.y}" stroke="rgba(201,168,76,.1)" stroke-width=".3" stroke-dasharray="2 2"/>`;
+        svg+=`<line x1="106" y1="85" x2="${p.x}" y2="${p.y}" stroke="rgba(201,168,76,.1)" stroke-width=".3" stroke-dasharray="2 2"/>`;
       }
     });
     svg+=`</svg>`;
