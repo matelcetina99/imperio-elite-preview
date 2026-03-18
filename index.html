@@ -86,7 +86,6 @@
     .stats__item .stats__phrase{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-muted);margin-top:.4rem;line-height:1.4}
 
     /* ABOUT */
-    .about__grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
     .about__label{color:var(--gold);margin-bottom:1rem}
     .about__body{color:var(--text-muted);font-size:1rem;line-height:1.8;margin:1.5rem 0}
     .about__socials{display:flex;gap:1rem;margin-top:1.5rem}
@@ -95,13 +94,13 @@
     .about__social-btn svg{width:16px;height:16px}
     /* GALLERY PANELS - HYROX STYLE */
     .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-    .about__panel{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer}
+    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;border-radius:var(--radius)}
     .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .5s;filter:saturate(.4) brightness(.65)}
     .about__panel:hover img{transform:scale(1.08);filter:saturate(.7) brightness(.75)}
     .about__panel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,3vw,2.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.7) 0%,transparent 60%)}
     .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.5rem}
-    .about__panel-sub{font-family:'Times New Roman',Times,serif;font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.3rem}
-    .about__panel-desc{display:none}
+    .about__panel-sub{font-family:'Times New Roman',Times,serif;font-size:.8rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
+    .about__panel-desc{font-family:'Lora',serif;font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.4}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -133,7 +132,8 @@
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
-    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);flex-shrink:0}
+    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);flex-shrink:0}
+    .program__coach-avatar svg{width:22px;height:22px;fill:var(--gold)}
     .program__header{display:grid;grid-template-columns:50px 40px 1fr 2.5fr 40px;align-items:center;gap:1.2rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
     .program:hover .program__header{padding-left:clamp(2rem,6vw,5rem)}
     .program__number{color:var(--text-dim);font-size:.7rem;font-weight:500;letter-spacing:.05em}
@@ -159,9 +159,12 @@
     .program__video-play::after{content:'';border-left:18px solid #08080A;border-top:11px solid transparent;border-bottom:11px solid transparent;margin-left:4px}
     .program__video-img{width:100%;height:100%;object-fit:cover;border-radius:0}
     .program__stats-grid{display:flex;flex-direction:column;gap:.9rem}
-    .stat-bar{display:flex;flex-direction:column;gap:.25rem}
+    .program__stats-title{font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.5rem}
+    .stat-bar{display:flex;align-items:center;gap:.6rem}
+    .stat-bar__info{display:flex;flex-direction:column;gap:.15rem;min-width:75px}
     .stat-bar__label{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)}
-    .stat-bar__track{height:6px;background:var(--surface-alt);overflow:hidden;border:1px solid rgba(192,192,192,.04);border-radius:3px}
+    .stat-bar__track{flex:1;height:6px;background:var(--surface-alt);overflow:hidden;border:1px solid rgba(192,192,192,.04);border-radius:3px}
+    .stat-bar__val{font-size:.6rem;font-weight:700;color:var(--text-muted);min-width:30px;text-align:right}
     .stat-bar__fill{height:100%;width:0;transition:width .8s cubic-bezier(.25,.46,.45,.94);border-radius:3px}
     .stat-bar__fill--fuerza{background:linear-gradient(90deg,#C9A84C,#E8D48B)}
     .stat-bar__fill--resistencia{background:linear-gradient(90deg,#C0C0C0,#E0E0E0)}
@@ -431,7 +434,7 @@
       .nav__links{display:none}.nav__address{display:none}.nav__hamburger{display:flex}
       .hero{min-height:100svh;align-items:center}.hero__content{padding-bottom:0;text-align:center;max-width:100%}.hero__ctas{justify-content:center}.hero__sub{margin-left:auto;margin-right:auto}.hero__label{justify-content:center}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
-      .about__grid{grid-template-columns:1fr}.about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
+      .about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
@@ -470,7 +473,7 @@
   <div class="hero__bg"><img src="img/hero-bg.jpg" alt="Imperio Elite Fitness Club"><div class="hero__overlay"></div></div>
   <div class="hero__content">
     <p class="hero__label text-label">Normand&iacute;a, Bogot&aacute;</p>
-    <h1 class="text-display">Donde nace tu <span class="hero__accent">verdadera fuerza.</span></h1>
+    <h1 class="text-display"><span style="white-space:nowrap;">Donde nace tu</span><br><span class="hero__accent" style="white-space:nowrap;">verdadera fuerza.</span></h1>
     <p class="hero__sub">Disciplina, gu&iacute;a correcta y un entorno que te reta a ser mejor. Esto es Imperio.</p>
     <div class="hero__ctas">
       <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa%20Imperio" target="_blank" class="btn btn--gold btn--large">Agenda tu d&iacute;a de cortes&iacute;a</a>
@@ -506,44 +509,41 @@
 <!-- ABOUT -->
 <section id="about" class="section">
   <div class="container">
-    <div class="about__grid">
-      <div class="reveal" style="text-align:center;">
-        <p class="about__label text-label">En qu&eacute; creemos</p>
-        <h2 class="text-heading">Construimos resultados.</h2>
-        <p class="about__body">Disciplina, respeto y compromiso. La transformaci&oacute;n real nace del esfuerzo constante y de rodearte de personas que te retan a ser mejor. Aqu&iacute; no se venden milagros, se construyen con sudor.</p>
-        <hr style="border:none;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);max-width:120px;margin:0 auto 1.5rem;">
-        <div class="about__socials" style="justify-content:center;">
-          <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-          <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24"><defs><linearGradient id="igAbout" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><path fill="url(#igAbout)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
-          <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
+    <div class="reveal" style="text-align:center;margin-bottom:2.5rem;">
+      <p class="about__label text-label">En qu&eacute; creemos</p>
+      <h2 class="text-heading">Construimos resultados.</h2>
+      <p class="about__body" style="max-width:600px;margin:1.5rem auto;">Disciplina, respeto y compromiso. La transformaci&oacute;n real se construye con sudor, no con milagros.</p>
+    </div>
+    <div class="about__panels reveal" style="transition-delay:.15s;">
+      <div class="about__panel" onclick="openGallery('atletas')">
+        <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
+        <div class="about__panel-overlay">
+          <p class="about__panel-title">Atletas</p>
+          <p class="about__panel-sub">Nuestros guerreros</p>
+          <p class="about__panel-desc">El compromiso no tiene d&iacute;as libres</p>
         </div>
       </div>
-      <div class="about__panels reveal" style="transition-delay:.15s;">
-        <div class="about__panel" onclick="openGallery('atletas')">
-          <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Atletas</p>
-            <p class="about__panel-sub">Nuestros guerreros</p>
-            <p class="about__panel-desc">El compromiso no tiene d&iacute;as libres. Cada repetici&oacute;n cuenta.</p>
-          </div>
-        </div>
-        <div class="about__panel" onclick="openGallery('salidas')">
-          <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Salidas</p>
-            <p class="about__panel-sub">Imperio al aire libre</p>
-            <p class="about__panel-desc">Cuando el espacio se queda peque&ntilde;o, salimos a conquistar.</p>
-          </div>
-        </div>
-        <div class="about__panel" onclick="openGallery('clases')">
-          <img src="img/Foto - Web 15.png" alt="Clases Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Clases</p>
-            <p class="about__panel-sub">Beats & grupales</p>
-            <p class="about__panel-desc">Luces, m&uacute;sica y energ&iacute;a pura en cada sesi&oacute;n.</p>
-          </div>
+      <div class="about__panel" onclick="openGallery('salidas')">
+        <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
+        <div class="about__panel-overlay">
+          <p class="about__panel-title">Salidas</p>
+          <p class="about__panel-sub">Imperio al aire libre</p>
+          <p class="about__panel-desc">Conquistamos fuera del centro</p>
         </div>
       </div>
+      <div class="about__panel" onclick="openGallery('clases')">
+        <img src="img/Foto - Web 15.png" alt="Clases Imperio">
+        <div class="about__panel-overlay">
+          <p class="about__panel-title">Clases</p>
+          <p class="about__panel-sub">Beats &amp; grupales</p>
+          <p class="about__panel-desc">M&uacute;sica y energ&iacute;a en cada sesi&oacute;n</p>
+        </div>
+      </div>
+    </div>
+    <div class="about__socials reveal" style="justify-content:center;margin-top:2rem;">
+      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#1877F2" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" width="16" height="16"><defs><linearGradient id="igAbout" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><path fill="url(#igAbout)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
+      <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
     </div>
   </div>
 </section>
@@ -576,7 +576,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">01</span>
-          <span class="program__coach-avatar">&#x1F4AA;</span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -594,15 +594,12 @@
               </div>
             </div>
             <div>
+              <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="95%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="60%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="85%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="70%"></div></div></div>
-              </div>
-              <div class="coach-card" style="margin-top:1rem;">
-                <img class="coach-card__img" src="img/Foto - Web 8.png" alt="Nicolas Garcia">
-                <div><p class="coach-card__name">Nicolas Garcia</p><p class="coach-card__role">Head Coach &middot; Fuerza</p></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="60%"></div></div><span class="stat-bar__val">60%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
               </div>
             </div>
           </div>
@@ -612,7 +609,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">02</span>
-          <span class="program__coach-avatar">&#x1F3B5;</span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -630,15 +627,12 @@
               </div>
             </div>
             <div>
+              <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="35%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="80%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="90%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="95%"></div></div></div>
-              </div>
-              <div class="coach-card" style="margin-top:1rem;">
-                <img class="coach-card__img" src="img/Foto - Web 8.png" alt="Nicolas Garcia">
-                <div><p class="coach-card__name">Nicolas Garcia</p><p class="coach-card__role">Coach &middot; Beats</p></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="35%"></div></div><span class="stat-bar__val">35%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="80%"></div></div><span class="stat-bar__val">80%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
               </div>
             </div>
           </div>
@@ -648,7 +642,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">03</span>
-          <span class="program__coach-avatar">&#x1F525;</span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Super Abdomen</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -666,15 +660,12 @@
               </div>
             </div>
             <div>
+              <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="70%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="85%"></div></div></div>
-              </div>
-              <div class="coach-card" style="margin-top:1rem;">
-                <img class="coach-card__img" src="img/Foto - Web 8.png" alt="Nicolas Garcia">
-                <div><p class="coach-card__name">Nicolas Garcia</p><p class="coach-card__role">Coach &middot; Core</p></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div><span class="stat-bar__val">65%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
               </div>
             </div>
           </div>
@@ -684,7 +675,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">04</span>
-          <span class="program__coach-avatar">&#x1F3CB;</span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona Co-Working</h3><span class="program__motto-inline">"Tus reglas, nuestras herramientas"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -702,15 +693,12 @@
               </div>
             </div>
             <div>
+              <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="75%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="70%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Flexibilidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--flexibilidad" data-width="60%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div></div>
-              </div>
-              <div class="coach-card" style="margin-top:1rem;">
-                <img class="coach-card__img" src="img/Foto - Web 8.png" alt="Nicolas Garcia">
-                <div><p class="coach-card__name">Nicolas Garcia</p><p class="coach-card__role">Coach &middot; Piso</p></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="75%"></div></div><span class="stat-bar__val">75%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Flexibilidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--flexibilidad" data-width="60%"></div></div><span class="stat-bar__val">60%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div><span class="stat-bar__val">65%</span></div>
               </div>
             </div>
           </div>
@@ -720,7 +708,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">05</span>
-          <span class="program__coach-avatar">&#x1F9D1;&#x200D;&#x1F3EB;</span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Personal Training</h3><span class="program__motto-inline">"No hay atajos, hay estrategia"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -738,15 +726,12 @@
               </div>
             </div>
             <div>
+              <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="100%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="95%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="100%"></div></div></div>
-                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="90%"></div></div></div>
-              </div>
-              <div class="coach-card" style="margin-top:1rem;">
-                <img class="coach-card__img" src="img/foto/2.png" alt="Personal Training">
-                <div><p class="coach-card__name">Nicolas Garcia</p><p class="coach-card__role">Head Coach &middot; Personal</p></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="100%"></div></div><span class="stat-bar__val">100%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="100%"></div></div><span class="stat-bar__val">100%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
               </div>
             </div>
           </div>
