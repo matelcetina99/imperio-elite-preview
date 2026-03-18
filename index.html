@@ -323,9 +323,11 @@
     .hours__block-value{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.3rem;color:var(--silver-light)}
 
     /* PLANS MODAL - Estilo Ver Programas */
-    .plan-row{display:grid;grid-template-columns:1fr 1.3fr;gap:2rem;padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:rgba(192,192,192,.02)}
+    .plan-row{display:grid;grid-template-columns:1fr 1.3fr;gap:2rem;padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:rgba(192,192,192,.02);transition:all .4s}
+    .plan-row:hover{border-color:rgba(201,168,76,.4);box-shadow:0 0 30px rgba(201,168,76,.08);background:rgba(201,168,76,.02)}
     .plan-row__prices{display:flex;flex-direction:column;gap:.8rem}
-    .plan-row__price-item{padding:.6rem .8rem;border:1px solid rgba(192,192,192,.12);border-radius:8px;background:rgba(8,8,10,.4);text-align:center}
+    .plan-row__price-item{padding:.6rem .8rem;border:1px solid rgba(192,192,192,.12);border-radius:8px;background:rgba(8,8,10,.4);text-align:center;transition:all .3s}
+    .plan-row__price-item:hover{border-color:rgba(201,168,76,.4);transform:translateY(-2px)}
     .plan-row__price-val{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.4rem;color:var(--silver-light);display:block}
     .plan-row__price-lbl{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);display:block;margin-top:.15rem}
     .plan-row__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--silver-light);margin-bottom:1rem}
@@ -333,11 +335,16 @@
     .plan-row__features li{font-size:.82rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4}
     .plan-row__features li .check{color:var(--gold);font-size:.7rem;flex-shrink:0;margin-top:3px}
     .plan-row__features li .cross{color:var(--text-dim);font-size:.7rem;flex-shrink:0;margin-top:3px}
-    .plan-uni__inner{display:flex;align-items:center;gap:1.5rem;padding:1.5rem;border:1px solid rgba(201,168,76,.3);border-radius:var(--radius);background:rgba(201,168,76,.03)}
+    .plan-row__info .btn{display:block;text-align:center}
+    @keyframes uniGlow{0%,100%{box-shadow:0 0 15px rgba(206,17,38,.15),0 0 30px rgba(206,17,38,.05)}50%{box-shadow:0 0 25px rgba(206,17,38,.3),0 0 50px rgba(206,17,38,.1)}}
+    .plan-uni__inner{display:flex;align-items:center;gap:1.5rem;padding:1.5rem;border:1px solid rgba(206,17,38,.4);border-radius:var(--radius);background:rgba(206,17,38,.03);animation:uniGlow 3s ease-in-out infinite;transition:all .4s}
+    .plan-uni__inner:hover{border-color:rgba(206,17,38,.7);background:rgba(206,17,38,.06)}
+    .plan-uni__inner .btn{border-color:rgba(206,17,38,.5);color:#fff}
+    .plan-uni__inner .btn:hover{background:rgba(206,17,38,.8);border-color:#CE1126}
     .plan-uni__logo{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
     .plan-uni__text{flex:1}
     .plan-uni__headline{font-family:'Lora',serif;font-size:.85rem;color:var(--text-muted);line-height:1.5}
-    .plan-uni__price{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2rem;color:var(--gold);margin:.3rem 0}
+    .plan-uni__price{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2rem;color:#CE1126;margin:.3rem 0}
     .plan-uni__terms{font-size:.6rem;color:var(--text-dim);font-style:italic}
     .plans-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
     .plans-overlay.active{display:flex}
