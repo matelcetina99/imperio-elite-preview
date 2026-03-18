@@ -17,7 +17,7 @@
     .text-display{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(3rem,8vw,7rem);line-height:0.92;letter-spacing:-0.02em;text-transform:uppercase}
     .text-heading{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,4.5vw,3.8rem);line-height:1.0;letter-spacing:-0.01em}
     .text-label{font-family:'Lora',serif;font-weight:600;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase}
-    .text-stat{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(3rem,6vw,5rem);line-height:1;color:var(--silver-light)}
+    .text-stat{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(3rem,6vw,5rem);line-height:1;color:#e8e8e8;text-shadow:0 0 15px rgba(192,192,192,.3),0 0 30px rgba(192,192,192,.1)}
 
     .section{padding:clamp(3.5rem,7vh,6rem) clamp(1.25rem,5vw,4rem);border-bottom:1px solid var(--border)}.container{max-width:1200px;margin:0 auto}.container--wide{max-width:1440px;margin:0 auto}
 
@@ -29,7 +29,7 @@
     @keyframes heroGlow{0%,100%{box-shadow:0 0 20px rgba(201,168,76,.3),inset 0 0 20px rgba(201,168,76,.05)}50%{box-shadow:0 0 50px rgba(201,168,76,.5),0 0 100px rgba(201,168,76,.2),inset 0 0 30px rgba(201,168,76,.08)}}
     @keyframes heroPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
     @keyframes heroShimmer{0%{left:-100%}100%{left:200%}}
-    .hero__ctas .btn--gold{animation:heroGlow 2.5s ease-in-out infinite,heroPulse 3s ease-in-out infinite;font-size:.85rem;padding:1.1rem 2.8rem;letter-spacing:.18em;border:2px solid rgba(255,215,0,.4)}
+    .hero__ctas .btn--gold{animation:heroGlow 2.5s ease-in-out infinite,heroPulse 3s ease-in-out infinite;font-size:.75rem;padding:.95rem 2.2rem;letter-spacing:.16em;border:2px solid rgba(255,215,0,.4)}
     .hero__ctas .btn--gold::before{background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);animation:heroShimmer 3s ease-in-out infinite}
     .hero__ctas .btn--gold::after{content:'';position:absolute;inset:-3px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(201,168,76,.4),transparent,rgba(201,168,76,.4));z-index:-1;filter:blur(8px);opacity:.6}
     .hero__ctas .btn--outline{border-width:2px;font-weight:700;font-size:.85rem;padding:1.1rem 2.8rem;letter-spacing:.18em;position:relative;overflow:hidden}
@@ -103,6 +103,8 @@
     .about__panel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;z-index:2}
     .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
     .about__panel-count{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+    .about__panel-reactions{display:flex;gap:.8rem;margin-top:.5rem}
+    .about__panel-reaction{display:flex;align-items:center;gap:.3rem;font-size:.6rem;color:rgba(255,255,255,.7);font-weight:500}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -460,6 +462,12 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Nuestros Atletas</p>
             <p class="about__panel-count">12 publicaciones</p>
+            <div class="about__panel-reactions">
+              <span class="about__panel-reaction">&#10084;&#65039; 2.4K</span>
+              <span class="about__panel-reaction">&#128172; 186</span>
+              <span class="about__panel-reaction">&#128257; 94</span>
+              <span class="about__panel-reaction">&#9993;&#65039; 312</span>
+            </div>
           </div>
         </div>
         <div class="about__panel" onclick="openGallery('salidas')">
@@ -467,6 +475,12 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Salidas Imperio</p>
             <p class="about__panel-count">8 publicaciones</p>
+            <div class="about__panel-reactions">
+              <span class="about__panel-reaction">&#10084;&#65039; 1.8K</span>
+              <span class="about__panel-reaction">&#128172; 127</span>
+              <span class="about__panel-reaction">&#128257; 68</span>
+              <span class="about__panel-reaction">&#9993;&#65039; 243</span>
+            </div>
           </div>
         </div>
         <div class="about__panel" onclick="openGallery('clases')">
@@ -474,6 +488,12 @@
           <div class="about__panel-overlay">
             <p class="about__panel-title">Clases</p>
             <p class="about__panel-count">10 publicaciones</p>
+            <div class="about__panel-reactions">
+              <span class="about__panel-reaction">&#10084;&#65039; 3.1K</span>
+              <span class="about__panel-reaction">&#128172; 214</span>
+              <span class="about__panel-reaction">&#128257; 152</span>
+              <span class="about__panel-reaction">&#9993;&#65039; 478</span>
+            </div>
           </div>
         </div>
       </div>
@@ -778,12 +798,12 @@
         <p class="trainer__card-logo">Imperio</p>
         <div class="trainer__card-top">
           <div><p class="trainer__rating">91</p><p class="trainer__pos">NUT</p></div>
-          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+          <div class="trainer__card-badge" style="font-size:14px;border:none;background:none;">&#127823;</div>
         </div>
         <div class="trainer__img-wrap"><img src="img/Web 1.png" alt="Nutricionista"></div>
         <div class="trainer__info">
           <p class="trainer__name">Nutricionista</p>
-          <p class="trainer__role">Nutricion Deportiva</p>
+          <p class="trainer__role">Nutricion Deportiva Profesional</p>
           <span class="trainer__view-cv">Ver perfil</span>
         </div>
         <div class="trainer__card-line"></div>
