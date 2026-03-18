@@ -394,11 +394,16 @@
 
     /* FOOTER */
     .footer{padding:clamp(3rem,6vh,5rem) clamp(1.25rem,5vw,4rem);border-top:1px solid var(--border)}
-    .footer__inner{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:2.5rem}
-    .footer__brand-desc{color:var(--text-dim);font-size:.88rem;line-height:1.7;margin-top:1rem;text-align:center}
+    .footer__brand{text-align:center;margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--border)}
+    .footer__brand-desc{color:var(--text-dim);font-size:.88rem;line-height:1.7;margin-top:1rem}
+    .footer__columns{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:3rem}
     .footer__heading{font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1.25rem}
-    .footer a{display:block;color:var(--text-muted);font-size:.88rem;padding:.25rem 0;transition:color .2s}
+    .footer a{display:block;color:var(--text-muted);font-size:.85rem;padding:.3rem 0;transition:color .2s}
     .footer a:hover{color:var(--silver-light)}
+    .footer__wa-tag{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;color:#25D366;opacity:.7;margin-left:.3rem}
+    .footer__hours-row{display:flex;justify-content:space-between;padding:.3rem 0;font-size:.85rem}
+    .footer__hours-row span:first-child{color:var(--text-muted)}
+    .footer__hours-row span:last-child{color:var(--text);font-weight:600}
     .footer__bottom{max-width:1440px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
     .footer__copy{font-size:.6rem;color:var(--text-dim);letter-spacing:.03em}
     .footer__socials{display:flex;gap:1.5rem}
@@ -432,7 +437,7 @@
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
-      .footer__inner{grid-template-columns:1fr 1fr;gap:2rem}.footer__bottom{flex-direction:column;gap:1rem;text-align:center}
+      .footer__columns{grid-template-columns:1fr 1fr;gap:2rem}.footer__bottom{flex-direction:column;gap:1rem;text-align:center}
       .plans-overlay{padding:0}.plans-overlay__inner{max-height:100vh;border:none;border-radius:0}.plans-overlay__content{padding:2rem 1.25rem}.plans-grid{grid-template-columns:1fr}.plan-row{grid-template-columns:1fr;gap:1.2rem}.plan-uni__inner{flex-direction:column;text-align:center}
       .cv-overlay{padding:0}.cv-overlay__inner{max-height:100vh;border:none;border-radius:0}.cv__header{padding:1.2rem 1.2rem 1rem;flex-direction:column;text-align:center}.cv__quote{border-left:none;padding-left:0;text-align:center}.cv__body{padding:1rem 1.2rem}.cv__two-col{grid-template-columns:1fr}.cv__name{font-size:1.3rem}.cv__radar-wrap svg{max-width:200px}
       .btn--large{padding:1rem 2rem;font-size:.72rem}
@@ -440,7 +445,7 @@
     @media(max-width:480px){
       .text-display{font-size:clamp(2.5rem,12vw,4rem)}
       .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:1fr;max-width:320px;margin:0 auto}
-      .footer__inner{grid-template-columns:1fr;gap:2rem}
+      .footer__columns{grid-template-columns:1fr;gap:2rem}
     }
   </style>
 </head>
@@ -1214,40 +1219,55 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-  <div class="footer__inner">
-    <div style="text-align:center;">
+  <div style="max-width:1440px;margin:0 auto;">
+    <!-- Brand -->
+    <div class="footer__brand">
       <div class="nav__logo" style="margin-bottom:.5rem;display:inline-block;">IMPERIO<span>Elite Fitness Club</span></div>
-      <p class="footer__brand-desc" style="text-align:center;">El exito no es casualidad, es la suma de orden, esfuerzo y mentalidad de crecimiento constante.</p>
+      <p class="footer__brand-desc">El exito no es casualidad, es la suma de orden, esfuerzo y mentalidad de crecimiento constante.</p>
     </div>
-    <div>
-      <p class="footer__heading">El Club</p>
-      <a href="#about">En que creemos</a>
-      <a href="#programs">Clases</a>
-      <a href="#trainers">Staff de Entrenadores</a>
-      <a href="#" onclick="openPlans();return false;">Membresias</a>
-    </div>
-    <div style="text-align:center;">
-      <p class="footer__heading">Horarios</p>
-      <span style="display:block;color:var(--text-muted);font-size:.88rem;padding:.25rem 0;">Lunes a Viernes</span>
-      <span style="display:block;color:var(--text);font-size:.88rem;padding:.25rem 0;font-weight:600;">5:30 am - 9:30 pm</span>
-      <span style="display:block;color:var(--text-muted);font-size:.88rem;padding:.25rem 0;margin-top:.5rem;">Sabados</span>
-      <span style="display:block;color:var(--text);font-size:.88rem;padding:.25rem 0;font-weight:600;">7:00 am - 2:00 pm</span>
-      <span style="display:block;color:var(--text-muted);font-size:.88rem;padding:.25rem 0;margin-top:.5rem;">Domingos</span>
-      <span style="display:block;color:var(--text);font-size:.88rem;padding:.25rem 0;font-weight:600;">8:00 am - 1:00 pm</span>
-    </div>
-    <div>
-      <p class="footer__heading">Contacto</p>
-      <a href="tel:+573124167919">(+57) 312 416 7919</a>
-      <a href="mailto:imperioelitefit@gmail.com">imperioelitefit@gmail.com</a>
-      <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank">Cra. 71c # 53-18, Normandia</a>
-    </div>
-    <div>
-      <p class="footer__heading">Legal</p>
-      <a href="#" onclick="document.getElementById('faqOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Preguntas Frecuentes</a>
-      <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Terminos y Condiciones</a>
-      <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Politica de Privacidad</a>
+
+    <!-- 3 Columns -->
+    <div class="footer__columns">
+      <!-- Col 1: El Club -->
+      <div>
+        <p class="footer__heading">El Club</p>
+        <a href="#about">Nosotros</a>
+        <a href="#programs">Entrenamiento</a>
+        <a href="#trainers">Nuestro Staff</a>
+        <a href="#" onclick="openPlans();return false;">Membresias</a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20agendar%20mi%20d%C3%ADa%20de%20cortes%C3%ADa" target="_blank">Dia de cortesia <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20planes%20corporativos" target="_blank">Corporativo <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20Personal%20Training" target="_blank">Personal Training <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="#schedule">Power Station</a>
+      </div>
+
+      <!-- Col 2: Horarios & Contacto -->
+      <div>
+        <p class="footer__heading">Horarios</p>
+        <div class="footer__hours-row"><span>Lunes a Viernes</span><span>5:30am - 9:30pm</span></div>
+        <div class="footer__hours-row"><span>Sabados</span><span>7:00am - 2:00pm</span></div>
+        <div class="footer__hours-row"><span>Domingos</span><span>8:00am - 1:00pm</span></div>
+        <div style="margin-top:1.5rem;">
+          <p class="footer__heading">Contacto</p>
+          <a href="tel:+573124167919">(+57) 312 416 7919</a>
+          <a href="mailto:imperioelitefit@gmail.com">imperioelitefit@gmail.com</a>
+          <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank">Cra. 71c # 53-18, Normandia</a>
+        </div>
+      </div>
+
+      <!-- Col 3: Legal -->
+      <div>
+        <p class="footer__heading">Legal</p>
+        <a href="#" onclick="document.getElementById('faqOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Preguntas Frecuentes</a>
+        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Terminos y Condiciones</a>
+        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Politica de Privacidad</a>
+        <a href="#" onclick="document.getElementById('termsOverlay').classList.add('active');document.body.style.overflow='hidden';return false;">Tratamiento de Datos Personales</a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20tengo%20una%20PQR" target="_blank">PQRs <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20necesito%20comunicarme%20con%20la%20l%C3%ADnea%20de%20atenci%C3%B3n" target="_blank">Linea de Atencion <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
+      </div>
     </div>
   </div>
+
   <div class="footer__bottom">
     <p class="footer__copy">&copy; 2026 Imperio Elite Fitness Club. Todos los derechos reservados.</p>
     <div class="footer__socials">
