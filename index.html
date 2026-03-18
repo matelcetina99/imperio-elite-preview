@@ -95,25 +95,15 @@
     .about__social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--text-muted);transition:all .3s}
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
-    /* GALLERY PANELS - IG POST STYLE */
-    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .about__panel{overflow:hidden;border-radius:var(--radius);cursor:pointer;border:1px solid var(--border);background:var(--surface);transition:transform .3s}
-    .about__panel:hover{transform:translateY(-4px)}
-    .about__panel-header{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem}
-    .about__panel-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.55rem;color:#fff}
-    .about__panel-user{font-size:.7rem;font-weight:700;letter-spacing:.02em}
-    .about__panel-loc{font-size:.5rem;color:var(--text-dim)}
-    .about__panel-img{position:relative;aspect-ratio:1/1;overflow:hidden}
-    .about__panel-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:saturate(.5) brightness(.85)}
-    .about__panel:hover .about__panel-img img{transform:scale(1.08);filter:saturate(.75) brightness(.9)}
-    .about__panel-actions{display:flex;align-items:center;gap:.9rem;padding:.6rem .8rem}
-    .about__panel-action{display:flex;align-items:center;cursor:pointer}
-    .about__panel-action svg{width:20px;height:20px}
-    .about__panel-bookmark{margin-left:auto}
-    .about__panel-likes{font-size:.7rem;font-weight:700;padding:0 .8rem}
-    .about__panel-caption{font-size:.7rem;color:var(--text-muted);line-height:1.5;padding:0 .8rem .3rem}
-    .about__panel-caption strong{color:var(--text);font-weight:700}
-    .about__panel-tags{font-size:.65rem;color:var(--gold);padding:0 .8rem .6rem}
+    /* GALLERY PANELS - HYROX STYLE */
+    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer}
+    .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .5s;filter:saturate(.4) brightness(.65)}
+    .about__panel:hover img{transform:scale(1.08);filter:saturate(.7) brightness(.75)}
+    .about__panel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,3vw,2.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.7) 0%,transparent 60%)}
+    .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.5rem}
+    .about__panel-sub{font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem}
+    .about__panel-desc{font-family:'Lora',serif;font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.5}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -189,7 +179,15 @@
     .trainers__header{margin-bottom:clamp(2rem,4vh,3rem)}
     .trainers__label{color:var(--gold);margin-bottom:1rem}
     .trainers__intro{color:var(--text-muted);font-size:1rem;line-height:1.7;max-width:600px;margin-top:1.25rem}
-    .trainers__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+    .trainers__carousel{position:relative;overflow:hidden}
+    .trainers__track{display:flex;transition:transform .5s cubic-bezier(.25,.46,.45,.94)}
+    .trainers__page{min-width:100%;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;padding:0 .25rem}
+    .trainers__nav-dots{display:flex;justify-content:center;gap:.6rem;margin-top:1.5rem}
+    .trainers__nav-dot{width:10px;height:10px;border-radius:50%;background:rgba(192,192,192,.2);border:1px solid rgba(192,192,192,.3);cursor:pointer;transition:all .3s}
+    .trainers__nav-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.2)}
+    .trainers__arrow{position:absolute;top:50%;transform:translateY(-50%);width:36px;height:36px;background:rgba(8,8,10,.8);border:1px solid var(--border);border-radius:50%;color:var(--silver);font-size:1rem;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:3;transition:all .2s}
+    .trainers__arrow:hover{background:var(--gold);color:#08080A}
+    .trainers__arrow--prev{left:-.5rem}.trainers__arrow--next{right:-.5rem}
     @keyframes fifaShine{0%{left:-150%}100%{left:150%}}
     @keyframes fifaGlow{0%,100%{box-shadow:0 0 15px rgba(201,168,76,.15),0 0 30px rgba(201,168,76,.05)}50%{box-shadow:0 0 30px rgba(201,168,76,.3),0 0 60px rgba(201,168,76,.1),0 0 100px rgba(201,168,76,.05)}}
     .trainer{position:relative;overflow:hidden;border-radius:20px 20px 14px 14px;cursor:pointer;background:linear-gradient(170deg,#2a2211 0%,#14120a 35%,#1a1507 70%,#0d0d0d 100%);border:2px solid rgba(201,168,76,.3);transition:transform .4s,box-shadow .4s;animation:fifaGlow 4s ease-in-out infinite}
@@ -368,7 +366,7 @@
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
       .about__grid{grid-template-columns:1fr}.about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
       .program__header{grid-template-columns:35px 35px 1fr 32px;gap:.75rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
-      .trainers__grid{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}
+      .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
@@ -379,7 +377,7 @@
     }
     @media(max-width:480px){
       .text-display{font-size:clamp(2.5rem,12vw,4rem)}
-      .trainers__grid{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:1fr;max-width:320px;margin:0 auto}
+      .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:1fr;max-width:320px;margin:0 auto}
       .footer__inner{grid-template-columns:1fr;gap:2rem}
     }
   </style>
@@ -467,43 +465,28 @@
       </div>
       <div class="about__panels reveal" style="transition-delay:.15s;">
         <div class="about__panel" onclick="openGallery('atletas')">
-          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
-          <div class="about__panel-img"><img src="img/Foto - Web 1.png" alt="Atletas Imperio"></div>
-          <div class="about__panel-actions">
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
-            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
+          <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Atletas</p>
+            <p class="about__panel-sub">Nuestros guerreros</p>
+            <p class="about__panel-desc">El compromiso no tiene dias libres. Cada repeticion cuenta.</p>
           </div>
-          <p class="about__panel-likes">2,437 Me gusta</p>
-          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Nuestros atletas demuestran que el compromiso no tiene dias libres. Cada repeticion cuenta.</p>
-          <p class="about__panel-tags">#ImperioElite #Atletas #GymBogota</p>
         </div>
         <div class="about__panel" onclick="openGallery('salidas')">
-          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
-          <div class="about__panel-img"><img src="img/Foto - Web 25.png" alt="Salidas Imperio"></div>
-          <div class="about__panel-actions">
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
-            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
+          <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Salidas</p>
+            <p class="about__panel-sub">Imperio al aire libre</p>
+            <p class="about__panel-desc">Cuando el gym se queda pequeno, salimos a conquistar.</p>
           </div>
-          <p class="about__panel-likes">1,823 Me gusta</p>
-          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Salida Imperio: battle ropes bajo las estrellas. Cuando el gym se queda pequeno, conquistamos afuera.</p>
-          <p class="about__panel-tags">#SalidaImperio #OutdoorTraining</p>
         </div>
         <div class="about__panel" onclick="openGallery('clases')">
-          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
-          <div class="about__panel-img"><img src="img/Foto - Web 15.png" alt="Clases Imperio"></div>
-          <div class="about__panel-actions">
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
-            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
-            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
+          <img src="img/Foto - Web 15.png" alt="Clases Imperio">
+          <div class="about__panel-overlay">
+            <p class="about__panel-title">Clases</p>
+            <p class="about__panel-sub">Beats & grupales</p>
+            <p class="about__panel-desc">Luces, musica y energia pura en cada sesion.</p>
           </div>
-          <p class="about__panel-likes">3,156 Me gusta</p>
-          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Clase de Beats: luces, musica y energia pura. Esto es lo que pasa cuando entrenas con proposito.</p>
-          <p class="about__panel-tags">#ClaseBeats #Cardio #ImperioElite</p>
         </div>
       </div>
     </div>
@@ -736,94 +719,280 @@
       <h2 class="text-heading">Un imperio se define<br>por su gente.</h2>
       <p class="trainers__intro" style="margin-left:auto;margin-right:auto;">Queremos que sepas con quien vas a entrenar. Conoce a las personas que te van a guiar, motivar y acompanar en cada paso de tu transformacion.</p>
     </div>
-    <div class="trainers__grid reveal-stagger">
-      <div class="trainer" onclick="openCV('coach1')">
-        <p class="trainer__card-logo">Imperio</p>
-        <div class="trainer__card-top">
-          <div><p class="trainer__rating">92</p><p class="trainer__pos">HC</p></div>
-          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+    <div class="trainers__carousel reveal">
+      <button class="trainers__arrow trainers__arrow--prev" onclick="moveTrainerPage(-1)">&#8249;</button>
+      <button class="trainers__arrow trainers__arrow--next" onclick="moveTrainerPage(1)">&#8250;</button>
+      <div class="trainers__track" id="trainersTrack">
+        <!-- PAGE 1: Coaches -->
+        <div class="trainers__page">
+          <div class="trainer" onclick="openCV('coach1')">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">92</p><p class="trainer__pos">HC</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/8.png" alt="Coach Nicolas"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Nicolas Garcia</p>
+              <p class="trainer__role">Head Coach &middot; Strength</p>
+              <span class="trainer__view-cv">Ver perfil</span>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer" onclick="openCV('coach2')">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">90</p><p class="trainer__pos">BTS</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/3.png" alt="Coach Beats"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Coach Beats</p>
+              <p class="trainer__role">Beats & Ritmo</p>
+              <span class="trainer__view-cv">Ver perfil</span>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">60</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">72</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">93</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer" onclick="openCV('coach3')">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">88</p><p class="trainer__pos">FNC</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/7.png" alt="Coach Funcional"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Coach Funcional</p>
+              <p class="trainer__role">Functional Training</p>
+              <span class="trainer__view-cv">Ver perfil</span>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">78</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer" onclick="openCV('nutri')">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">91</p><p class="trainer__pos">NUT</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/Web 1.png" alt="Nutricionista"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Nutricionista</p>
+              <p class="trainer__role">Nutricion Deportiva Profesional</p>
+              <span class="trainer__view-cv">Ver perfil</span>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">65</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
         </div>
-        <div class="trainer__img-wrap"><img src="img/blanco/8.png" alt="Coach Nicolas"></div>
-        <div class="trainer__info">
-          <p class="trainer__name">Nicolas Garcia</p>
-          <p class="trainer__role">Head Coach &middot; Strength</p>
-          <span class="trainer__view-cv">Ver perfil</span>
+        <!-- PAGE 2: Staff operativo -->
+        <div class="trainers__page">
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">88</p><p class="trainer__pos">RCP</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/1.png" alt="Recepcion"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Recepcion</p>
+              <p class="trainer__role">Atencion al Cliente</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">60</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">90</p><p class="trainer__pos">SEG</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/2.png" alt="Seguridad"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Seguridad</p>
+              <p class="trainer__role">Vigilancia & Proteccion</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">78</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">87</p><p class="trainer__pos">MNT</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/4.png" alt="Mantenimiento"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Mantenimiento</p>
+              <p class="trainer__role">Infraestructura & Equipos</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">72</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">89</p><p class="trainer__pos">ASO</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/5.png" alt="Aseo"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Aseo</p>
+              <p class="trainer__role">Limpieza & Orden</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
         </div>
-        <div class="trainer__card-line"></div>
-        <div class="trainer__fifa-stats">
-          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
-          <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
-          <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
-          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">LID</p></div>
-          <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
-          <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+        <!-- PAGE 3: Staff administrativo -->
+        <div class="trainers__page">
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">93</p><p class="trainer__pos">ADM</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/6.png" alt="Administracion"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Administracion</p>
+              <p class="trainer__role">Gestion & Operaciones</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">65</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">86</p><p class="trainer__pos">MKT</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/9.png" alt="Marketing"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Marketing</p>
+              <p class="trainer__role">Redes & Contenido</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">55</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">85</p><p class="trainer__pos">PWR</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/1.png" alt="Power Station"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Power Station</p>
+              <p class="trainer__role">Cafeteria & Nutricion</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
+          <div class="trainer">
+            <p class="trainer__card-logo">Imperio</p>
+            <div class="trainer__card-top">
+              <div><p class="trainer__rating">91</p><p class="trainer__pos">FND</p></div>
+              <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+            </div>
+            <div class="trainer__img-wrap"><img src="img/blanco/8.png" alt="Fundador"></div>
+            <div class="trainer__info">
+              <p class="trainer__name">Fundador</p>
+              <p class="trainer__role">CEO & Vision</p>
+            </div>
+            <div class="trainer__card-line"></div>
+            <div class="trainer__fifa-stats">
+              <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
+              <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
+              <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
+              <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">LID</p></div>
+              <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
+              <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="trainer" onclick="openCV('coach2')">
-        <p class="trainer__card-logo">Imperio</p>
-        <div class="trainer__card-top">
-          <div><p class="trainer__rating">90</p><p class="trainer__pos">BTS</p></div>
-          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-        </div>
-        <div class="trainer__img-wrap"><img src="img/blanco/3.png" alt="Coach Beats"></div>
-        <div class="trainer__info">
-          <p class="trainer__name">Coach Beats</p>
-          <p class="trainer__role">Beats & Ritmo</p>
-          <span class="trainer__view-cv">Ver perfil</span>
-        </div>
-        <div class="trainer__card-line"></div>
-        <div class="trainer__fifa-stats">
-          <div><p class="trainer__fifa-stat-val">60</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
-          <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
-          <div><p class="trainer__fifa-stat-val">72</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
-          <div><p class="trainer__fifa-stat-val">88</p><p class="trainer__fifa-stat-lbl">LID</p></div>
-          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
-          <div><p class="trainer__fifa-stat-val">93</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
-        </div>
-      </div>
-      <div class="trainer" onclick="openCV('coach3')">
-        <p class="trainer__card-logo">Imperio</p>
-        <div class="trainer__card-top">
-          <div><p class="trainer__rating">88</p><p class="trainer__pos">FNC</p></div>
-          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-        </div>
-        <div class="trainer__img-wrap"><img src="img/blanco/7.png" alt="Coach Funcional"></div>
-        <div class="trainer__info">
-          <p class="trainer__name">Coach Funcional</p>
-          <p class="trainer__role">Functional Training</p>
-          <span class="trainer__view-cv">Ver perfil</span>
-        </div>
-        <div class="trainer__card-line"></div>
-        <div class="trainer__fifa-stats">
-          <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
-          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
-          <div><p class="trainer__fifa-stat-val">78</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
-          <div><p class="trainer__fifa-stat-val">75</p><p class="trainer__fifa-stat-lbl">LID</p></div>
-          <div><p class="trainer__fifa-stat-val">82</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
-          <div><p class="trainer__fifa-stat-val">80</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
-        </div>
-      </div>
-      <div class="trainer" onclick="openCV('nutri')">
-        <p class="trainer__card-logo">Imperio</p>
-        <div class="trainer__card-top">
-          <div><p class="trainer__rating">91</p><p class="trainer__pos">NUT</p></div>
-          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
-        </div>
-        <div class="trainer__img-wrap"><img src="img/Web 1.png" alt="Nutricionista"></div>
-        <div class="trainer__info">
-          <p class="trainer__name">Nutricionista</p>
-          <p class="trainer__role">Nutricion Deportiva Profesional</p>
-          <span class="trainer__view-cv">Ver perfil</span>
-        </div>
-        <div class="trainer__card-line"></div>
-        <div class="trainer__fifa-stats">
-          <div><p class="trainer__fifa-stat-val">70</p><p class="trainer__fifa-stat-lbl">FUE</p></div>
-          <div><p class="trainer__fifa-stat-val">95</p><p class="trainer__fifa-stat-lbl">TEC</p></div>
-          <div><p class="trainer__fifa-stat-val">85</p><p class="trainer__fifa-stat-lbl">EXP</p></div>
-          <div><p class="trainer__fifa-stat-val">90</p><p class="trainer__fifa-stat-lbl">LID</p></div>
-          <div><p class="trainer__fifa-stat-val">65</p><p class="trainer__fifa-stat-lbl">CAR</p></div>
-          <div><p class="trainer__fifa-stat-val">92</p><p class="trainer__fifa-stat-lbl">MOT</p></div>
-        </div>
+      <div class="trainers__nav-dots">
+        <button class="trainers__nav-dot active" onclick="goTrainerPage(0)"></button>
+        <button class="trainers__nav-dot" onclick="goTrainerPage(1)"></button>
+        <button class="trainers__nav-dot" onclick="goTrainerPage(2)"></button>
       </div>
     </div>
   </div>
@@ -1154,6 +1323,12 @@
   function openPlans(){document.getElementById('plansOverlay').classList.add('active');document.body.style.overflow='hidden'}
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');closeGallery();document.body.style.overflow='';closeMobileMenu()}});
+
+  // === TRAINERS CAROUSEL ===
+  let trainerPage=0;const trainerPages=3;
+  function moveTrainerPage(dir){goTrainerPage(trainerPage+dir)}
+  function goTrainerPage(p){if(p<0)p=trainerPages-1;if(p>=trainerPages)p=0;trainerPage=p;document.getElementById('trainersTrack').style.transform=`translateX(-${p*100}%)`;document.querySelectorAll('.trainers__nav-dot').forEach((d,i)=>d.classList.toggle('active',i===p))}
+  (function(){const track=document.getElementById('trainersTrack');let tx=0,sx=0,dragging=false;track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX;dragging=true},{passive:true});track.addEventListener('touchmove',e=>{sx=e.touches[0].clientX-tx},{passive:true});track.addEventListener('touchend',()=>{if(!dragging)return;dragging=false;if(Math.abs(sx)>50){sx<0?moveTrainerPage(1):moveTrainerPage(-1)}sx=0})})();
 
   // === INSTAGRAM FEED API ===
   // INSTRUCCIONES: Reemplaza 'TU_TOKEN_AQUI' con tu Instagram Graph API long-lived token
