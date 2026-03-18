@@ -95,16 +95,25 @@
     .about__social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--text-muted);transition:all .3s}
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
-    /* GALLERY PANELS */
-    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:var(--radius);cursor:pointer;border:1px solid var(--border)}
-    .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.25,.46,.45,.94),filter .4s;filter:saturate(.3) brightness(.7)}
-    .about__panel:hover img{transform:scale(1.12);filter:saturate(.7) brightness(.85)}
-    .about__panel-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;z-index:2}
-    .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.3rem}
-    .about__panel-count{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
-    .about__panel-reactions{display:flex;gap:.8rem;margin-top:.5rem}
-    .about__panel-reaction{display:flex;align-items:center;gap:.3rem;font-size:.6rem;color:rgba(255,255,255,.7);font-weight:500}
+    /* GALLERY PANELS - IG POST STYLE */
+    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+    .about__panel{overflow:hidden;border-radius:var(--radius);cursor:pointer;border:1px solid var(--border);background:var(--surface);transition:transform .3s}
+    .about__panel:hover{transform:translateY(-4px)}
+    .about__panel-header{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem}
+    .about__panel-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);display:flex;align-items:center;justify-content:center;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.55rem;color:#fff}
+    .about__panel-user{font-size:.7rem;font-weight:700;letter-spacing:.02em}
+    .about__panel-loc{font-size:.5rem;color:var(--text-dim)}
+    .about__panel-img{position:relative;aspect-ratio:1/1;overflow:hidden}
+    .about__panel-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;filter:saturate(.5) brightness(.85)}
+    .about__panel:hover .about__panel-img img{transform:scale(1.08);filter:saturate(.75) brightness(.9)}
+    .about__panel-actions{display:flex;align-items:center;gap:.9rem;padding:.6rem .8rem}
+    .about__panel-action{display:flex;align-items:center;cursor:pointer}
+    .about__panel-action svg{width:20px;height:20px}
+    .about__panel-bookmark{margin-left:auto}
+    .about__panel-likes{font-size:.7rem;font-weight:700;padding:0 .8rem}
+    .about__panel-caption{font-size:.7rem;color:var(--text-muted);line-height:1.5;padding:0 .8rem .3rem}
+    .about__panel-caption strong{color:var(--text);font-weight:700}
+    .about__panel-tags{font-size:.65rem;color:var(--gold);padding:0 .8rem .6rem}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -451,50 +460,50 @@
         <p class="about__body" style="margin-top:0;">Nuestros parametros son claros: honestidad en el proceso, trabajo en equipo, cero excusas y resultados reales. Aqui no se venden milagros, se construyen con sudor.</p>
         <hr style="border:none;height:2px;background:linear-gradient(to right,transparent,var(--gold),transparent);max-width:120px;margin:0 auto 1.5rem;">
         <div class="about__socials" style="justify-content:center;">
-          <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
-          <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
-          <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
+          <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>Facebook</a>
+          <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="about__social-btn"><svg viewBox="0 0 24 24"><defs><linearGradient id="igAbout" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><path fill="url(#igAbout)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>Instagram</a>
+          <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#fff"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
         </div>
       </div>
       <div class="about__panels reveal" style="transition-delay:.15s;">
         <div class="about__panel" onclick="openGallery('atletas')">
-          <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Nuestros Atletas</p>
-            <p class="about__panel-count">12 publicaciones</p>
-            <div class="about__panel-reactions">
-              <span class="about__panel-reaction">&#10084;&#65039; 2.4K</span>
-              <span class="about__panel-reaction">&#128172; 186</span>
-              <span class="about__panel-reaction">&#128257; 94</span>
-              <span class="about__panel-reaction">&#9993;&#65039; 312</span>
-            </div>
+          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
+          <div class="about__panel-img"><img src="img/Foto - Web 1.png" alt="Atletas Imperio"></div>
+          <div class="about__panel-actions">
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
           </div>
+          <p class="about__panel-likes">2,437 Me gusta</p>
+          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Nuestros atletas demuestran que el compromiso no tiene dias libres. Cada repeticion cuenta.</p>
+          <p class="about__panel-tags">#ImperioElite #Atletas #GymBogota</p>
         </div>
         <div class="about__panel" onclick="openGallery('salidas')">
-          <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Salidas Imperio</p>
-            <p class="about__panel-count">8 publicaciones</p>
-            <div class="about__panel-reactions">
-              <span class="about__panel-reaction">&#10084;&#65039; 1.8K</span>
-              <span class="about__panel-reaction">&#128172; 127</span>
-              <span class="about__panel-reaction">&#128257; 68</span>
-              <span class="about__panel-reaction">&#9993;&#65039; 243</span>
-            </div>
+          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
+          <div class="about__panel-img"><img src="img/Foto - Web 25.png" alt="Salidas Imperio"></div>
+          <div class="about__panel-actions">
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
           </div>
+          <p class="about__panel-likes">1,823 Me gusta</p>
+          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Salida Imperio: battle ropes bajo las estrellas. Cuando el gym se queda pequeno, conquistamos afuera.</p>
+          <p class="about__panel-tags">#SalidaImperio #OutdoorTraining</p>
         </div>
         <div class="about__panel" onclick="openGallery('clases')">
-          <img src="img/Foto - Web 15.png" alt="Clases Imperio">
-          <div class="about__panel-overlay">
-            <p class="about__panel-title">Clases</p>
-            <p class="about__panel-count">10 publicaciones</p>
-            <div class="about__panel-reactions">
-              <span class="about__panel-reaction">&#10084;&#65039; 3.1K</span>
-              <span class="about__panel-reaction">&#128172; 214</span>
-              <span class="about__panel-reaction">&#128257; 152</span>
-              <span class="about__panel-reaction">&#9993;&#65039; 478</span>
-            </div>
+          <div class="about__panel-header"><div class="about__panel-avatar">IE</div><div><p class="about__panel-user">imperioelitefitness</p><p class="about__panel-loc">Imperio Elite · Normandia</p></div></div>
+          <div class="about__panel-img"><img src="img/Foto - Web 15.png" alt="Clases Imperio"></div>
+          <div class="about__panel-actions">
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="#ED4956"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></span>
+            <span class="about__panel-action"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></span>
+            <span class="about__panel-action about__panel-bookmark"><svg viewBox="0 0 24 24" fill="none" stroke="var(--silver)" stroke-width="1.5"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg></span>
           </div>
+          <p class="about__panel-likes">3,156 Me gusta</p>
+          <p class="about__panel-caption"><strong>imperioelitefitness</strong> Clase de Beats: luces, musica y energia pura. Esto es lo que pasa cuando entrenas con proposito.</p>
+          <p class="about__panel-tags">#ClaseBeats #Cardio #ImperioElite</p>
         </div>
       </div>
     </div>
@@ -517,8 +526,8 @@
           <span>Resultados reales</span>
         </div>
         <div class="programs__badge">
-          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5" fill="none"/><circle cx="20" cy="15" r="4" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M12 28c0-4.4 3.6-7 8-7s8 2.6 8 7" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" fill="none"/></svg>
-          <span>Coach certificado</span>
+          <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="18" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M20 12c-2 0-4 1-5 3-.5 1-.5 2 0 3l5 10 5-10c.5-1 .5-2 0-3-1-2-3-3-5-3z" stroke="var(--gold)" stroke-width="1.5" fill="none"/><path d="M15 22h10M17 25h6" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <span>Nutricion profesional</span>
         </div>
       </div>
     </div>
@@ -798,7 +807,7 @@
         <p class="trainer__card-logo">Imperio</p>
         <div class="trainer__card-top">
           <div><p class="trainer__rating">91</p><p class="trainer__pos">NUT</p></div>
-          <div class="trainer__card-badge" style="font-size:14px;border:none;background:none;">&#127823;</div>
+          <div class="trainer__card-badge"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         </div>
         <div class="trainer__img-wrap"><img src="img/Web 1.png" alt="Nutricionista"></div>
         <div class="trainer__info">
@@ -941,10 +950,10 @@
   <div class="footer__bottom">
     <p class="footer__copy">&copy; 2026 Imperio Elite Fitness Club. Todos los derechos reservados.</p>
     <div class="footer__socials">
-      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-      <a href="#" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg></a>
-      <a href="https://wa.me/573124167919" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><defs><linearGradient id="igFoot" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#feda75"/><stop offset="25%" stop-color="#fa7e1e"/><stop offset="50%" stop-color="#d62976"/><stop offset="75%" stop-color="#962fbf"/><stop offset="100%" stop-color="#4f5bd5"/></linearGradient></defs><path fill="url(#igFoot)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="#" title="TikTok"><svg viewBox="0 0 24 24" fill="#fff" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg></a>
+      <a href="https://wa.me/573124167919" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="#25D366" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
     </div>
   </div>
 </footer>
