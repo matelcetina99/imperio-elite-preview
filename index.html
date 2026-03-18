@@ -19,7 +19,7 @@
     .text-label{font-family:'Lora',serif;font-weight:600;font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase}
     .text-stat{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(3rem,6vw,5rem);line-height:1;color:var(--silver-light)}
 
-    .section{padding:clamp(3.5rem,7vh,6rem) clamp(1.25rem,5vw,4rem)}.container{max-width:1200px;margin:0 auto}.container--wide{max-width:1440px;margin:0 auto}
+    .section{padding:clamp(3.5rem,7vh,6rem) clamp(1.25rem,5vw,4rem);border-bottom:1px solid var(--border)}.container{max-width:1200px;margin:0 auto}.container--wide{max-width:1440px;margin:0 auto}
 
     .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.9rem 2.2rem;border:1px solid transparent;border-radius:var(--radius);cursor:pointer;text-decoration:none;transition:all .3s ease;font-family:'Lora',serif;font-size:.75rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
     .btn--gold{background:var(--gold);color:#08080A;border-color:var(--gold)}
@@ -37,6 +37,7 @@
     .nav__logo a{color:inherit;text-decoration:none}
     .nav__logo span{display:block;font-family:'Lora',serif;font-size:.45rem;font-weight:500;letter-spacing:.25em;color:var(--text-dim);margin-top:1px;transition:color .2s}
     .nav__logo:hover span{color:var(--gold)}
+    .nav__logo span .arrow-icon{display:none}
     .nav__address{font-family:'Lora',serif;font-size:.65rem;font-weight:400;letter-spacing:.03em;color:var(--text-dim);border-left:1px solid var(--border);padding-left:1.5rem;transition:color .2s}
     .nav__address:hover{color:var(--gold)}
     .nav__links{display:flex;gap:1.8rem;align-items:center}
@@ -86,6 +87,8 @@
     .carousel__track{display:flex;height:100%;transition:transform .6s cubic-bezier(.25,.46,.45,.94)}
     .carousel__slide{min-width:100%;height:100%}
     .carousel__slide img{width:100%;height:100%;object-fit:cover;border-radius:0}
+    .carousel__slide-caption{position:absolute;bottom:2.5rem;left:0;right:0;text-align:center;font-family:'Lora',serif;font-size:.75rem;font-weight:500;color:rgba(255,255,255,.8);letter-spacing:.03em;text-shadow:0 1px 6px rgba(0,0,0,.6);padding:0 1rem;z-index:2}
+    .carousel__slide{min-width:100%;height:100%;position:relative}
     .carousel__dots{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:3}
     .carousel__dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:all .3s}
     .carousel__dot.active{background:var(--gold);transform:scale(1.2)}
@@ -98,7 +101,8 @@
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
-    .program__header{display:grid;grid-template-columns:50px 1fr 2.5fr 40px;align-items:center;gap:1.5rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
+    .program__coach-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);filter:saturate(.5) contrast(1.05);flex-shrink:0}
+    .program__header{display:grid;grid-template-columns:50px 40px 1fr 2.5fr 40px;align-items:center;gap:1.2rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
     .program:hover .program__header{padding-left:clamp(2rem,6vw,5rem)}
     .program__number{color:var(--text-dim);font-size:.7rem;font-weight:500;letter-spacing:.05em}
     .program__name-row{display:flex;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
@@ -156,6 +160,7 @@
     .trainer__stats{position:absolute;top:0;right:0;bottom:0;width:55%;background:rgba(8,8,10,.92);backdrop-filter:blur(8px);padding:1.5rem 1rem;display:flex;flex-direction:column;justify-content:center;gap:.75rem;transform:translateX(100%);opacity:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94),opacity .3s;border-left:1px solid var(--gold)}
     .trainer:hover .trainer__stats,.trainer.trainer--touched .trainer__stats{transform:translateX(0);opacity:1}
     .trainer__stats-title{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
+    .trainer__stats-photo{width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:.4rem}
 
     /* CV MODAL */
     .cv-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
@@ -251,6 +256,16 @@
     .plan-card--platinum::before{content:'RECOMENDADO';position:absolute;top:-1px;left:50%;transform:translateX(-50%);background:var(--gold);color:#08080A;font-size:.55rem;font-weight:600;letter-spacing:.1em;padding:.25rem .85rem;z-index:2;border-radius:0 0 var(--radius) var(--radius)}
     .plan-card__name{font-family:'Times New Roman',Times,serif;font-size:1.7rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:1.5rem;color:var(--silver-light)}
     .plan-card__prices{display:flex;flex-direction:column;gap:1rem;margin-bottom:1.5rem}
+    .plan-card__price-tabs{display:flex;gap:.5rem;margin-bottom:1.25rem}
+    .plan-card__price-tab{flex:1;padding:.5rem .3rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.6rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);cursor:pointer;text-align:center;transition:all .3s;background:transparent}
+    .plan-card__price-tab:hover{border-color:var(--text-muted);color:var(--text-muted)}
+    .plan-card__price-tab.active{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.08)}
+    .plan-card__price-display{text-align:center;min-height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .plan-card__price-amount{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2.4rem;color:var(--gold);transition:all .3s;animation:priceIn .3s ease}
+    .plan-card__price-period{font-size:.65rem;color:var(--text-dim);margin-top:.2rem}
+    .plan-card__price-saving{font-size:.7rem;color:var(--gold);font-family:'Lora',serif;font-weight:500;margin-top:.4rem;opacity:0;transition:opacity .3s}
+    .plan-card__price-saving.visible{opacity:1}
+    @keyframes priceIn{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:translateY(0)}}
     .plan-card__price-row{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:.75rem;border-bottom:1px solid rgba(192,192,192,.06)}
     .plan-card__price-label{font-size:.62rem;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em}
     .plan-card__price-value{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.6rem;color:var(--gold)}
@@ -271,8 +286,9 @@
     .footer__bottom{max-width:1440px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
     .footer__copy{font-size:.6rem;color:var(--text-dim);letter-spacing:.03em}
     .footer__socials{display:flex;gap:1.5rem}
-    .footer__socials a{display:inline;padding:0;color:var(--text-dim);font-size:.85rem}
+    .footer__socials a{display:inline-flex;align-items:center;padding:0;color:var(--text-dim);transition:color .2s}
     .footer__socials a:hover{color:var(--gold)}
+    .footer__socials a svg{width:20px;height:20px}
 
     .reveal{opacity:0;transform:translateY(35px);transition:opacity .7s,transform .7s}
     .reveal.is-visible{opacity:1;transform:translateY(0)}
@@ -295,7 +311,7 @@
       .hero{min-height:100svh;align-items:center}.hero__content{padding-bottom:0;text-align:center;max-width:100%}.hero__ctas{justify-content:center}.hero__sub{margin-left:auto;margin-right:auto}.hero__label{justify-content:center}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
       .about__grid{grid-template-columns:1fr}.carousel{aspect-ratio:3/4}
-      .program__header{grid-template-columns:35px 1fr 32px;gap:1rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
+      .program__header{grid-template-columns:35px 35px 1fr 32px;gap:.75rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__grid{grid-template-columns:1fr 1fr;gap:.75rem}
       .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
@@ -316,7 +332,7 @@
 
 <nav class="nav" id="mainNav">
   <div class="nav__left">
-    <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank" class="nav__logo">IMPERIO<span>Cra. 71c #53-18 &middot; Normandia, Bogota &nearr;</span></a>
+    <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank" class="nav__logo">IMPERIO<span>Cra. 71c #53-18 &middot; Normandia, Bogota</span></a>
   </div>
   <ul class="nav__links">
     <li><a href="#about" class="nav__link">El Club</a></li>
@@ -356,21 +372,21 @@
     <div class="stats__item">
       <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank">
         <span class="text-stat">4.9</span>
-        <span class="text-label">&#9733; Rating en Google &nearr;</span>
+        <span class="text-label">&#9733; Rating en Google</span>
         <span class="stats__phrase">La calificacion habla por si sola</span>
       </a>
     </div>
     <div class="stats__item">
       <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank">
         <span class="text-stat">20+</span>
-        <span class="text-label">Resenas 5 estrellas &nearr;</span>
+        <span class="text-label">Resenas 5 estrellas</span>
         <span class="stats__phrase">Cada resena es una historia real de transformacion</span>
       </a>
     </div>
     <div class="stats__item">
       <a href="#programs">
         <span class="text-stat">7+</span>
-        <span class="text-label">Clases semanales &rarr;</span>
+        <span class="text-label">Clases semanales</span>
         <span class="stats__phrase">Variedad para que nunca te aburras</span>
       </a>
     </div>
@@ -395,11 +411,11 @@
       </div>
       <div class="carousel reveal" style="transition-delay:.15s;" id="aboutCarousel">
         <div class="carousel__track" id="carouselTrack">
-          <div class="carousel__slide"><img src="img/foto/1.png" alt="High five neon"></div>
-          <div class="carousel__slide"><img src="img/blanco/1.png" alt="Clase neon"></div>
-          <div class="carousel__slide"><img src="img/foto/2.png" alt="Personal training"></div>
-          <div class="carousel__slide"><img src="img/blanco/4.png" alt="Comunidad Imperio"></div>
-          <div class="carousel__slide"><img src="img/blanco/9.png" alt="Grupo Imperio"></div>
+          <div class="carousel__slide"><img src="img/foto/1.png" alt="High five neon"><span class="carousel__slide-caption">La energia que se vive en cada sesion</span></div>
+          <div class="carousel__slide"><img src="img/blanco/1.png" alt="Clase neon"><span class="carousel__slide-caption">Clases nocturnas con ambiente unico</span></div>
+          <div class="carousel__slide"><img src="img/foto/2.png" alt="Personal training"><span class="carousel__slide-caption">Entrenamiento personalizado 1 a 1</span></div>
+          <div class="carousel__slide"><img src="img/blanco/4.png" alt="Comunidad Imperio"><span class="carousel__slide-caption">Una comunidad que te impulsa</span></div>
+          <div class="carousel__slide"><img src="img/blanco/9.png" alt="Grupo Imperio"><span class="carousel__slide-caption">El equipo que construye resultados</span></div>
         </div>
         <div class="carousel__dots" id="carouselDots"></div>
         <button class="carousel__nav carousel__nav--prev" onclick="moveCarousel(-1)">&#8249;</button>
@@ -423,6 +439,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">01</span>
+          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;">Incluida en plan Platinum · Cupos limitados</span></p>
@@ -458,6 +475,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">02</span>
+          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
           <div>
             <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la musica mueve el cuerpo"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;">Incluida en plan Platinum · Cupos limitados</span></p>
@@ -493,6 +511,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">03</span>
+          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
           <div>
             <div class="program__name-row"><h3 class="program__name">Super Abdomen</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;">Incluida en plan Platinum · Cupos limitados</span></p>
@@ -528,6 +547,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">04</span>
+          <img class="program__coach-avatar" src="img/Foto - Web 8.png" alt="Coach">
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona Co-Working</h3><span class="program__motto-inline">"Tus reglas, nuestras herramientas"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;">Incluida en plan Platinum · Cupos limitados</span></p>
@@ -563,6 +583,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">05</span>
+          <img class="program__coach-avatar" src="img/foto/2.png" alt="Coach">
           <div>
             <div class="program__name-row"><h3 class="program__name">Personal Training</h3><span class="program__motto-inline">"No hay atajos, hay estrategia"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;">Incluida en plan Platinum · Cupos limitados</span></p>
@@ -613,9 +634,10 @@
         <div class="trainer__info">
           <p class="trainer__name">Nicolas Garcia</p>
           <p class="trainer__role">Head Coach &middot; Strength</p>
-          <span class="trainer__view-cv">Ver perfil &rarr;</span>
+          <span class="trainer__view-cv">Ver perfil</span>
         </div>
         <div class="trainer__stats">
+          <img class="trainer__stats-photo" src="img/blanco/8.png" alt="Nicolas Garcia">
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="98%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="92%"></div></div></div>
@@ -628,9 +650,10 @@
         <div class="trainer__info">
           <p class="trainer__name">Coach Beats</p>
           <p class="trainer__role">Beats & Ritmo</p>
-          <span class="trainer__view-cv">Ver perfil &rarr;</span>
+          <span class="trainer__view-cv">Ver perfil</span>
         </div>
         <div class="trainer__stats">
+          <img class="trainer__stats-photo" src="img/blanco/3.png" alt="Coach Beats">
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="99%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Energia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="96%"></div></div></div>
@@ -643,9 +666,10 @@
         <div class="trainer__info">
           <p class="trainer__name">Coach Funcional</p>
           <p class="trainer__role">Functional Training</p>
-          <span class="trainer__view-cv">Ver perfil &rarr;</span>
+          <span class="trainer__view-cv">Ver perfil</span>
         </div>
         <div class="trainer__stats">
+          <img class="trainer__stats-photo" src="img/blanco/7.png" alt="Coach Funcional">
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="85%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div></div>
@@ -691,7 +715,7 @@
       </div>
     </div>
     <div class="testimonials__more reveal">
-      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank" class="btn btn--outline">Ver mas resenas &rarr;</a>
+      <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank" class="btn btn--outline">Ver mas resenas</a>
     </div>
   </div>
 </section>
@@ -728,24 +752,11 @@
       <div class="instagram__item"><img src="img/foto/3.png" alt=""></div>
     </div>
     <div class="instagram__cta reveal">
-      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="btn btn--outline">Seguir en Instagram &rarr;</a>
+      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" class="btn btn--outline">Seguir en Instagram</a>
     </div>
   </div>
 </section>
 
-<!-- HOURS -->
-<section class="hours section" style="padding-top:clamp(2rem,4vh,3rem);padding-bottom:clamp(2rem,4vh,3rem);">
-  <div class="hours__grid reveal-stagger">
-    <div><p class="hours__block-title">Lunes a Viernes</p><p class="hours__block-value">5:30 am &mdash; 9:30 pm</p></div>
-    <div><p class="hours__block-title">Sabados</p><p class="hours__block-value">7:00 am &mdash; 2:00 pm</p></div>
-    <div><p class="hours__block-title">Domingos</p><p class="hours__block-value">8:00 am &mdash; 1:00 pm</p></div>
-    <div>
-      <p class="hours__block-title">Ubicacion</p>
-      <p class="hours__block-value" style="font-size:1.1rem;">Cra. 71c # 53-18, Normandia</p>
-      <a href="https://www.google.com/maps/search/Imperio+Elite+Fitness+Club+Cra+71c+53-18+Normandia+Bogota" target="_blank" class="btn btn--outline" style="margin-top:1rem;padding:.5rem 1.2rem;font-size:.7rem;">Como llegar &rarr;</a>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -785,7 +796,12 @@
   </div>
   <div class="footer__bottom">
     <p class="footer__copy">&copy; 2026 Imperio Elite Fitness Club. Todos los derechos reservados.</p>
-    <div class="footer__socials"><a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank">Facebook</a><a href="https://www.instagram.com/imperioelitefitness/" target="_blank">Instagram</a><a href="#">TikTok</a><a href="https://wa.me/573124167919" target="_blank">WhatsApp</a></div>
+    <div class="footer__socials">
+      <a href="https://www.facebook.com/people/Imperio-Elite-fitness-club/61557393132736/" target="_blank" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.instagram.com/imperioelitefitness/" target="_blank" title="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="#" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg></a>
+      <a href="https://wa.me/573124167919" target="_blank" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+    </div>
   </div>
 </footer>
 
@@ -801,9 +817,16 @@
           <div class="plan-card__bg"><img src="img/Foto - Web 3.png" alt=""></div>
           <h4 class="plan-card__name">Silver</h4>
           <div class="plan-card__prices">
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Mensual</span><span class="plan-card__price-value">$99.900</span></div>
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Trimestral</span><span class="plan-card__price-value plan-card__price-value--small">$269.900 <span style="font-size:.65rem;color:var(--gold);font-family:'Lora',serif;font-weight:500;">Ahorras $29.800 (10%)</span></span></div>
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Anual</span><span class="plan-card__price-value plan-card__price-value--small">$952.000 <span style="font-size:.65rem;color:var(--gold);font-family:'Lora',serif;font-weight:500;">Ahorras $246.800 (21%)</span></span></div>
+            <div class="plan-card__price-tabs">
+              <button class="plan-card__price-tab active" onclick="switchPlanPrice(this,'silver')">Mensual</button>
+              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'silver')">Trimestral</button>
+              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'silver')">Anual</button>
+            </div>
+            <div class="plan-card__price-display" id="silver-price">
+              <span class="plan-card__price-amount">$99.900</span>
+              <span class="plan-card__price-period">/mes</span>
+              <span class="plan-card__price-saving" id="silver-saving"></span>
+            </div>
           </div>
           <ul class="plan-card__features">
             <li><span class="check">&#10003;</span> L-V 8:30 am a 4:00 pm</li>
@@ -818,9 +841,16 @@
           <div class="plan-card__bg"><img src="img/Foto - Web 16.png" alt=""></div>
           <h4 class="plan-card__name">Platinum</h4>
           <div class="plan-card__prices">
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Mensual</span><span class="plan-card__price-value">$159.900</span></div>
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Trimestral</span><span class="plan-card__price-value plan-card__price-value--small">$433.900 <span style="font-size:.65rem;color:var(--gold);font-family:'Lora',serif;font-weight:500;">Ahorras $45.800 (10%)</span></span></div>
-            <div class="plan-card__price-row"><span class="plan-card__price-label">Anual</span><span class="plan-card__price-value plan-card__price-value--small">$1.400.000 <span style="font-size:.65rem;color:var(--gold);font-family:'Lora',serif;font-weight:500;">Ahorras $518.800 (27%)</span></span></div>
+            <div class="plan-card__price-tabs">
+              <button class="plan-card__price-tab active" onclick="switchPlanPrice(this,'platinum')">Mensual</button>
+              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'platinum')">Trimestral</button>
+              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'platinum')">Anual</button>
+            </div>
+            <div class="plan-card__price-display" id="platinum-price">
+              <span class="plan-card__price-amount">$159.900</span>
+              <span class="plan-card__price-period">/mes</span>
+              <span class="plan-card__price-saving" id="platinum-saving"></span>
+            </div>
           </div>
           <ul class="plan-card__features">
             <li><span class="check">&#10003;</span> Ingreso ilimitado</li>
@@ -953,6 +983,8 @@
   };
   function openCV(id){const d=cvData[id];if(!d)return;document.getElementById('cvContent').innerHTML=`<button class="cv-overlay__close" onclick="closeCV()">&times;</button><div class="cv__header"><div class="cv__header-bg"></div><div class="cv__header-accent"></div><img class="cv__photo" src="${d.photo}" alt="${d.name}"><div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;"><h2 class="cv__name" style="margin-bottom:0">${d.name}</h2><span style="font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);background:rgba(201,168,76,.1);padding:.3rem .7rem;border:1px solid rgba(201,168,76,.3);border-radius:var(--radius);">${d.badge}</span></div><p class="cv__title">${d.title}</p><p class="cv__quote">${d.quote}</p></div><div class="cv__body"><div class="cv__section"><div class="cv__stats-grid">${d.stats.map(s=>`<div class="cv__stat-card"><p class="cv__stat-number">${s.number}</p><p class="cv__stat-label">${s.label}</p></div>`).join('')}</div></div><div class="cv__section"><h3 class="cv__section-title">Fortalezas</h3>${d.strengths.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section"><h3 class="cv__section-title">Formacion Academica</h3>${d.education.map(e=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${e}</p></div>`).join('')}</div><div class="cv__section"><h3 class="cv__section-title">Especialidades</h3>${d.specialties.map(s=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${s}</p></div>`).join('')}</div><div class="cv__section"><h3 class="cv__section-title">Logros</h3>${d.achievements.map(a=>`<div class="cv__item"><div class="cv__item-dot"></div><p class="cv__item-text">${a}</p></div>`).join('')}</div></div>`;document.getElementById('cvOverlay').classList.add('active');document.body.style.overflow='hidden'}
   function closeCV(e){if(e&&e.target!==e.currentTarget&&!e.target.classList.contains('cv-overlay__close'))return;document.getElementById('cvOverlay').classList.remove('active');document.body.style.overflow=''}
+  const planPrices={silver:{Mensual:{price:'$99.900',period:'/mes',saving:''},Trimestral:{price:'$269.900',period:'/trimestre',saving:'Ahorras $29.800 (10%)'},Anual:{price:'$952.000',period:'/ano',saving:'Ahorras $246.800 (21%)'}},platinum:{Mensual:{price:'$159.900',period:'/mes',saving:''},Trimestral:{price:'$433.900',period:'/trimestre',saving:'Ahorras $45.800 (10%)'},Anual:{price:'$1.400.000',period:'/ano',saving:'Ahorras $518.800 (27%)'}}};
+  function switchPlanPrice(tab,plan){const tabs=tab.parentElement.querySelectorAll('.plan-card__price-tab');tabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');const period=tab.textContent;const d=planPrices[plan][period];const el=document.getElementById(plan+'-price');el.querySelector('.plan-card__price-amount').style.animation='none';el.querySelector('.plan-card__price-amount').offsetHeight;el.querySelector('.plan-card__price-amount').style.animation='priceIn .3s ease';el.querySelector('.plan-card__price-amount').textContent=d.price;el.querySelector('.plan-card__price-period').textContent=d.period;const sv=document.getElementById(plan+'-saving');sv.textContent=d.saving;sv.classList.toggle('visible',d.saving!=='')}
   function openPlans(){document.getElementById('plansOverlay').classList.add('active');document.body.style.overflow='hidden'}
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');document.body.style.overflow='';closeMobileMenu()}});
