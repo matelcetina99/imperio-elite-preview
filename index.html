@@ -142,9 +142,10 @@
     .program__motto-inline{font-family:'Lora',serif;font-style:italic;font-size:.85rem;color:var(--text-dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:350px}
     .program__coach-label{font-size:.62rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;margin-top:.2rem}
     .program__desc{color:var(--text-muted);font-size:.88rem}
-    .program__arrow{font-size:1.3rem;color:var(--text-dim);transition:color .2s,transform .3s}
-    .program:hover .program__arrow{color:var(--gold);transform:translateX(4px)}
-    .program.active .program__arrow{transform:rotate(90deg);color:var(--gold)}
+    @keyframes arrowPulse{0%,100%{transform:translateX(0);opacity:.5}50%{transform:translateX(5px);opacity:1}}
+    .program__arrow{font-size:1.3rem;color:var(--gold);transition:color .2s,transform .3s;animation:arrowPulse 1.5s ease-in-out infinite}
+    .program:hover .program__arrow{color:var(--gold);transform:translateX(4px);animation:none}
+    .program.active .program__arrow{transform:rotate(90deg);color:var(--gold);animation:none}
     .program__expanded{max-height:0;opacity:0;overflow:hidden;transition:max-height .5s ease,opacity .4s ease}
     .program.active .program__expanded{max-height:500px;opacity:1}
     .program__expanded-inner{display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:0 clamp(1.25rem,5vw,4rem) 2rem}
@@ -190,7 +191,9 @@
     .trainers__arrow--prev{left:-.5rem}.trainers__arrow--next{right:-.5rem}
     @keyframes fifaShine{0%{left:-150%}100%{left:150%}}
     @keyframes fifaGlow{0%,100%{box-shadow:0 0 15px rgba(201,168,76,.15),0 0 30px rgba(201,168,76,.05)}50%{box-shadow:0 0 30px rgba(201,168,76,.3),0 0 60px rgba(201,168,76,.1),0 0 100px rgba(201,168,76,.05)}}
-    .trainer{position:relative;overflow:hidden;border-radius:20px 20px 14px 14px;cursor:pointer;background:linear-gradient(170deg,#2a2211 0%,#14120a 35%,#1a1507 70%,#0d0d0d 100%);border:2px solid rgba(201,168,76,.3);transition:transform .4s,box-shadow .4s;animation:fifaGlow 4s ease-in-out infinite}
+    @keyframes cardBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .trainer{position:relative;overflow:hidden;border-radius:20px 20px 14px 14px;cursor:pointer;background:linear-gradient(170deg,#2a2211 0%,#14120a 35%,#1a1507 70%,#0d0d0d 100%);border:2px solid rgba(201,168,76,.3);transition:transform .4s,box-shadow .4s;animation:fifaGlow 4s ease-in-out infinite,cardBounce 3s ease-in-out infinite}
+    .trainer:nth-child(2){animation-delay:.4s}.trainer:nth-child(3){animation-delay:.8s}.trainer:nth-child(4){animation-delay:1.2s}
     .trainer::before{content:'';position:absolute;top:0;left:-150%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(201,168,76,.08),rgba(255,255,255,.05),transparent);z-index:5;pointer-events:none;animation:fifaShine 5s ease-in-out infinite}
     .trainer:hover{transform:translateY(-10px) scale(1.02);box-shadow:0 25px 70px rgba(201,168,76,.25),0 0 50px rgba(201,168,76,.12);border-color:rgba(201,168,76,.6)}
     .trainer__card-logo{text-align:center;padding:.4rem 0 0;font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(201,168,76,.5)}
