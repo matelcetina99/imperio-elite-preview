@@ -142,7 +142,7 @@
     .stat-bar__fill--coordinacion{background:linear-gradient(90deg,#F59E0B,#FBBF24)}
     .stat-bar__fill--ritmo{background:linear-gradient(90deg,#EC4899,#F472B6)}
     .stat-bar__fill--flexibilidad{background:linear-gradient(90deg,#10B981,#34D399)}
-    .coach-card{display:flex;align-items:center;gap:1.25rem;padding:1.25rem;background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius)}
+    .coach-card{display:none;align-items:center;gap:1.25rem;padding:1.25rem;background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius)}
     .coach-card__img{width:65px;height:65px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);filter:saturate(.5) contrast(1.05)}
     .coach-card__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem}
     .coach-card__role{font-size:.6rem;font-weight:600;color:var(--gold);letter-spacing:.06em;text-transform:uppercase}
@@ -161,10 +161,12 @@
     .trainer__role{font-size:.6rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
     .trainer__view-cv{display:inline-block;margin-top:.5rem;font-size:.55rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--silver);border-bottom:1px solid var(--gold);padding-bottom:1px;transition:color .2s}
     .trainer:hover .trainer__view-cv{color:var(--gold)}
-    .trainer__stats{position:absolute;top:0;right:0;bottom:0;width:55%;background:rgba(8,8,10,.92);backdrop-filter:blur(8px);padding:1.5rem 1rem;display:flex;flex-direction:column;justify-content:center;gap:.75rem;transform:translateX(100%);opacity:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94),opacity .3s;border-left:1px solid var(--gold)}
+    .trainer__stats{position:absolute;top:0;right:0;bottom:0;width:58%;background:rgba(8,8,10,.92);backdrop-filter:blur(8px);padding:1.2rem 1rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;transform:translateX(100%);opacity:0;transition:transform .4s cubic-bezier(.25,.46,.45,.94),opacity .3s;border-left:1px solid var(--gold)}
+    .trainer__stats-name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.9rem;color:var(--silver-light);margin-top:-.2rem;margin-bottom:.1rem}
+    .trainer__stats .stat-bar{width:100%}
     .trainer:hover .trainer__stats,.trainer.trainer--touched .trainer__stats{transform:translateX(0);opacity:1}
     .trainer__stats-title{font-size:.55rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.2rem}
-    .trainer__stats-photo{width:45px;height:45px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);margin-bottom:.4rem}
+    .trainer__stats-photo{width:70px;height:70px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-bottom:.5rem;box-shadow:0 0 20px rgba(201,168,76,.25)}
 
     /* CV MODAL */
     .cv-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
@@ -381,7 +383,7 @@
     <div class="stats__item">
       <a href="https://www.google.com/maps/place/Imperio+Elite+Fitness+Club" target="_blank">
         <span class="text-stat">4.9</span>
-        <span class="text-label">&#9733; Rating en Google</span>
+        <span class="text-label">&#9733; Rating en <span style="letter-spacing:0;"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></span></span>
         <span class="stats__phrase">La calificacion habla por si sola</span>
       </a>
     </div>
@@ -661,6 +663,7 @@
         </div>
         <div class="trainer__stats">
           <img class="trainer__stats-photo" src="img/blanco/8.png" alt="Nicolas Garcia">
+          <p class="trainer__stats-name">Nicolas Garcia</p>
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="98%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Tecnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="92%"></div></div></div>
@@ -677,6 +680,7 @@
         </div>
         <div class="trainer__stats">
           <img class="trainer__stats-photo" src="img/blanco/3.png" alt="Coach Beats">
+          <p class="trainer__stats-name">Coach Beats</p>
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="99%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Energia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="96%"></div></div></div>
@@ -693,6 +697,7 @@
         </div>
         <div class="trainer__stats">
           <img class="trainer__stats-photo" src="img/blanco/7.png" alt="Coach Funcional">
+          <p class="trainer__stats-name">Coach Funcional</p>
           <p class="trainer__stats-title">Habilidades</p>
           <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="85%"></div></div></div>
           <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div></div>
