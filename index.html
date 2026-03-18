@@ -322,7 +322,23 @@
     .hours__block-title{font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem}
     .hours__block-value{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.3rem;color:var(--silver-light)}
 
-    /* PLANS MODAL */
+    /* PLANS MODAL - Estilo Ver Programas */
+    .plan-row{display:grid;grid-template-columns:1fr 1.3fr;gap:2rem;padding:1.5rem;border:1px solid var(--border);border-radius:var(--radius);background:rgba(192,192,192,.02)}
+    .plan-row__prices{display:flex;flex-direction:column;gap:.8rem}
+    .plan-row__price-item{padding:.6rem .8rem;border:1px solid rgba(192,192,192,.12);border-radius:8px;background:rgba(8,8,10,.4);text-align:center}
+    .plan-row__price-val{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.4rem;color:var(--silver-light);display:block}
+    .plan-row__price-lbl{font-size:.55rem;text-transform:uppercase;letter-spacing:.08em;color:var(--text-dim);display:block;margin-top:.15rem}
+    .plan-row__name{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--silver-light);margin-bottom:1rem}
+    .plan-row__features{list-style:none;padding:0;display:flex;flex-direction:column;gap:.4rem}
+    .plan-row__features li{font-size:.82rem;color:var(--text-muted);display:flex;align-items:flex-start;gap:.5rem;line-height:1.4}
+    .plan-row__features li .check{color:var(--gold);font-size:.7rem;flex-shrink:0;margin-top:3px}
+    .plan-row__features li .cross{color:var(--text-dim);font-size:.7rem;flex-shrink:0;margin-top:3px}
+    .plan-uni__inner{display:flex;align-items:center;gap:1.5rem;padding:1.5rem;border:1px solid rgba(201,168,76,.3);border-radius:var(--radius);background:rgba(201,168,76,.03)}
+    .plan-uni__logo{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0}
+    .plan-uni__text{flex:1}
+    .plan-uni__headline{font-family:'Lora',serif;font-size:.85rem;color:var(--text-muted);line-height:1.5}
+    .plan-uni__price{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2rem;color:var(--gold);margin:.3rem 0}
+    .plan-uni__terms{font-size:.6rem;color:var(--text-dim);font-style:italic}
     .plans-overlay{position:fixed;inset:0;z-index:200;background:rgba(8,8,10,.94);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:2rem;cursor:pointer}
     .plans-overlay.active{display:flex}
     .plans-overlay__inner{position:relative;max-width:950px;width:100%;max-height:92vh;overflow-y:auto;cursor:default;border:1px solid var(--border);background:var(--bg);border-radius:var(--radius)}
@@ -405,7 +421,7 @@
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
       .footer__inner{grid-template-columns:1fr 1fr;gap:2rem}.footer__bottom{flex-direction:column;gap:1rem;text-align:center}
-      .plans-overlay{padding:0}.plans-overlay__inner{max-height:100vh;border:none;border-radius:0}.plans-overlay__content{padding:2rem 1.25rem}.plans-grid{grid-template-columns:1fr}
+      .plans-overlay{padding:0}.plans-overlay__inner{max-height:100vh;border:none;border-radius:0}.plans-overlay__content{padding:2rem 1.25rem}.plans-grid{grid-template-columns:1fr}.plan-row{grid-template-columns:1fr;gap:1.2rem}.plan-uni__inner{flex-direction:column;text-align:center}
       .cv-overlay{padding:0}.cv-overlay__inner{max-height:100vh;border:none;border-radius:0}.cv__header{padding:1.2rem 1.2rem 1rem;flex-direction:column;text-align:center}.cv__quote{border-left:none;padding-left:0;text-align:center}.cv__body{padding:1rem 1.2rem}.cv__two-col{grid-template-columns:1fr}.cv__name{font-size:1.3rem}.cv__radar-wrap svg{max-width:200px}
       .btn--large{padding:1rem 2rem;font-size:.72rem}
     }
@@ -1236,60 +1252,70 @@
   <button class="plans-overlay__close" onclick="document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow='';">&times;</button>
   <div class="plans-overlay__inner" onclick="event.stopPropagation()">
     <div class="plans-overlay__content">
-      <p class="text-label" style="color:var(--gold);text-align:center;margin-bottom:.5rem;">Membresias</p>
-      <h3 class="plans-overlay__title">Planes Imperio</h3>
-      <div class="plans-grid">
-        <div class="plan-card plan-card--silver">
-          <div class="plan-card__bg"><img src="img/Foto - Web 3.png" alt=""></div>
-          <h4 class="plan-card__name">Silver</h4>
-          <div class="plan-card__prices">
-            <div class="plan-card__price-tabs">
-              <button class="plan-card__price-tab active" onclick="switchPlanPrice(this,'silver')">Mensual</button>
-              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'silver')">Trimestral</button>
-              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'silver')">Anual</button>
-            </div>
-            <div class="plan-card__price-display" id="silver-price">
-              <span class="plan-card__price-amount">$99.900</span>
-              <span class="plan-card__price-period">/mes</span>
-              <span class="plan-card__price-saving" id="silver-saving"></span>
-            </div>
-          </div>
-          <ul class="plan-card__features">
-            <li><span class="check">&#10003;</span> L-V 8:30 am a 4:00 pm</li>
-            <li><span class="check">&#10003;</span> Sin clausula de permanencia</li>
-            <li><span class="cross">&#10005;</span> No incluye app</li>
-            <li><span class="cross">&#10005;</span> No incluye clases grupales</li>
-            <li><span class="check">&#10003;</span> Fines de semana acceso libre</li>
-          </ul>
-          <div class="plan-card__cta"><a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Silver%20de%20Imperio" target="_blank" class="btn btn--outline btn--small" style="width:100%;">Quiero unirme al Imperio</a></div>
+      <!-- Header logo -->
+      <div style="text-align:center;margin-bottom:2rem;">
+        <p style="font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-light);">IMPERIO</p>
+        <p style="font-family:'Lora',serif;font-size:.55rem;letter-spacing:.25em;color:var(--text-dim);text-transform:uppercase;">Elite Fitness Club</p>
+      </div>
+
+      <!-- SILVER -->
+      <div class="plan-row">
+        <div class="plan-row__prices">
+          <div class="plan-row__price-item"><span class="plan-row__price-val" style="color:var(--gold);">$79.900</span><span class="plan-row__price-lbl">Mensual debito automatico</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$99.900</span><span class="plan-row__price-lbl">Mensual</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$269.900</span><span class="plan-row__price-lbl">Trimestral</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$952.000</span><span class="plan-row__price-lbl">Anual</span></div>
         </div>
-        <div class="plan-card plan-card--platinum">
-          <div class="plan-card__bg"><img src="img/Foto - Web 16.png" alt=""></div>
-          <h4 class="plan-card__name">Platinum</h4>
-          <div class="plan-card__prices">
-            <div class="plan-card__price-tabs">
-              <button class="plan-card__price-tab active" onclick="switchPlanPrice(this,'platinum')">Mensual</button>
-              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'platinum')">Trimestral</button>
-              <button class="plan-card__price-tab" onclick="switchPlanPrice(this,'platinum')">Anual</button>
-            </div>
-            <div class="plan-card__price-display" id="platinum-price">
-              <span class="plan-card__price-amount">$159.900</span>
-              <span class="plan-card__price-period">/mes</span>
-              <span class="plan-card__price-saving" id="platinum-saving"></span>
-            </div>
-          </div>
-          <ul class="plan-card__features">
-            <li><span class="check">&#10003;</span> Ingreso ilimitado</li>
-            <li><span class="check">&#10003;</span> Incluye app</li>
-            <li><span class="check">&#10003;</span> Plan de entrenamiento</li>
-            <li><span class="check">&#10003;</span> InBody cada 3 meses</li>
-            <li><span class="check">&#10003;</span> Clases grupales incluidas</li>
-            <li><span class="check">&#10003;</span> 4 invitados al mes</li>
-            <li><span class="check">&#10003;</span> Sin permanencia</li>
+        <div class="plan-row__info">
+          <h3 class="plan-row__name">Silver</h3>
+          <ul class="plan-row__features">
+            <li><span class="check">&#10003;</span> Ingreso de lunes a viernes de 08:30 am a 04:00 pm.</li>
+            <li><span class="check">&#10003;</span> Sin clausula de permanencia minima.</li>
+            <li><span class="cross">&#10005;</span> No incluye aplicacion.</li>
+            <li><span class="cross">&#10005;</span> No incluye acceso a clases grupales.</li>
+            <li><span class="check">&#10003;</span> Sabado y domingo con acceso libre.</li>
           </ul>
-          <div class="plan-card__cta"><a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Platinum%20de%20Imperio" target="_blank" class="btn btn--gold btn--small" style="width:100%;">Quiero unirme al Imperio</a></div>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Silver%20de%20Imperio" target="_blank" class="btn btn--outline btn--small" style="margin-top:1rem;">Quiero unirme</a>
         </div>
       </div>
+
+      <!-- PLATINUM -->
+      <div class="plan-row" style="margin-top:2rem;">
+        <div class="plan-row__prices">
+          <div class="plan-row__price-item"><span class="plan-row__price-val" style="color:var(--gold);">$139.900</span><span class="plan-row__price-lbl">Mensual debito automatico</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$159.900</span><span class="plan-row__price-lbl">Mensual</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$433.900</span><span class="plan-row__price-lbl">Trimestral</span></div>
+          <div class="plan-row__price-item"><span class="plan-row__price-val">$1.400.000</span><span class="plan-row__price-lbl">Anual</span></div>
+        </div>
+        <div class="plan-row__info">
+          <h3 class="plan-row__name">Platinum</h3>
+          <ul class="plan-row__features">
+            <li><span class="check">&#10003;</span> Ingreso ilimitado.</li>
+            <li><span class="check">&#10003;</span> Incluye aplicacion.</li>
+            <li><span class="check">&#10003;</span> Incluye plan de entrenamiento (opcional).</li>
+            <li><span class="check">&#10003;</span> Incluye valoracion de Composicion Corporal InBody cada 3 meses.</li>
+            <li><span class="check">&#10003;</span> Incluye acceso a clases grupales.</li>
+            <li><span class="check">&#10003;</span> Incluye 4 invitados al mes.</li>
+            <li><span class="check">&#10003;</span> Sin clausula de permanencia minima.</li>
+            <li><span class="check">&#10003;</span> Sin cobros adicionales por mantenimiento.</li>
+          </ul>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Platinum%20de%20Imperio" target="_blank" class="btn btn--gold btn--small" style="margin-top:1rem;">Quiero unirme</a>
+        </div>
+      </div>
+
+      <!-- UNIVERSITARIO -->
+      <div class="plan-uni" style="margin-top:2.5rem;">
+        <div class="plan-uni__inner">
+          <img src="img/logo-unilibre.jpg" alt="Universidad Libre" class="plan-uni__logo">
+          <div class="plan-uni__text">
+            <p class="plan-uni__headline">Presenta tu carne universitario y accede a una membresia especial por</p>
+            <p class="plan-uni__price">$79.900</p>
+            <p class="plan-uni__terms">Aplican terminos y condiciones</p>
+          </div>
+          <a href="https://wa.me/573124167919?text=Hola%2C%20quiero%20info%20sobre%20el%20plan%20Universitario%20de%20Imperio" target="_blank" class="btn btn--outline btn--small">Info plan universitario</a>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>
