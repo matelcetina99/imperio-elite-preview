@@ -287,10 +287,8 @@
     .instagram__item:hover::after{opacity:0}
     .global{background:var(--surface);overflow:hidden}
     .global__wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-    .global__map-wrap{position:relative;width:100%;aspect-ratio:2/1}
+    .global__map-wrap{position:relative;width:100%;aspect-ratio:2/1;display:flex;align-items:center;justify-content:center}
     .global__map-wrap svg{width:100%;height:100%}
-    .global__map-wrap .land{fill:rgba(192,192,192,.06);stroke:rgba(192,192,192,.35);stroke-width:1.2;stroke-linejoin:round}
-    .global__pin{fill:var(--gold);filter:drop-shadow(0 0 4px rgba(201,168,76,.4))}
     .global__stat-big{font-family:'Times New Roman',Times,serif;font-size:clamp(3rem,6vw,4.5rem);font-weight:700;color:var(--silver-light);line-height:1}
     .global__stat-label{font-size:.7rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);margin-top:.5rem}
     .global__stat-sub{font-family:'Lora',serif;font-size:.9rem;color:var(--text-muted);margin-top:1rem;line-height:1.6}
@@ -1113,59 +1111,7 @@
 <section class="global section">
   <div class="container">
     <div class="global__wrap reveal">
-      <div class="global__map-wrap">
-        <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
-          <!-- North America -->
-          <path class="land" d="M55 80l15-10 25 5 20-15 30 0 25 10 15-5 20 10 30 5 15 15 10 20-5 15 10 25 15 10 5 20-10 15-20 5-10 15-15 5-25-5-15 10-10 15-20 5-5 15-15 10-10-5-15 15-20 0-15-10-5-15-20-5-10-15 5-20-15-10 0-20 10-15 5-25 15-10 20-5 10-20z"/>
-          <!-- Greenland -->
-          <path class="land" d="M280 20l20-5 15 10 10 15-5 15-15 10-20 0-15-10-5-15 10-15z"/>
-          <!-- Central America -->
-          <path class="land" d="M145 220l10 5 5 10-5 10 10 10 5 10-5 5-10 0-5 10-10 5-5-10 0-15 5-10-5-10 5-15z"/>
-          <!-- Caribbean -->
-          <path class="land" d="M205 210l10 3 8-2 5 5-3 5-8 2-7-3z"/>
-          <path class="land" d="M230 205l8 2 5 5-5 5-8-2-3-5z"/>
-          <!-- South America -->
-          <path class="land" d="M175 275l15-5 20 5 25 0 20 10 10 20 15 10 5 20 0 25-5 20 5 25-5 25-10 20-15 15-10 25-15 15-5 20-15 10-15-5-10-20 5-15-10-20-5-25 0-20 5-25-5-15 0-25 5-20 10-15-5-20 10-10z"/>
-          <!-- Europe -->
-          <path class="land" d="M440 55l10 5 15-5 20 5 10 10 15 0 10-10 15 5 5 15-5 10 10 10 0 15-10 10-15 5 5 10-10 10-15 0-10 10-15-5-10 5-15-10-5-15 5-10-10-5 0-15 10-10-5-15 10-10z"/>
-          <!-- Iberian Peninsula -->
-          <path class="land" d="M415 120l15 5 10 10-5 15-15 5-15-5-5-15 10-10z"/>
-          <!-- Africa -->
-          <path class="land" d="M430 165l15 5 20-5 15 10 10 15 20 5 10 15-5 20 10 15 5 25-5 20 0 25-10 20-15 10-10 20-15 5-20-5-15 10-15-10-10-20-15 5-15-10-5-15-15-5 0-20 10-15-5-20 5-15 10-10 15 5 5-15 15-10z"/>
-          <!-- Middle East -->
-          <path class="land" d="M530 110l15 5 10 15 20 5 15 10-5 15-15 5-10 10-20 0-15-10-10-15 5-15-5-10 10-10z"/>
-          <!-- Russia/Asia -->
-          <path class="land" d="M500 25l30 5 25 0 30 5 20 10 25 5 30 0 25 10 20 5 15 15 20 5 15 10 10 15-5 20-15 10-10 15-20 5-15 15 5 15-10 10-20 5-25-5-15 10-20-5-10-15-15 5-20-10-15 0-20-10-25 5-15-10-20-5-10-10-5-15 10-10 0-20 15-10 5-15 15-5z"/>
-          <!-- India -->
-          <path class="land" d="M620 150l15 10 10 15 5 25-5 20-10 15-15 5-10-15-5-20 0-25 5-15z"/>
-          <!-- Southeast Asia -->
-          <path class="land" d="M700 170l15 5 10 15-5 15 10 10-5 10-15 5-10-10-5-15 5-15-5-10z"/>
-          <!-- China/East Asia -->
-          <path class="land" d="M680 80l20 5 15 15 10 20 0 25-10 15-20 5-15-5-10-15 5-20-10-15 5-15z"/>
-          <!-- Japan -->
-          <path class="land" d="M770 100l5 10 0 15-5 10-5-10 0-15z"/>
-          <!-- Australia -->
-          <path class="land" d="M730 310l25 5 20 15 10 20 5 25-5 15-15 10-25 5-20-5-15-15-10-20 5-20 10-15 15-10z"/>
-          <!-- Indonesia -->
-          <path class="land" d="M720 240l10 3 8 0 5 5-5 5-10 0-8-5z M740 235l8 3 5 5-5 5-8-3z"/>
-
-          <!-- PINS con labels -->
-          <circle class="global__pin" cx="150" cy="130" r="7"/><!-- USA -->
-          <circle class="global__pin" cx="222" cy="212" r="7"/><!-- Rep Dominicana -->
-          <circle class="global__pin" cx="190" cy="285" r="6"/><!-- Colombia HOME -->
-          <circle class="global__pin" cx="185" cy="310" r="7"/><!-- Ecuador -->
-          <circle class="global__pin" cx="180" cy="340" r="7"/><!-- Peru -->
-          <circle class="global__pin" cx="210" cy="275" r="7"/><!-- Venezuela -->
-          <circle class="global__pin" cx="240" cy="340" r="7"/><!-- Brasil -->
-          <circle class="global__pin" cx="210" cy="420" r="7"/><!-- Argentina -->
-          <circle class="global__pin" cx="425" cy="130" r="7"/><!-- Espana -->
-          <circle class="global__pin" cx="460" cy="95" r="7"/><!-- Francia -->
-          <circle class="global__pin" cx="480" cy="78" r="7"/><!-- Alemania -->
-          <circle class="global__pin" cx="410" cy="125" r="7"/><!-- Portugal -->
-          <!-- Colombia ring -->
-          <circle cx="190" cy="285" r="12" fill="none" stroke="var(--gold)" stroke-width=".8" opacity=".35"/>
-        </svg>
-      </div>
+      <div class="global__map-wrap" id="globalMap"></div>
       <div>
         <p class="text-label" style="color:var(--gold);margin-bottom:1rem;">Imperio sin fronteras</p>
         <p class="global__stat-big">12+</p>
@@ -1478,6 +1424,90 @@
   function openPlans(){document.getElementById('plansOverlay').classList.add('active');document.body.style.overflow='hidden'}
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');closeGallery();document.body.style.overflow='';closeMobileMenu()}});
+
+  // === DOT WORLD MAP ===
+  (function(){
+    const pins=[
+      {x:26,y:39,label:'USA'},
+      {x:33,y:52,label:'Dominicana'},
+      {x:28,y:58,label:'Colombia',home:true},
+      {x:27,y:63,label:'Ecuador'},
+      {x:26,y:68,label:'Peru'},
+      {x:30,y:55,label:'Venezuela'},
+      {x:35,y:67,label:'Brasil'},
+      {x:31,y:80,label:'Argentina'},
+      {x:48,y:36,label:'Espana'},
+      {x:50,y:30,label:'Francia'},
+      {x:52,y:28,label:'Alemania'},
+      {x:46,y:37,label:'Portugal'},
+      {x:31,y:82,label:'Chile'}
+    ];
+    // Simplified world landmass as binary rows (72 cols x 36 rows, each 1=land)
+    const map=[
+      '000000000000000000000000000000111100000000000000000000000000000000000000',
+      '000000000001111111100000000001111111000000000000000000000000000000000000',
+      '000000000111111111110000000011111111100000000000000000000000000000000000',
+      '000000001111111111111000000111111111110000000001111000000000000000000000',
+      '000000011111111111111100001111111111111000000011111100000000000000000000',
+      '000000011111111111111110001111111111111100000111111110000000000000000000',
+      '000000111111111111111111011111111111111110001111111111000000000000000000',
+      '000000111111111111111111111111111111111111011111111111100000000000000000',
+      '000001111111111111111111111111111111111111111111111111110000000000000000',
+      '000011111111111111111111111111111111111111111111111111111100000000000000',
+      '000011111111111111111101111111111111111111111111111111111110000000000000',
+      '000001111111111111111001111111111111111111111111111111111111000000000000',
+      '000000111111111111100001111111111111111111111111111111111111100000000000',
+      '000000011111111110000000111111111111111111111111111111111111110000000000',
+      '000000001111111100000000011111111111111111111111111111111111110000000000',
+      '000000000111110000000000001111111111111111111111111111111111110000000000',
+      '000000001111100000000000000111111111111111111111111111111111100000000000',
+      '000000011111000000000000000011111111111111111111111111111111000000000000',
+      '000000011111100000000000000001111111111111111111111111111110000000000000',
+      '000000111111100000000000000000111111111111111111111111111100000000000000',
+      '000001111111100000000000000000011111111111111011111111110000000000000000',
+      '000001111111110000000000000000001111111111100001111111100000000000000000',
+      '000011111111110000000000000000000111111111000000111111000000000000000000',
+      '000011111111100000000000000000000011111110000000011100000000000000000000',
+      '000001111111100000000000000000000001111100000000001000000000000000000000',
+      '000001111111000000000000000000000000111000000000000000000000000000000000',
+      '000000111110000000000000000000000000010000000000000000000011100000000000',
+      '000000011100000000000000000000000000000000000000000000000111110000000000',
+      '000000001100000000000000000000000000000000000000000000001111111000000000',
+      '000000000100000000000000000000000000000000000000000000001111111100000000',
+      '000000000000000000000000000000000000000000000000000000000111111100000000',
+      '000000000000000000000000000000000000000000000000000000000011111000000000',
+      '000000000000000000000000000000000000000000000000000000000001110000000000',
+      '000000000000000000000000000000000000000000000000000000000000100000000000',
+      '000000000000000000000000000000000000000000000000000000000000000000000000',
+      '000000000000000000000000000000000000000000000000000000000000000000000000'
+    ];
+    const wrap=document.getElementById('globalMap');
+    if(!wrap)return;
+    const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('viewBox','0 0 720 360');
+    svg.style.cssText='width:100%;height:100%';
+    let dots='';
+    const rows=map.length,cols=map[0].length;
+    for(let r=0;r<rows;r++){
+      for(let c=0;c<cols;c++){
+        if(map[r][c]==='1'){
+          const x=c*10+5,y=r*10+5;
+          dots+=`<circle cx="${x}" cy="${y}" r="2" fill="rgba(192,192,192,.25)"/>`;
+        }
+      }
+    }
+    // pins
+    pins.forEach(p=>{
+      const px=p.x/100*720,py=p.y/100*360;
+      const r=p.home?6:4.5;
+      dots+=`<circle cx="${px}" cy="${py}" r="${r}" fill="var(--gold)" filter="url(#glow)"/>`;
+      if(p.home){
+        dots+=`<circle cx="${px}" cy="${py}" r="10" fill="none" stroke="var(--gold)" stroke-width=".8" opacity=".4"/>`;
+      }
+    });
+    svg.innerHTML=`<defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>${dots}`;
+    wrap.appendChild(svg);
+  })();
 
   // === TRAINERS CAROUSEL ===
   let trainerPage=0;const trainerPages=3;
