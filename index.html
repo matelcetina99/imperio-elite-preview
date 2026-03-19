@@ -94,20 +94,29 @@
     .about__social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--text-muted);transition:all .3s}
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
-    /* ABOUT - 3 PANEL GRID */
-    .about__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
-    @keyframes cardBorderGlow{0%,100%{border-color:rgba(192,192,192,.15);box-shadow:0 0 0 rgba(192,192,192,0)}50%{border-color:rgba(192,192,192,.45);box-shadow:0 0 20px rgba(192,192,192,.08)}}
-    @keyframes cardBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.008)}}
-    .about__card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;border-radius:var(--radius);border:1.5px solid rgba(192,192,192,.15);animation:cardBorderGlow 3s ease-in-out infinite,cardBreath 4s ease-in-out infinite;transition:all .4s}
+    /* ABOUT - FLOATING CAROUSEL WITH GLOWING BORDERS */
+    .about__carousel{position:relative;width:100%;height:520px;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:visible}
+    @keyframes cardBorderGlow{0%,100%{border-color:rgba(192,192,192,.12);box-shadow:0 20px 60px rgba(0,0,0,.4)}50%{border-color:rgba(192,192,192,.5);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 25px rgba(192,192,192,.12)}}
+    @keyframes cardBreath{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.015)}}
+    @keyframes cardBreathSide{0%,100%{transform:scale(.85)}50%{transform:scale(.865)}}
+    .about__card{position:absolute;width:320px;height:440px;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .6s cubic-bezier(.22,1,.36,1);will-change:transform,opacity;border:1.5px solid rgba(192,192,192,.12);animation:cardBorderGlow 3s ease-in-out infinite}
     .about__card:nth-child(2){animation-delay:.5s}
     .about__card:nth-child(3){animation-delay:1s}
-    .about__card:hover{border-color:var(--silver);box-shadow:0 0 30px rgba(192,192,192,.15),0 10px 40px rgba(0,0,0,.4);animation:none;transform:scale(1.02)}
-    .about__card img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.65) brightness(.75);transition:filter .5s}
-    .about__card:hover img{filter:saturate(.85) brightness(.85)}
-    .about__card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1rem,2vw,1.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,rgba(8,8,10,.3) 45%,transparent 65%)}
-    .about__card-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.4rem}
-    .about__card-sub{font-family:'Times New Roman',Times,serif;font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
-    .about__card-desc{font-family:'Lora',serif;font-size:.7rem;color:rgba(255,255,255,.6);line-height:1.4}
+    .about__card img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.7) brightness(.8);transition:filter .5s}
+    .about__card:hover img{filter:saturate(.9) brightness(.9)}
+    .about__card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;z-index:2;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,rgba(8,8,10,.3) 45%,transparent 65%)}
+    .about__card-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2rem;text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.4rem}
+    .about__card-sub{font-family:'Times New Roman',Times,serif;font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
+    .about__card-desc{font-family:'Lora',serif;font-size:.72rem;color:rgba(255,255,255,.6);line-height:1.4}
+    .about__card--left{left:2%;transform:scale(.85) rotateY(6deg);opacity:.6;z-index:1;animation:cardBorderGlow 3s ease-in-out infinite,cardBreathSide 4s ease-in-out infinite}
+    .about__card--center{left:50%;transform:translateX(-50%) scale(1);opacity:1;z-index:3;animation:cardBorderGlow 3s ease-in-out infinite .5s,cardBreath 4s ease-in-out infinite}
+    .about__card--right{right:2%;left:auto;transform:scale(.85) rotateY(-6deg);opacity:.6;z-index:1;animation:cardBorderGlow 3s ease-in-out infinite 1s,cardBreathSide 4s ease-in-out infinite .5s}
+    .about__card--center:hover{transform:translateX(-50%) scale(1.03);border-color:var(--silver);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 35px rgba(192,192,192,.15)}
+    .about__card-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;padding:.6rem;background:rgba(201,168,76,.12);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity .3s;z-index:5}
+    .about__card--center .about__card-hint{opacity:1}
+    .about__nav-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem}
+    .about__nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(192,192,192,.2);border:1px solid rgba(192,192,192,.2);cursor:pointer;transition:all .3s}
+    .about__nav-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.3)}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -454,7 +463,7 @@
       .hero__label{justify-content:center}
       .text-display{font-size:clamp(2.2rem,10vw,3.5rem)}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}
-      .about__grid{grid-template-columns:1fr 1fr 1fr;gap:.6rem}.about__card-title{font-size:1.1rem}.about__card-desc{font-size:.6rem}
+      .about__carousel{height:400px}.about__card{width:240px;height:340px}.about__card-title{font-size:1.4rem}
       .text-heading{font-size:clamp(1.6rem,6vw,2.5rem)}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
@@ -474,7 +483,8 @@
     @media(max-width:480px){
       .text-display{font-size:clamp(2rem,9vw,3rem)}
       .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}
-      .about__grid{gap:4px}.about__card-title{font-size:.9rem}.about__card-sub{font-size:.5rem}.about__card-desc{display:none}
+      .about__carousel{height:350px}.about__card{width:200px;height:280px}.about__card-title{font-size:1.1rem}.about__card-desc{display:none}
+      .about__card--left{left:0;transform:scale(.82) rotateY(6deg)}.about__card--right{right:0;transform:scale(.82) rotateY(-6deg)}
       .text-heading{white-space:normal!important}
       .footer__columns{grid-template-columns:1fr;gap:2rem}
       .hero__ctas .btn--gold,.hero__ctas .btn--outline{width:100%;max-width:280px}
@@ -548,31 +558,39 @@
         <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
       </div>
     </div>
-    <div class="about__grid reveal">
-      <div class="about__card" onclick="openGallery('atletas')">
+    <div class="about__carousel reveal" id="aboutCarousel">
+      <div class="about__card about__card--left" data-index="0" onclick="handleCardClick(0)">
         <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Atletas</p>
           <p class="about__card-sub">Nuestros guerreros</p>
           <p class="about__card-desc">El compromiso no tiene d&iacute;as libres</p>
         </div>
+        <div class="about__card-hint">Toca para ver galer&iacute;a</div>
       </div>
-      <div class="about__card" onclick="openGallery('salidas')">
+      <div class="about__card about__card--center" data-index="1" onclick="handleCardClick(1)">
         <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Salidas</p>
           <p class="about__card-sub">Imperio al aire libre</p>
           <p class="about__card-desc">Conquistamos fuera del centro</p>
         </div>
+        <div class="about__card-hint">Toca para ver galer&iacute;a</div>
       </div>
-      <div class="about__card" onclick="openGallery('clases')">
+      <div class="about__card about__card--right" data-index="2" onclick="handleCardClick(2)">
         <img src="img/Foto - Web 15.png" alt="Clases Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Clases</p>
           <p class="about__card-sub">Beats &amp; grupales</p>
           <p class="about__card-desc">M&uacute;sica y energ&iacute;a en cada sesi&oacute;n</p>
         </div>
+        <div class="about__card-hint">Toca para ver galer&iacute;a</div>
       </div>
+    </div>
+    <div class="about__nav-dots">
+      <div class="about__nav-dot" data-index="0" onclick="setActiveCard(0)"></div>
+      <div class="about__nav-dot active" data-index="1" onclick="setActiveCard(1)"></div>
+      <div class="about__nav-dot" data-index="2" onclick="setActiveCard(2)"></div>
     </div>
   </div>
 </section>
@@ -1443,6 +1461,37 @@
       {img:'img/blanco/1.png',caption:'<strong>imperioelitefitness</strong> Ambiente nocturno &uacute;nico. Las luces neon hacen que cada clase sea una experiencia.',tags:'#NeonFitness #ClaseNocturna #ImperioVibes'}
     ]
   };
+  // === ABOUT FLOATING CAROUSEL ===
+  const aboutCats=['atletas','salidas','clases'];
+  let aboutActiveIndex=1;
+  function setActiveCard(idx){
+    aboutActiveIndex=idx;
+    const cards=document.querySelectorAll('.about__card');
+    const dots=document.querySelectorAll('.about__nav-dot');
+    const order=[(idx+2)%3,idx,(idx+1)%3];
+    cards.forEach(c=>{c.className='about__card'});
+    cards[order[0]].classList.add('about__card--left');
+    cards[order[1]].classList.add('about__card--center');
+    cards[order[2]].classList.add('about__card--right');
+    dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
+  }
+  function handleCardClick(idx){
+    if(idx===aboutActiveIndex){openGallery(aboutCats[idx])}
+    else{setActiveCard(idx)}
+  }
+  (function(){
+    const el=document.getElementById('aboutCarousel');
+    if(!el)return;
+    let startX=0,moved=false;
+    el.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;moved=false},{passive:true});
+    el.addEventListener('touchmove',()=>{moved=true},{passive:true});
+    el.addEventListener('touchend',e=>{
+      if(!moved)return;
+      const dx=e.changedTouches[0].clientX-startX;
+      if(Math.abs(dx)>40){dx<0?setActiveCard((aboutActiveIndex+1)%3):setActiveCard((aboutActiveIndex+2)%3)}
+    },{passive:true});
+  })();
+
   const galleryTitles={atletas:'Nuestros Atletas',salidas:'Salidas Imperio',clases:'Clases'};
   function openGallery(cat){
     document.getElementById('galleryTitle').textContent=galleryTitles[cat]||cat;
@@ -1476,23 +1525,22 @@
     if(!wrap)return;
     // viewBox matches the real SVG continent data (672x315)
     const vw=672,vh=315;
-    function proj(lon,lat){return[((lon+180)/360)*vw,((90-lat)/180)*vh]}
-    const home={lon:-74.08,lat:4.65};
+    // Manual pin positions calibrated to SVG continent paths
+    const hx=130,hy=172; // Bogotá
     const pins=[
-      {lon:-77.04,lat:38.9,label:'USA'},
-      {lon:-69.9,lat:18.47,label:'Dominicana'},
-      {lon:-78.52,lat:-0.18,label:'Ecuador'},
-      {lon:-77.03,lat:-12.04,label:'Per\u00fa'},
-      {lon:-66.9,lat:10.5,label:'Venezuela'},
-      {lon:-47.93,lat:-15.78,label:'Brasil'},
-      {lon:-58.38,lat:-34.6,label:'Argentina'},
-      {lon:-70.65,lat:-33.45,label:'Chile'},
-      {lon:-3.7,lat:40.42,label:'Espa\u00f1a'},
-      {lon:2.35,lat:48.86,label:'Francia'},
-      {lon:13.4,lat:52.52,label:'Alemania'},
-      {lon:-9.14,lat:38.74,label:'Portugal'}
+      {x:135,y:80,label:'USA'},
+      {x:160,y:145,label:'Dominicana'},
+      {x:118,y:185,label:'Ecuador'},
+      {x:122,y:200,label:'Perú'},
+      {x:148,y:170,label:'Venezuela'},
+      {x:165,y:215,label:'Brasil'},
+      {x:150,y:278,label:'Argentina'},
+      {x:138,y:270,label:'Chile'},
+      {x:308,y:72,label:'España'},
+      {x:318,y:62,label:'Francia'},
+      {x:330,y:55,label:'Alemania'},
+      {x:302,y:74,label:'Portugal'}
     ];
-    const [hx,hy]=proj(home.lon,home.lat);
     // Real continent paths from Natural Earth simplified SVG (viewBox 0 0 672 315)
     // Fill: very dark gray barely visible. Stroke: subtle outline.
     const cFill='rgba(192,192,192,.15)',cStroke='rgba(192,192,192,.25)',cSW='0.5';
@@ -1519,22 +1567,20 @@
     svg+=`<path fill="${cFill}" stroke="${cStroke}" stroke-width="${cSW}" d="M593.247 213.018c-1.676 2.43-2.453 5.122-2.457 7.982-.006 3.14-1.982 5.24-4.06 6.847-1.767 1.366-2.935-1.346-4.49-2.004-1.08-.454-1.958-1.396-2.918-2.132-2.44-1.88-2.515-2.87-.924-5.604.38-.647 2.353-1.68.255-2.57-2.424-1.025-4.905-2.29-7.548-.388-.61.44-1.395.78-2.138.87-2.26.28-3.21 2.044-3.962 3.71-1.127 2.478-1.507 2.736-3.595 1.14-2.285-1.748-4.63-1.7-6.173.748-1.194 1.892-4.147 2.463-3.94 5.35.02.276-.532.43-.865.197-1.774-1.23-2.21.234-2.686 1.388-1.02 2.47-2.693 4.645-5.26 4.99-4.41.6-8.13 2.735-12.14 4.26-1.81.69-2.414 1.916-3.26 3.34-1.2 2.03.01 4.028-.254 6.067-.45 3.537-1.448 7.133-.29 10.78.97 3.06.118 5.71-2.35 7.803-.924.782-.376 1.512.292 1.857 1.262.657 2.492 1.344 4.14.71 2.96-1.14 5.92-2.315 9.157-2.606 1.604-.143 3.296.19 4.813-.79 2.807-1.8 5.988-2.915 9.225-3.215 3.582-.334 7.445-2.246 10.774 1.222 1.4 1.453 1.902 3.224 2.844 4.9 1.102-1.456 3.03-1.817 4.276-3.156.256-.275.86-.69 1.378-.13.493.537.197.984-.205 1.34-.818.725-.554 1.23-.27 2.266.414 1.504 1.616 2.935 1.132 4.65-.258.91-1.392 1.8.07 2.652 1.74 1.007 3.446 2.66 5.585 1.563 1.336-.685 2.163-.796 3.026.434.8 1.14 1.438.854 2.465.062 1.682-1.302 3.51-2.626 5.914-1.677.73.287 1.11-.235 1.412-.804 1.926-3.653 6.05-5.412 7.892-9.154.2-.403.81-.608 1.24-.89 5.444-3.58 8.532-8.59 9.14-15.088.186-1.985 1.023-4.063-.876-5.775-1.838-1.658-2.853-3.83-3.833-6.078-.955-2.2-1.692-4.64-3.733-6.162-1.716-1.277-1.858-2.765-1.342-4.688.656-2.435.15-4.96-1.388-6.782-1.402-1.66-2.373-3.34-2.843-5.39-.17-.75-.325-1.51-1.227-2.04z"/>`;
     // --- ARCS from pins to Bogota ---
     pins.forEach((p,i)=>{
-      const [px,py]=proj(p.lon,p.lat);
-      const mx=(hx+px)/2, my=Math.min(hy,py)-25-Math.abs(px-hx)*0.08;
-      svg+=`<path d="M${hx.toFixed(1)},${hy.toFixed(1)} Q${mx.toFixed(1)},${my.toFixed(1)} ${px.toFixed(1)},${py.toFixed(1)}" class="map-arc"/>`;
+      const mx=(hx+p.x)/2, my=Math.min(hy,p.y)-25-Math.abs(p.x-hx)*0.08;
+      svg+=`<path d="M${hx},${hy} Q${mx.toFixed(1)},${my.toFixed(1)} ${p.x},${p.y}" class="map-arc"/>`;
     });
     // --- HOME PIN (Bogota) ---
-    svg+=`<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="12" fill="url(#homePinGrad)"/>`;
-    svg+=`<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="4.5" fill="none" stroke="#C9A84C" stroke-width=".6" opacity=".35"/>`;
-    svg+=`<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" fill="#C9A84C" r="3"><animate attributeName="r" values="3;14" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0" dur="2.5s" repeatCount="indefinite"/></circle>`;
-    svg+=`<circle cx="${hx.toFixed(1)}" cy="${hy.toFixed(1)}" r="3" class="map-pin-home"/>`;
-    svg+=`<text x="${hx.toFixed(1)}" y="${(hy-8).toFixed(1)}" text-anchor="middle" fill="#C9A84C" font-size="6" font-weight="700" font-family="'Times New Roman',serif" letter-spacing="1.5">BOGOT\u00c1</text>`;
+    svg+=`<circle cx="${hx}" cy="${hy}" r="12" fill="url(#homePinGrad)"/>`;
+    svg+=`<circle cx="${hx}" cy="${hy}" r="4.5" fill="none" stroke="#C9A84C" stroke-width=".6" opacity=".35"/>`;
+    svg+=`<circle cx="${hx}" cy="${hy}" fill="#C9A84C" r="3"><animate attributeName="r" values="3;14" dur="2.5s" repeatCount="indefinite"/><animate attributeName="opacity" values=".6;0" dur="2.5s" repeatCount="indefinite"/></circle>`;
+    svg+=`<circle cx="${hx}" cy="${hy}" r="3" class="map-pin-home"/>`;
+    svg+=`<text x="${hx}" y="${hy-8}" text-anchor="middle" fill="#C9A84C" font-size="6" font-weight="700" font-family="'Times New Roman',serif" letter-spacing="1.5">BOGOTÁ</text>`;
     // --- COUNTRY PINS with ping ---
     pins.forEach((p,i)=>{
-      const [px,py]=proj(p.lon,p.lat);
       const delay=(0.3+i*0.4).toFixed(1);
-      svg+=`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" fill="#C9A84C" r="2"><animate attributeName="r" values="2;10" dur="2.5s" begin="${delay}s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0" dur="2.5s" begin="${delay}s" repeatCount="indefinite"/></circle>`;
-      svg+=`<circle cx="${px.toFixed(1)}" cy="${py.toFixed(1)}" r="2" class="map-pin-dot" style="animation-delay:${(i*0.3).toFixed(1)}s"/>`;
+      svg+=`<circle cx="${p.x}" cy="${p.y}" fill="#C9A84C" r="2"><animate attributeName="r" values="2;10" dur="2.5s" begin="${delay}s" repeatCount="indefinite"/><animate attributeName="opacity" values=".5;0" dur="2.5s" begin="${delay}s" repeatCount="indefinite"/></circle>`;
+      svg+=`<circle cx="${p.x}" cy="${p.y}" r="2" class="map-pin-dot" style="animation-delay:${(i*0.3).toFixed(1)}s"/>`;
     });
     svg+='</svg>';
     wrap.innerHTML=svg;
