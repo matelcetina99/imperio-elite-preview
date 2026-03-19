@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v4">
+  <meta name="version" content="2026-03-18-v5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -433,23 +433,37 @@
 
     @media(max-width:768px){
       .nav__links{display:none}.nav__address{display:none}.nav__hamburger{display:flex}
-      .hero{min-height:100svh;align-items:center}.hero__content{padding-bottom:0;text-align:center;max-width:100%}.hero__ctas{justify-content:center}.hero__sub{margin-left:auto;margin-right:auto}.hero__label{justify-content:center}
-      .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}.stats__phrase{font-size:.7rem!important}
-      .about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
+      .hero{min-height:100svh;align-items:center;justify-content:center}
+      .hero__content{padding-bottom:0;text-align:center;max-width:100%}
+      .hero__ctas{justify-content:center;flex-direction:column;align-items:center;gap:.8rem;margin-top:1.5rem}
+      .hero__sub{margin-left:auto;margin-right:auto;text-align:center}
+      .hero__label{justify-content:center}
+      .text-display{font-size:clamp(2.2rem,10vw,3.5rem)}
+      .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}
+      .about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}.about__panel-sub{font-size:.6rem}.about__panel-desc{font-size:.6rem}
+      .text-heading{font-size:clamp(1.6rem,6vw,2.5rem)}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
-      .testimonials__grid{grid-template-columns:1fr}.testimonials__header{align-items:center;gap:1rem}
+      .testimonials__header{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem}
+      .testimonials__grid{grid-template-columns:1fr;gap:.4rem}
+      .testimonials__sources{justify-content:center}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
       .footer__columns{grid-template-columns:1fr 1fr;gap:2rem}.footer__bottom{flex-direction:column;gap:1rem;text-align:center}
       .plans-overlay{padding:0}.plans-overlay__inner{max-height:100vh;border:none;border-radius:0}.plans-overlay__content{padding:2rem 1.25rem}.plans-grid{grid-template-columns:1fr}.plan-row{grid-template-columns:1fr;gap:1.2rem}.plan-uni__inner{flex-direction:column;text-align:center}
       .cv-overlay{padding:0}.cv-overlay__inner{max-height:100vh;border:none;border-radius:0}.cv__header{padding:1.2rem 1.2rem 1rem;flex-direction:column;text-align:center}.cv__quote{border-left:none;padding-left:0;text-align:center}.cv__body{padding:1rem 1.2rem}.cv__two-col{grid-template-columns:1fr}.cv__name{font-size:1.3rem}.cv__radar-wrap svg{max-width:200px}
-      .btn--large{padding:1rem 2rem;font-size:.72rem}
+      .btn--large{padding:.9rem 1.8rem;font-size:.7rem}
+      .stat-bar__label{font-size:.5rem;min-width:55px}
+      .stat-bar__val{font-size:.5rem}
+      .program__stats-title{font-size:.5rem}
     }
     @media(max-width:480px){
-      .text-display{font-size:clamp(2.5rem,12vw,4rem)}
-      .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}.about__panels{grid-template-columns:repeat(3,1fr);gap:4px}
+      .text-display{font-size:clamp(2rem,9vw,3rem)}
+      .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}
+      .about__panels{grid-template-columns:repeat(3,1fr);gap:4px}.about__panel{aspect-ratio:3/4}
+      .about__panel-title{font-size:.7rem}.about__panel-sub{font-size:.5rem}.about__panel-desc{display:none}
       .footer__columns{grid-template-columns:1fr;gap:2rem}
+      .hero__ctas .btn--gold,.hero__ctas .btn--outline{width:100%;max-width:280px}
     }
   </style>
 </head>
