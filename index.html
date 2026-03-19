@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v3">
+  <meta name="version" content="2026-03-18-v4">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -67,17 +67,17 @@
     .mobile-menu a:hover{color:var(--gold)}
 
     /* HERO */
-    .hero{position:relative;height:100vh;height:100svh;min-height:600px;display:flex;align-items:flex-end;padding:clamp(1.5rem,5vw,4rem);overflow:hidden}
+    .hero{position:relative;height:100vh;height:100svh;min-height:600px;display:flex;align-items:center;justify-content:center;padding:clamp(1.5rem,5vw,4rem);overflow:hidden}
     .hero__bg{position:absolute;inset:0}
     .hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.3) saturate(.8);border-radius:0}
     .hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,rgba(8,8,10,.4) 40%,rgba(8,8,10,.1) 70%),linear-gradient(to right,rgba(8,8,10,.7) 0%,transparent 60%)}
-    .hero__content{position:relative;z-index:2;max-width:850px;padding-bottom:clamp(2rem,6vh,5rem)}
+    .hero__content{position:relative;z-index:2;max-width:850px;text-align:center}
     .hero__label{color:var(--gold);margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:10px}
     .hero__label::before{content:'';width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s ease-in-out infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
     .hero__accent{color:var(--gold)}
-    .hero__sub{font-weight:400;font-size:clamp(.95rem,2vw,1.15rem);color:var(--text-muted);margin:1.5rem 0 2.5rem;max-width:480px;line-height:1.7}
-    .hero__ctas{display:flex;gap:1rem;flex-wrap:wrap}
+    .hero__sub{font-weight:400;font-size:clamp(.95rem,2vw,1.15rem);color:var(--text-muted);margin:1.5rem auto 2.5rem;max-width:480px;line-height:1.7}
+    .hero__ctas{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1.5rem}
 
     /* STATS */
     .stats{padding:clamp(2rem,4vh,3.5rem) clamp(1.25rem,5vw,4rem);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -94,11 +94,11 @@
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
     /* GALLERY PANELS - HYROX STYLE */
-    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-    .about__panel{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;border-radius:var(--radius)}
+    .about__panels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .about__panel{position:relative;aspect-ratio:4/5;overflow:hidden;cursor:pointer;border-radius:var(--radius)}
     .about__panel img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.25,.46,.45,.94),filter .5s;filter:saturate(.4) brightness(.65)}
     .about__panel:hover img{transform:scale(1.08);filter:saturate(.7) brightness(.75)}
-    .about__panel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.5rem,3vw,2.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.7) 0%,transparent 60%)}
+    .about__panel-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1.2rem,2.5vw,2rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.85) 0%,rgba(8,8,10,.3) 50%,transparent 70%)}
     .about__panel-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,4vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.5rem}
     .about__panel-sub{font-family:'Times New Roman',Times,serif;font-size:.8rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
     .about__panel-desc{font-family:'Lora',serif;font-size:.75rem;color:rgba(255,255,255,.6);line-height:1.4}
@@ -252,12 +252,12 @@
     .cv__radar-wrap svg{max-width:220px;width:100%}
 
     /* TESTIMONIALS */
-    .testimonials__header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:clamp(2rem,4vh,3rem)}
+    .testimonials__header{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:clamp(1.5rem,3vh,2rem)}
     .testimonials__label{color:var(--gold);margin-bottom:1rem}
     .testimonials__sources{display:flex;gap:.75rem;align-items:center}
     .testimonials__source-badge{display:flex;align-items:center;gap:.5rem;padding:.4rem .8rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);font-size:.65rem;font-weight:500;color:var(--text-muted);letter-spacing:.03em}
     .testimonials__source-badge svg{width:16px;height:16px}
-    .testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem}
+    .testimonials__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem}
     .testimonial{padding:1.2rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);display:flex;flex-direction:column;gap:.8rem;transition:border-color .3s}
     .testimonial:hover{border-color:rgba(201,168,76,.2)}
     .testimonial__platform{display:flex;align-items:center;gap:.5rem;font-size:.58rem;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em}
@@ -438,7 +438,7 @@
       .about__panels{grid-template-columns:repeat(3,1fr);gap:.5rem}.about__panel-title{font-size:.85rem}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
-      .testimonials__grid{grid-template-columns:1fr}.testimonials__header{flex-direction:column;align-items:flex-start;gap:1.5rem}
+      .testimonials__grid{grid-template-columns:1fr}.testimonials__header{align-items:center;gap:1rem}
       .instagram__grid{grid-template-columns:repeat(2,1fr);gap:3px}
       .hours__grid{grid-template-columns:1fr;gap:2rem}
       .footer__columns{grid-template-columns:1fr 1fr;gap:2rem}.footer__bottom{flex-direction:column;gap:1rem;text-align:center}
@@ -577,7 +577,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">01</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3 17v-5H7V9c0-1.1.9-2 2-2h6c1.1 0 2 .9 2 2v8h-2v5h-2v-5h-2v5H9z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -610,7 +610,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">02</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55C7.79 13 6 14.79 6 17s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg></span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 3.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM19 8h-3.6l-1.2-2.7c-.3-.7-1-1.3-1.8-1.3H11l-4 4-3 3 1.5 1.5L8 10.2V22h2v-6h4v6h2V10.2l1.5 1.3 2.5-2.5-1-3z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -643,7 +643,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">03</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm2 16h-1v-6h-2v6H9v-8.5c-2 .5-3 1.5-3 1.5V10c0-.6.4-1.3 1-1.5l4-1.7c.3-.1.6-.1.9 0l4 1.7c.6.2 1 .8 1 1.5v4l-3-1.5V21z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Super Abdomen</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -676,7 +676,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">04</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Zona Co-Working</h3><span class="program__motto-inline">"Tus reglas, nuestras herramientas"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -709,7 +709,7 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">05</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg></span>
+          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm1 3c.8 0 1.5.7 1.5 1.5S13.8 8 13 8s-1.5-.7-1.5-1.5S12.2 5 13 5zm-2 14v-4H9v-3c0-1.1.9-2 2-2h2c1.1 0 2 .9 2 2v3h-2v4h-2z"/></svg></span>
           <div>
             <div class="program__name-row"><h3 class="program__name">Personal Training</h3><span class="program__motto-inline">"No hay atajos, hay estrategia"</span></div>
             <p class="program__coach-label">Coach: Nicolas Garcia &nbsp;·&nbsp; <span style="color:var(--text-dim);font-weight:500;text-transform:none;">(incluida en plan Platinum · cupos limitados)</span></p>
@@ -1213,6 +1213,7 @@
         <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20planes%20corporativos" target="_blank">Corporativo <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
         <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20Personal%20Training" target="_blank">Personal Training <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
         <a href="#schedule">Power Station</a>
+        <a href="https://wa.me/573124167919?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20web%20y%20quiero%20trabajar%20con%20Imperio" target="_blank" style="margin-top:.5rem;display:inline-flex;align-items:center;gap:.4rem;color:var(--gold);font-weight:600;">Trabaja con nosotros <span class="footer__wa-tag"><svg viewBox="0 0 24 24" fill="#25D366" width="10" height="10"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span></a>
       </div>
 
       <!-- Col 2: Horarios & Contacto -->
