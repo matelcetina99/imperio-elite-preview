@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v6">
+  <meta name="version" content="2026-03-18-v7">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@
     .hero__bg{position:absolute;inset:0}
     .hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.3) saturate(.8);border-radius:0}
     .hero__overlay{position:absolute;inset:0;background:linear-gradient(to top,var(--bg) 0%,rgba(8,8,10,.4) 40%,rgba(8,8,10,.1) 70%),linear-gradient(to right,rgba(8,8,10,.7) 0%,transparent 60%)}
-    .hero__content{position:relative;z-index:2;max-width:850px;text-align:center}
+    .hero__content{position:relative;z-index:2;width:100%;max-width:850px;text-align:center;display:flex;flex-direction:column;align-items:center}
     .hero__label{color:var(--gold);margin-bottom:1.5rem;display:inline-flex;align-items:center;gap:10px}
     .hero__label::before{content:'';width:8px;height:8px;background:var(--gold);border-radius:50%;animation:pulse 2s ease-in-out infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -135,7 +135,8 @@
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
-    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);flex-shrink:0}
+    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);flex-shrink:0;overflow:hidden}
+    .program__coach-avatar img{width:100%;height:100%;object-fit:cover;border-radius:0}
     .program__coach-avatar svg{width:22px;height:22px;fill:var(--gold)}
     .program__header{display:grid;grid-template-columns:50px 40px 1fr 2.5fr 40px;align-items:center;gap:1.2rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
     .program:hover .program__header{padding-left:clamp(2rem,6vw,5rem)}
@@ -518,7 +519,7 @@
     </div>
     <div class="stats__item">
       <div>
-        <span class="text-stat">5+</span>
+        <span class="text-stat">4+</span>
         <span class="text-label">Clases semanales</span>
       </div>
     </div>
@@ -597,30 +598,30 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">01</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="3.5" r="2"/><path d="M15 22v-6h1.5V10c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5v6H9v6h2v-6h2v6h2z"/></svg></span>
+          <span class="program__coach-avatar"><img src="img/staff-placeholder.jpg" alt="Coach"></span>
           <div>
-            <div class="program__name-row"><h3 class="program__name">Zona de Fuerza</h3><span class="program__motto-inline">"El hierro no miente"</span></div>
-            <p class="program__coach-label">Coach: Nicolas Garcia</p>
+            <div class="program__name-row"><h3 class="program__name">Flow Class</h3><span class="program__motto-inline">"Fluye con tu cuerpo, dom&iacute;nalo"</span></div>
+            <p class="program__coach-label">Lunes &middot; 7:00 PM</p>
           </div>
-          <p class="program__desc">Nuestro staff corrige tu t&eacute;cnica en cada levantamiento.</p>
+          <p class="program__desc">Movilidad, flexibilidad y control corporal en cada movimiento.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"El hierro no miente. Lo que levantas hoy, te sostiene ma&ntilde;ana."</p>
+              <p class="program__video-motto">"Fluye con tu cuerpo, dom&iacute;nalo. El movimiento inteligente es la base de todo."</p>
               <div class="program__video">
-                <img class="program__video-img" src="img/blanco/8.png" alt="Zona de Fuerza">
+                <img class="program__video-img" src="img/blanco/8.png" alt="Flow Class">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
               </div>
             </div>
             <div>
               <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Flexibilidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--flexibilidad" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
                 <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="60%"></div></div><span class="stat-bar__val">60%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
               </div>
             </div>
           </div>
@@ -630,30 +631,30 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">02</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="3.5" r="2"/><path d="M17 8l-3-1.5h-4L7 8l-1 1 1.5 1L9 9v4l-2 8h2.5l1.5-6 1.5 6H15l-2-8V9l1.5 1L16 9z"/></svg></span>
+          <span class="program__coach-avatar"><img src="img/staff-placeholder.jpg" alt="Coach"></span>
           <div>
-            <div class="program__name-row"><h3 class="program__name">Clase de Beats</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
-            <p class="program__coach-label">Coach: Nicolas Garcia</p>
+            <div class="program__name-row"><h3 class="program__name">Rush Lab</h3><span class="program__motto-inline">"Sin l&iacute;mites, sin excusas"</span></div>
+            <p class="program__coach-label">Martes &middot; 7:00 PM</p>
           </div>
-          <p class="program__desc">Flow, energ&iacute;a y ritmo. Alta intensidad con m&uacute;sica.</p>
+          <p class="program__desc">Circuitos de alta intensidad que llevan tu cuerpo al siguiente nivel.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"Donde la m&uacute;sica mueve el cuerpo y la energ&iacute;a no para."</p>
+              <p class="program__video-motto">"Sin l&iacute;mites, sin excusas. El laboratorio donde se forja tu mejor versi&oacute;n."</p>
               <div class="program__video">
-                <img class="program__video-img" src="img/blanco/3.png" alt="Clase de Beats">
+                <img class="program__video-img" src="img/blanco/3.png" alt="Rush Lab">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
               </div>
             </div>
             <div>
               <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="35%"></div></div><span class="stat-bar__val">35%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="80%"></div></div><span class="stat-bar__val">80%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="80%"></div></div><span class="stat-bar__val">80%</span></div>
               </div>
             </div>
           </div>
@@ -663,30 +664,30 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">03</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="3.5" r="2"/><path d="M16 7h-8l-1 2h2v5l-1 8h2l1.5-6h1l1.5 6h2l-1-8V9h2z"/></svg></span>
+          <span class="program__coach-avatar"><img src="img/staff-placeholder.jpg" alt="Coach"></span>
           <div>
-            <div class="program__name-row"><h3 class="program__name">Super Abdomen</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
-            <p class="program__coach-label">Coach: Nicolas Garcia</p>
+            <div class="program__name-row"><h3 class="program__name">Beats Class</h3><span class="program__motto-inline">"Donde la m&uacute;sica mueve el cuerpo"</span></div>
+            <p class="program__coach-label">Mi&eacute;rcoles &middot; 7:00 PM</p>
           </div>
-          <p class="program__desc">Fortalece tu nucleo y desafia tu resistencia.</p>
+          <p class="program__desc">Energ&iacute;a, ritmo y sudor. Cardio intenso al ritmo de la m&uacute;sica.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"Sin base, no hay imperio. Tu core es tu fundamento."</p>
+              <p class="program__video-motto">"Donde la m&uacute;sica mueve el cuerpo y la energ&iacute;a no para."</p>
               <div class="program__video">
-                <img class="program__video-img" src="img/blanco/1.png" alt="Super Abdomen">
+                <img class="program__video-img" src="img/blanco/1.png" alt="Beats Class">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
               </div>
             </div>
             <div>
               <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div><span class="stat-bar__val">65%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Ritmo</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--ritmo" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Coordinaci&oacute;n</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--coordinacion" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="75%"></div></div><span class="stat-bar__val">75%</span></div>
               </div>
             </div>
           </div>
@@ -696,63 +697,30 @@
       <div class="program" onclick="toggleProgram(this)">
         <div class="program__header">
           <span class="program__number">04</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><circle cx="11" cy="3.5" r="2"/><path d="M14 7h-6l-.5 1.5L9 9v3l-1.5 4h2L11 13l1.5 3h2L13 12V9l2-1z M17 9l-2 1.5v3l2 1.5z"/></svg></span>
+          <span class="program__coach-avatar"><img src="img/staff-placeholder.jpg" alt="Coach"></span>
           <div>
-            <div class="program__name-row"><h3 class="program__name">Zona Co-Working</h3><span class="program__motto-inline">"Tus reglas, nuestras herramientas"</span></div>
-            <p class="program__coach-label">Coach: Nicolas Garcia</p>
+            <div class="program__name-row"><h3 class="program__name">Extreme Abs</h3><span class="program__motto-inline">"Sin base, no hay imperio"</span></div>
+            <p class="program__coach-label">Jueves &middot; 7:00 PM</p>
           </div>
-          <p class="program__desc">Maquinas, pesos libres y cardio a tu ritmo.</p>
+          <p class="program__desc">Core al m&aacute;ximo. Fortalece tu centro y define tu abdomen.</p>
           <span class="program__arrow">&#8250;</span>
         </div>
         <div class="program__expanded">
           <div class="program__expanded-inner">
             <div>
-              <p class="program__video-motto">"Tus reglas, nuestras herramientas. Entrena a tu manera."</p>
+              <p class="program__video-motto">"Sin base, no hay imperio. Tu core es el cimiento de todo."</p>
               <div class="program__video">
-                <img class="program__video-img" src="img/foto/3.png" alt="Zona Co-Working">
+                <img class="program__video-img" src="img/foto/2.png" alt="Extreme Abs">
                 <div class="program__video-overlay"><div class="program__video-play"></div></div>
               </div>
             </div>
             <div>
               <p class="program__stats-title">Nivel de exigencia</p>
               <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="75%"></div></div><span class="stat-bar__val">75%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Flexibilidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--flexibilidad" data-width="60%"></div></div><span class="stat-bar__val">60%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Cardio</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--cardio" data-width="65%"></div></div><span class="stat-bar__val">65%</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="program" onclick="toggleProgram(this)">
-        <div class="program__header">
-          <span class="program__number">05</span>
-          <span class="program__coach-avatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="3.5" r="2"/><path d="M15 7h-6l-1 2h1.5v4l-1 9h2l1-6h1l1 6h2l-1-9V9H16z"/></svg></span>
-          <div>
-            <div class="program__name-row"><h3 class="program__name">Personal Training</h3><span class="program__motto-inline">"No hay atajos, hay estrategia"</span></div>
-            <p class="program__coach-label">Coach: Nicolas Garcia</p>
-          </div>
-          <p class="program__desc">Entrenamiento 1 a 1 para tus objetivos.</p>
-          <span class="program__arrow">&#8250;</span>
-        </div>
-        <div class="program__expanded">
-          <div class="program__expanded-inner">
-            <div>
-              <p class="program__video-motto">"No hay atajos, hay estrategia. Resultados garantizados."</p>
-              <div class="program__video">
-                <img class="program__video-img" src="img/foto/2.png" alt="Personal Training">
-                <div class="program__video-overlay"><div class="program__video-play"></div></div>
-              </div>
-            </div>
-            <div>
-              <p class="program__stats-title">Nivel de exigencia</p>
-              <div class="program__stats-grid">
-                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="100%"></div></div><span class="stat-bar__val">100%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="95%"></div></div><span class="stat-bar__val">95%</span></div>
-                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="100%"></div></div><span class="stat-bar__val">100%</span></div>
                 <div class="stat-bar"><span class="stat-bar__label">Intensidad</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--intensidad" data-width="90%"></div></div><span class="stat-bar__val">90%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Resistencia</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--resistencia" data-width="85%"></div></div><span class="stat-bar__val">85%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">Fuerza</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--fuerza" data-width="75%"></div></div><span class="stat-bar__val">75%</span></div>
+                <div class="stat-bar"><span class="stat-bar__label">T&eacute;cnica</span><div class="stat-bar__track"><div class="stat-bar__fill stat-bar__fill--tecnica" data-width="70%"></div></div><span class="stat-bar__val">70%</span></div>
               </div>
             </div>
           </div>
@@ -1140,7 +1108,7 @@
 <section class="global section">
   <div class="container">
     <div class="global__wrap reveal">
-      <div class="global__map-wrap"><img src="img/mapa-mundi.jpg" alt="Mapa mundial - Imperio sin fronteras" style="width:100%;height:100%;object-fit:contain;border-radius:var(--radius);"></div>
+      <div class="global__map-wrap" id="globalMap"></div>
       <div>
         <p class="text-label" style="color:var(--gold);margin-bottom:1rem;">Imperio sin fronteras</p>
         <p class="global__stat-big">12+</p>
@@ -1478,7 +1446,69 @@
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');closeGallery();document.body.style.overflow='';closeMobileMenu()}});
 
-  // World map is now a static image (img/mapa-mundi.jpg)
+  // === WORLD MAP (realistic continent outlines) ===
+  (function(){
+    const wrap=document.getElementById('globalMap');
+    if(!wrap)return;
+    const continents=[
+      // North America
+      'M28,38 L32,34 38,30 44,26 50,24 58,22 66,20 74,18 82,18 90,20 96,22 100,26 104,30 108,34 112,38 116,44 118,50 120,54 118,58 114,60 108,62 102,64 96,66 90,68 84,68 78,66 74,64 70,60 66,56 62,54 58,52 52,50 46,48 40,46 36,44 32,42 28,40Z',
+      // Central America + Caribbean
+      'M96,68 L98,70 100,72 102,74 104,76 106,78 104,80 102,78 100,76 98,74 96,72Z M112,66 L114,64 116,66 114,68Z M118,68 L120,66 122,68 120,70Z',
+      // South America
+      'M106,78 L110,76 116,74 122,74 126,76 130,80 132,86 134,92 136,98 136,106 134,112 132,118 128,126 124,132 120,136 116,140 112,142 108,140 106,136 104,130 102,124 100,116 98,110 98,104 100,98 102,92 104,86Z',
+      // Europe
+      'M176,24 L180,22 186,20 192,20 196,22 200,26 202,30 200,34 198,38 194,42 190,44 186,46 182,44 178,42 174,38 172,34 174,28Z M170,28 L172,26 174,28 172,32 170,30Z M184,16 L188,14 190,18 186,20 184,18Z',
+      // Africa
+      'M174,48 L178,46 184,46 190,48 194,52 198,58 200,64 202,72 202,80 200,88 198,94 194,100 190,106 186,110 182,112 178,114 174,112 170,108 166,104 164,98 162,92 162,86 164,80 166,72 168,66 170,58 172,52Z',
+      // Middle East
+      'M204,40 L210,38 216,40 220,44 222,50 220,54 216,56 210,56 206,54 202,50 204,44Z',
+      // Russia + Central Asia
+      'M204,14 L216,10 232,8 248,8 264,10 278,12 290,16 300,20 310,24 316,28 318,32 316,36 310,38 304,40 296,42 288,40 280,38 272,36 264,36 256,38 248,40 240,40 232,38 224,36 218,32 212,28 208,24 204,18Z',
+      // India + SE Asia
+      'M236,48 L242,46 246,50 248,56 248,62 244,68 240,72 236,70 232,66 232,60 234,54Z M262,60 L268,58 272,62 274,68 272,72 268,74 264,72 262,66Z',
+      // East Asia + Japan
+      'M280,24 L288,22 296,24 302,28 306,32 308,36 306,40 300,44 294,46 288,48 282,46 278,42 276,38 278,32Z M312,32 L314,30 316,34 314,38 312,36Z',
+      // Indonesia + Philippines
+      'M268,76 L274,74 280,76 286,78 282,82 276,82 270,80Z M278,70 L280,68 282,70 280,72Z',
+      // Australia
+      'M286,108 L294,104 302,102 310,104 316,108 320,114 322,122 320,128 316,132 310,134 302,134 294,132 288,128 284,122 284,116Z',
+      // New Zealand
+      'M330,130 L332,128 334,132 332,136 330,134Z'
+    ];
+    const pins=[
+      {x:108,y:50,l:'USA'},{x:114,y:68,l:'Dominicana'},
+      {x:110,y:82,l:'Colombia',home:true},
+      {x:106,y:90,l:'Ecuador'},{x:108,y:100,l:'Per\u00fa'},
+      {x:118,y:78,l:'Venezuela'},{x:136,y:102,l:'Brasil'},
+      {x:126,y:130,l:'Argentina'},{x:114,y:128,l:'Chile'},
+      {x:180,y:42,l:'Espa\u00f1a'},{x:186,y:34,l:'Francia'},
+      {x:196,y:30,l:'Alemania'},{x:174,y:44,l:'Portugal'}
+    ];
+    let svg='<svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg">';
+    svg+='<defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    svg+='<radialGradient id="homePin"><stop offset="0%" stop-color="var(--gold)" stop-opacity="1"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient></defs>';
+    continents.forEach(function(d){
+      svg+='<path d="'+d+'" fill="rgba(192,192,192,.12)" stroke="rgba(192,192,192,.35)" stroke-width=".6" stroke-linejoin="round"/>';
+    });
+    pins.forEach(function(p){
+      if(p.home){
+        svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="8" fill="url(#homePin)" opacity=".3"/>';
+        svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="4" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".5"/>';
+        svg+='<circle class="gpin" cx="'+p.x+'" cy="'+p.y+'" r="2.5" fill="var(--gold)" filter="url(#glow)"/>';
+        svg+='<text x="'+p.x+'" y="'+(p.y-6)+'" text-anchor="middle" fill="var(--gold)" font-size="3.5" font-weight="700" font-family="Times New Roman,serif" letter-spacing=".5">BASE</text>';
+      } else {
+        svg+='<circle class="gpin" cx="'+p.x+'" cy="'+p.y+'" r="1.8" fill="var(--gold)" filter="url(#glow)"/>';
+      }
+    });
+    pins.forEach(function(p){
+      if(!p.home){
+        svg+='<line x1="110" y1="82" x2="'+p.x+'" y2="'+p.y+'" stroke="rgba(201,168,76,.12)" stroke-width=".3" stroke-dasharray="2 2"/>';
+      }
+    });
+    svg+='</svg>';
+    wrap.innerHTML=svg;
+  })();
 
   // === TRAINERS CAROUSEL ===
   let trainerPage=0;const trainerPages=3;
