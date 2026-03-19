@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v15">
+  <meta name="version" content="2026-03-18-v16">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -323,7 +323,7 @@
     .map-pin-ping{fill:var(--gold);opacity:0;animation:mapPing 2.5s ease-out infinite}
     .map-pin-dot{fill:var(--gold);animation:mapPulse 2s ease-in-out infinite}
     .map-pin-home{fill:var(--gold);filter:url(#mapGlow)}
-    .map-arc{fill:none;stroke:var(--gold);stroke-width:.4;stroke-dasharray:3 2;opacity:.25}
+    .map-arc{fill:none;stroke:var(--gold);stroke-width:.5;stroke-dasharray:3 2;opacity:.4}
     .gpin{transition:all .3s}
     .gpin:hover{filter:brightness(1.5)}
     .global__stat-big{font-family:'Times New Roman',Times,serif;font-size:clamp(3rem,6vw,4.5rem);font-weight:700;color:var(--silver-light);line-height:1}
@@ -1592,7 +1592,7 @@
     const [hx,hy]=proj(home.lon,home.lat);
     // Real continent paths from Natural Earth simplified SVG (viewBox 0 0 672 315)
     // Fill: very dark gray barely visible. Stroke: subtle outline.
-    const cFill='rgba(255,255,255,.04)',cStroke='rgba(255,255,255,.08)',cSW='0.5';
+    const cFill='rgba(192,192,192,.15)',cStroke='rgba(192,192,192,.25)',cSW='0.5';
     let svg=`<svg viewBox="0 0 ${vw} ${vh}" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <filter id="mapGlow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
