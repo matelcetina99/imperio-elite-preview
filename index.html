@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v7">
+  <meta name="version" content="2026-03-18-v8">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -135,8 +135,8 @@
     .program{border-top:1px solid var(--border);cursor:pointer;transition:background .3s;overflow:hidden}
     .program:last-child{border-bottom:1px solid var(--border)}
     .program:hover,.program.active{background:var(--surface)}
-    .program__coach-avatar{width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:1px solid rgba(201,168,76,.25);flex-shrink:0;overflow:hidden}
-    .program__coach-avatar img{width:100%;height:100%;object-fit:cover;border-radius:0}
+    .program__coach-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.08);border:2px solid var(--gold);flex-shrink:0;overflow:hidden}
+    .program__coach-avatar img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.5) contrast(1.05)}
     .program__coach-avatar svg{width:22px;height:22px;fill:var(--gold)}
     .program__header{display:grid;grid-template-columns:50px 40px 1fr 2.5fr 40px;align-items:center;gap:1.2rem;padding:clamp(1.2rem,2.5vh,1.8rem) clamp(1.25rem,5vw,4rem);transition:padding-left .3s}
     .program:hover .program__header{padding-left:clamp(2rem,6vw,5rem)}
@@ -1446,64 +1446,87 @@
   function closePlans(e){if(e&&e.target!==e.currentTarget)return;document.getElementById('plansOverlay').classList.remove('active');document.body.style.overflow=''}
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('plansOverlay').classList.remove('active');document.getElementById('cvOverlay').classList.remove('active');closeGallery();document.body.style.overflow='';closeMobileMenu()}});
 
-  // === WORLD MAP (realistic continent outlines) ===
+  // === WORLD MAP (dot matrix style) ===
   (function(){
     const wrap=document.getElementById('globalMap');
     if(!wrap)return;
-    const continents=[
-      // North America
-      'M28,38 L32,34 38,30 44,26 50,24 58,22 66,20 74,18 82,18 90,20 96,22 100,26 104,30 108,34 112,38 116,44 118,50 120,54 118,58 114,60 108,62 102,64 96,66 90,68 84,68 78,66 74,64 70,60 66,56 62,54 58,52 52,50 46,48 40,46 36,44 32,42 28,40Z',
-      // Central America + Caribbean
-      'M96,68 L98,70 100,72 102,74 104,76 106,78 104,80 102,78 100,76 98,74 96,72Z M112,66 L114,64 116,66 114,68Z M118,68 L120,66 122,68 120,70Z',
-      // South America
-      'M106,78 L110,76 116,74 122,74 126,76 130,80 132,86 134,92 136,98 136,106 134,112 132,118 128,126 124,132 120,136 116,140 112,142 108,140 106,136 104,130 102,124 100,116 98,110 98,104 100,98 102,92 104,86Z',
-      // Europe
-      'M176,24 L180,22 186,20 192,20 196,22 200,26 202,30 200,34 198,38 194,42 190,44 186,46 182,44 178,42 174,38 172,34 174,28Z M170,28 L172,26 174,28 172,32 170,30Z M184,16 L188,14 190,18 186,20 184,18Z',
-      // Africa
-      'M174,48 L178,46 184,46 190,48 194,52 198,58 200,64 202,72 202,80 200,88 198,94 194,100 190,106 186,110 182,112 178,114 174,112 170,108 166,104 164,98 162,92 162,86 164,80 166,72 168,66 170,58 172,52Z',
-      // Middle East
-      'M204,40 L210,38 216,40 220,44 222,50 220,54 216,56 210,56 206,54 202,50 204,44Z',
-      // Russia + Central Asia
-      'M204,14 L216,10 232,8 248,8 264,10 278,12 290,16 300,20 310,24 316,28 318,32 316,36 310,38 304,40 296,42 288,40 280,38 272,36 264,36 256,38 248,40 240,40 232,38 224,36 218,32 212,28 208,24 204,18Z',
-      // India + SE Asia
-      'M236,48 L242,46 246,50 248,56 248,62 244,68 240,72 236,70 232,66 232,60 234,54Z M262,60 L268,58 272,62 274,68 272,72 268,74 264,72 262,66Z',
-      // East Asia + Japan
-      'M280,24 L288,22 296,24 302,28 306,32 308,36 306,40 300,44 294,46 288,48 282,46 278,42 276,38 278,32Z M312,32 L314,30 316,34 314,38 312,36Z',
-      // Indonesia + Philippines
-      'M268,76 L274,74 280,76 286,78 282,82 276,82 270,80Z M278,70 L280,68 282,70 280,72Z',
-      // Australia
-      'M286,108 L294,104 302,102 310,104 316,108 320,114 322,122 320,128 316,132 310,134 302,134 294,132 288,128 284,122 284,116Z',
-      // New Zealand
-      'M330,130 L332,128 334,132 332,136 330,134Z'
+    // Dot matrix world map - each 1 = land dot on a 72x36 grid
+    const mapData=[
+      '000000000000000000000000000001111100000000000000000000000000000000000000',
+      '000000000000001111111111111111111111100000000000000000000000000000000000',
+      '000000000001111111111111111111111111111000000000000000000000000000000000',
+      '000000000011111111111111111111111111111100001111100000001111111111100000',
+      '000000001111111111111111111111111111111110011111110000111111111111110000',
+      '000000011111111111111111111111111111111111111111111001111111111111111000',
+      '000000011111111111111111111111111100011111111111111111111111111111111100',
+      '000000001111111111111111111111111000001111111111111111111111111111111110',
+      '000000000011111111111111111111110000001111111111111111111111111111111100',
+      '000000000001111111111111111111100000001111111111111111111111111111111100',
+      '000000000000111111111111111111000000001111111111111111111111111111111100',
+      '000000000000001111111111111110000000000111111111111111111111111111110000',
+      '000000000000000111111111111100000000000111111111111111111111111111100000',
+      '000000000000000011111111111000000000000011111111111111111111111111000000',
+      '000000000000000001111111111000000000000011111111111101111111111110000000',
+      '000000000000000000111111110000000000000011111111111001111111111100000000',
+      '000000000000000000011111110000000000000011111111110000111111111000000000',
+      '000000000000000000001111100000000000000011111111110000011101110000000000',
+      '000000000000000000001111100000000000000011111111100000001100000000000000',
+      '000000000000000000011111100000000000000111111111100000000000000000000000',
+      '000000000000000000011111100000000000001111111111000000000000000000000000',
+      '000000000000000000011111000000000000001111111110000000000000000000000000',
+      '000000000000000000001111000000000000000111111100000000000000000000000000',
+      '000000000000000000001110000000000000000011111000000000000000000000000000',
+      '000000000000000000001110000000000000000001110000000000000000000000000000',
+      '000000000000000000000110000000000000000000100000000000000000000000000000',
+      '000000000000000000000110000000000000000000000000000000000000000000000000',
+      '000000000000000000000010000000000000000000000000000000000000000000000000',
+      '000000000000000000000010000000000000000000000000000000011110000000000000',
+      '000000000000000000000000000000000000000000000000000000111111000000000000',
+      '000000000000000000000000000000000000000000000000000001111111100000000000',
+      '000000000000000000000000000000000000000000000000000001111111100000000000',
+      '000000000000000000000000000000000000000000000000000000111111000000000000',
+      '000000000000000000000000000000000000000000000000000000011110000000000000',
+      '000000000000000000000000000000000000000000000000000000001100000000000000',
+      '000000000000000000000000000000000000000000000000000000000000000000000000'
     ];
     const pins=[
-      {x:108,y:50,l:'USA'},{x:114,y:68,l:'Dominicana'},
-      {x:110,y:82,l:'Colombia',home:true},
-      {x:106,y:90,l:'Ecuador'},{x:108,y:100,l:'Per\u00fa'},
-      {x:118,y:78,l:'Venezuela'},{x:136,y:102,l:'Brasil'},
-      {x:126,y:130,l:'Argentina'},{x:114,y:128,l:'Chile'},
-      {x:180,y:42,l:'Espa\u00f1a'},{x:186,y:34,l:'Francia'},
-      {x:196,y:30,l:'Alemania'},{x:174,y:44,l:'Portugal'}
+      {x:17,y:9,l:'USA'},{x:20,y:14,l:'Dominicana'},
+      {x:18,y:17,l:'Colombia',home:true},
+      {x:17,y:19,l:'Ecuador'},{x:18,y:21,l:'Per\u00fa'},
+      {x:20,y:16,l:'Venezuela'},{x:23,y:20,l:'Brasil'},
+      {x:21,y:27,l:'Argentina'},{x:19,y:26,l:'Chile'},
+      {x:35,y:9,l:'Espa\u00f1a'},{x:36,y:7,l:'Francia'},
+      {x:37,y:6,l:'Alemania'},{x:34,y:9,l:'Portugal'}
     ];
-    let svg='<svg viewBox="0 0 360 160" xmlns="http://www.w3.org/2000/svg">';
-    svg+='<defs><filter id="glow"><feGaussianBlur stdDeviation="2" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+    const cols=72,rows=36,dotR=1.2,gap=5;
+    const w=cols*gap,h=rows*gap;
+    let svg='<svg viewBox="0 0 '+w+' '+h+'" xmlns="http://www.w3.org/2000/svg">';
+    svg+='<defs><filter id="glow"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
     svg+='<radialGradient id="homePin"><stop offset="0%" stop-color="var(--gold)" stop-opacity="1"/><stop offset="100%" stop-color="var(--gold)" stop-opacity="0"/></radialGradient></defs>';
-    continents.forEach(function(d){
-      svg+='<path d="'+d+'" fill="rgba(192,192,192,.12)" stroke="rgba(192,192,192,.35)" stroke-width=".6" stroke-linejoin="round"/>';
-    });
+    for(var r=0;r<rows;r++){
+      var row=mapData[r]||'';
+      for(var c=0;c<cols;c++){
+        if(row[c]==='1'){
+          svg+='<circle cx="'+(c*gap+gap/2)+'" cy="'+(r*gap+gap/2)+'" r="'+dotR+'" fill="rgba(192,192,192,.25)"/>';
+        }
+      }
+    }
     pins.forEach(function(p){
+      var px=p.x*gap+gap/2, py=p.y*gap+gap/2;
       if(p.home){
-        svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="8" fill="url(#homePin)" opacity=".3"/>';
-        svg+='<circle cx="'+p.x+'" cy="'+p.y+'" r="4" fill="none" stroke="var(--gold)" stroke-width=".6" opacity=".5"/>';
-        svg+='<circle class="gpin" cx="'+p.x+'" cy="'+p.y+'" r="2.5" fill="var(--gold)" filter="url(#glow)"/>';
-        svg+='<text x="'+p.x+'" y="'+(p.y-6)+'" text-anchor="middle" fill="var(--gold)" font-size="3.5" font-weight="700" font-family="Times New Roman,serif" letter-spacing=".5">BASE</text>';
+        svg+='<circle cx="'+px+'" cy="'+py+'" r="12" fill="url(#homePin)" opacity=".4"/>';
+        svg+='<circle cx="'+px+'" cy="'+py+'" r="6" fill="none" stroke="var(--gold)" stroke-width=".8" opacity=".5"/>';
+        svg+='<circle class="gpin" cx="'+px+'" cy="'+py+'" r="3.5" fill="var(--gold)" filter="url(#glow)"/>';
+        svg+='<text x="'+px+'" y="'+(py-10)+'" text-anchor="middle" fill="var(--gold)" font-size="6" font-weight="700" font-family="Times New Roman,serif" letter-spacing="1">BASE</text>';
       } else {
-        svg+='<circle class="gpin" cx="'+p.x+'" cy="'+p.y+'" r="1.8" fill="var(--gold)" filter="url(#glow)"/>';
+        svg+='<circle class="gpin" cx="'+px+'" cy="'+py+'" r="2.5" fill="var(--gold)" filter="url(#glow)"/>';
       }
     });
     pins.forEach(function(p){
       if(!p.home){
-        svg+='<line x1="110" y1="82" x2="'+p.x+'" y2="'+p.y+'" stroke="rgba(201,168,76,.12)" stroke-width=".3" stroke-dasharray="2 2"/>';
+        var px=p.x*gap+gap/2, py=p.y*gap+gap/2;
+        var hx=18*gap+gap/2, hy=17*gap+gap/2;
+        svg+='<line x1="'+hx+'" y1="'+hy+'" x2="'+px+'" y2="'+py+'" stroke="rgba(201,168,76,.15)" stroke-width=".5" stroke-dasharray="3 3"/>';
       }
     });
     svg+='</svg>';
