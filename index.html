@@ -95,11 +95,11 @@
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
     /* ABOUT - FLOATING CAROUSEL WITH GLOWING BORDERS */
-    .about__carousel{position:relative;width:100%;height:520px;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:visible}
+    .about__carousel{position:relative;width:100%;height:598px;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:visible}
     @keyframes cardBorderGlow{0%,100%{border-color:rgba(192,192,192,.12);box-shadow:0 20px 60px rgba(0,0,0,.4)}50%{border-color:rgba(192,192,192,.5);box-shadow:0 20px 60px rgba(0,0,0,.4),0 0 25px rgba(192,192,192,.12)}}
     @keyframes cardBreath{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.015)}}
     @keyframes cardBreathSide{0%,100%{transform:scale(.85)}50%{transform:scale(.865)}}
-    .about__card{position:absolute;width:320px;height:440px;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .6s cubic-bezier(.22,1,.36,1);will-change:transform,opacity;border:1.5px solid rgba(192,192,192,.12);animation:cardBorderGlow 3s ease-in-out infinite}
+    .about__card{position:absolute;width:368px;height:506px;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .6s cubic-bezier(.22,1,.36,1);will-change:transform,opacity;border:1.5px solid rgba(192,192,192,.12);animation:cardBorderGlow 3s ease-in-out infinite}
     .about__card:nth-child(2){animation-delay:.5s}
     .about__card:nth-child(3){animation-delay:1s}
     .about__card img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.7) brightness(.8);transition:filter .5s}
@@ -463,7 +463,7 @@
       .hero__label{justify-content:center}
       .text-display{font-size:clamp(2.2rem,10vw,3.5rem)}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}
-      .about__carousel{height:400px}.about__card{width:240px;height:340px}.about__card-title{font-size:1.4rem}
+      .about__carousel{height:460px}.about__card{width:276px;height:391px}.about__card-title{font-size:1.4rem}
       .text-heading{font-size:clamp(1.6rem,6vw,2.5rem)}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
@@ -483,7 +483,7 @@
     @media(max-width:480px){
       .text-display{font-size:clamp(2rem,9vw,3rem)}
       .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}
-      .about__carousel{height:350px}.about__card{width:200px;height:280px}.about__card-title{font-size:1.1rem}.about__card-desc{display:none}
+      .about__carousel{height:402px}.about__card{width:230px;height:322px}.about__card-title{font-size:1.1rem}.about__card-desc{display:none}
       .about__card--left{left:0;transform:scale(.82) rotateY(6deg)}.about__card--right{right:0;transform:scale(.82) rotateY(-6deg)}
       .text-heading{white-space:normal!important}
       .footer__columns{grid-template-columns:1fr;gap:2rem}
