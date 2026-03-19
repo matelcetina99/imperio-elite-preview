@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>IMPERIO - Elite Fitness Club</title>
-  <meta name="version" content="2026-03-18-v16">
+  <meta name="version" content="2026-03-18-v17">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
@@ -94,37 +94,20 @@
     .about__social-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1.1rem;border:1px solid var(--border);border-radius:var(--radius);font-size:.7rem;font-weight:600;letter-spacing:.05em;color:var(--text-muted);transition:all .3s}
     .about__social-btn:hover{border-color:var(--gold);color:var(--gold)}
     .about__social-btn svg{width:16px;height:16px}
-    /* INTERACTIVE CARD CAROUSEL */
-    .about__carousel{position:relative;width:100%;height:520px;display:flex;align-items:center;justify-content:center;perspective:1200px;overflow:visible}
-    .about__card{position:absolute;width:320px;height:440px;border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:all .6s cubic-bezier(.22,1,.36,1);will-change:transform,opacity;box-shadow:0 20px 60px rgba(0,0,0,.4)}
-    .about__card img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.7) brightness(.8);transition:filter .5s}
-    .about__card:hover img{filter:saturate(.9) brightness(.9)}
-    .about__card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.5rem;z-index:2;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,rgba(8,8,10,.3) 45%,transparent 65%);transition:opacity .4s}
-    .about__card-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:2rem;text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.4rem}
-    .about__card-sub{font-family:'Times New Roman',Times,serif;font-size:.75rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
-    .about__card-desc{font-family:'Lora',serif;font-size:.72rem;color:rgba(255,255,255,.6);line-height:1.4}
-    .about__card--left{transform:translateX(-110%) scale(.85) rotateY(8deg);opacity:.5;z-index:1}
-    .about__card--center{transform:translateX(-50%) scale(1);opacity:1;z-index:3;left:50%}
-    .about__card--right{transform:translateX(10%) scale(.85) rotateY(-8deg);opacity:.5;z-index:1}
-    .about__card--center:hover{transform:translateX(-50%) scale(1.03);box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 40px rgba(201,168,76,.15)}
-    .about__card-hint{position:absolute;bottom:0;left:0;right:0;text-align:center;padding:.6rem;background:rgba(201,168,76,.12);font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);opacity:0;transition:opacity .3s;z-index:5}
-    .about__card--center .about__card-hint{opacity:1}
-    /* Fullscreen expand */
-    .about__fullscreen{position:fixed;inset:0;z-index:2500;background:rgba(8,8,10,.97);backdrop-filter:blur(20px);opacity:0;pointer-events:none;transition:opacity .4s;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow-y:auto}
-    .about__fullscreen.active{opacity:1;pointer-events:auto}
-    .about__fullscreen-close{position:fixed;top:1.5rem;right:1.5rem;z-index:2510;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;font-size:1.5rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .3s}
-    .about__fullscreen-close:hover{background:var(--gold);color:#08080A}
-    .about__fullscreen-content{max-width:600px;width:90%;text-align:center;animation:aboutFadeUp .5s ease-out both;animation-delay:.15s}
-    .about__fullscreen-img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius);margin-bottom:1.5rem;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-    .about__fullscreen-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(2rem,5vw,3.5rem);text-transform:uppercase;letter-spacing:.04em;color:#fff;margin-bottom:.5rem}
-    .about__fullscreen-sub{font-size:.8rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.1em;margin-bottom:1rem}
-    .about__fullscreen-desc{font-family:'Lora',serif;font-size:1rem;color:var(--text-muted);line-height:1.8;margin-bottom:1.5rem}
-    .about__fullscreen-btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1.5rem;border:1px solid var(--gold);border-radius:var(--radius);color:var(--gold);font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:transparent;transition:all .3s}
-    .about__fullscreen-btn:hover{background:var(--gold);color:#08080A}
-    @keyframes aboutFadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-    .about__nav-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.5rem}
-    .about__nav-dot{width:8px;height:8px;border-radius:50%;background:rgba(192,192,192,.2);border:1px solid rgba(192,192,192,.2);cursor:pointer;transition:all .3s}
-    .about__nav-dot.active{background:var(--gold);border-color:var(--gold);transform:scale(1.3)}
+    /* ABOUT - 3 PANEL GRID */
+    .about__grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+    @keyframes cardBorderGlow{0%,100%{border-color:rgba(192,192,192,.15);box-shadow:0 0 0 rgba(192,192,192,0)}50%{border-color:rgba(192,192,192,.45);box-shadow:0 0 20px rgba(192,192,192,.08)}}
+    @keyframes cardBreath{0%,100%{transform:scale(1)}50%{transform:scale(1.008)}}
+    .about__card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;border-radius:var(--radius);border:1.5px solid rgba(192,192,192,.15);animation:cardBorderGlow 3s ease-in-out infinite,cardBreath 4s ease-in-out infinite;transition:all .4s}
+    .about__card:nth-child(2){animation-delay:.5s}
+    .about__card:nth-child(3){animation-delay:1s}
+    .about__card:hover{border-color:var(--silver);box-shadow:0 0 30px rgba(192,192,192,.15),0 10px 40px rgba(0,0,0,.4);animation:none;transform:scale(1.02)}
+    .about__card img{width:100%;height:100%;object-fit:cover;border-radius:0;filter:saturate(.65) brightness(.75);transition:filter .5s}
+    .about__card:hover img{filter:saturate(.85) brightness(.85)}
+    .about__card-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(1rem,2vw,1.5rem);z-index:2;background:linear-gradient(to top,rgba(8,8,10,.9) 0%,rgba(8,8,10,.3) 45%,transparent 65%)}
+    .about__card-title{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:clamp(1.5rem,3vw,2.5rem);text-transform:uppercase;letter-spacing:.04em;line-height:.95;color:#fff;margin-bottom:.4rem}
+    .about__card-sub{font-family:'Times New Roman',Times,serif;font-size:.7rem;font-weight:700;color:var(--gold);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
+    .about__card-desc{font-family:'Lora',serif;font-size:.7rem;color:rgba(255,255,255,.6);line-height:1.4}
     /* GALLERY MODAL (IG style) */
     .gallery-overlay{position:fixed;inset:0;background:rgba(8,8,10,.96);z-index:2000;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .3s}
     .gallery-overlay.active{opacity:1;pointer-events:auto}
@@ -471,7 +454,7 @@
       .hero__label{justify-content:center}
       .text-display{font-size:clamp(2.2rem,10vw,3.5rem)}
       .stats__grid{grid-template-columns:repeat(3,1fr);gap:.75rem}.text-stat{font-size:clamp(2rem,8vw,3rem)}.stats__item .text-label{font-size:.55rem}
-      .about__carousel{height:400px}.about__card{width:240px;height:340px}.about__card-title{font-size:1.4rem}
+      .about__grid{grid-template-columns:1fr 1fr 1fr;gap:.6rem}.about__card-title{font-size:1.1rem}.about__card-desc{font-size:.6rem}
       .text-heading{font-size:clamp(1.6rem,6vw,2.5rem)}
       .program__header{grid-template-columns:30px 36px 1fr 28px;gap:.6rem}.program__desc{display:none}.program__motto-inline{display:none}.program__expanded-inner{grid-template-columns:1fr}.program.active .program__expanded{max-height:650px}
       .trainers__page{grid-template-columns:1fr 1fr;gap:.75rem}.trainer__rating{font-size:2rem}.trainer__fifa-stat-val{font-size:.85rem}.trainers__arrow{display:none}
@@ -491,8 +474,7 @@
     @media(max-width:480px){
       .text-display{font-size:clamp(2rem,9vw,3rem)}
       .trainers__page{grid-template-columns:1fr 1fr;max-width:400px;margin:0 auto;gap:.5rem}
-      .about__carousel{height:360px}.about__card{width:200px;height:290px}.about__card-title{font-size:1.2rem}.about__card-desc{display:none}
-      .about__card--left{transform:translateX(-95%) scale(.8) rotateY(8deg)}.about__card--right{transform:translateX(0%) scale(.8) rotateY(-8deg)}
+      .about__grid{gap:4px}.about__card-title{font-size:.9rem}.about__card-sub{font-size:.5rem}.about__card-desc{display:none}
       .text-heading{white-space:normal!important}
       .footer__columns{grid-template-columns:1fr;gap:2rem}
       .hero__ctas .btn--gold,.hero__ctas .btn--outline{width:100%;max-width:280px}
@@ -566,53 +548,34 @@
         <a href="#" class="about__social-btn"><svg viewBox="0 0 24 24" fill="#fff" width="16" height="16"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.46 6.3 6.3 0 001.86-4.49V8.73a8.26 8.26 0 004.72 1.48V6.77a4.85 4.85 0 01-1-.08z"/></svg>TikTok</a>
       </div>
     </div>
-    <div class="about__carousel reveal" id="aboutCarousel">
-      <div class="about__card about__card--left" data-index="0" data-cat="atletas" onclick="handleCardClick(0)">
+    <div class="about__grid reveal">
+      <div class="about__card" onclick="openGallery('atletas')">
         <img src="img/Foto - Web 1.png" alt="Atletas Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Atletas</p>
           <p class="about__card-sub">Nuestros guerreros</p>
           <p class="about__card-desc">El compromiso no tiene d&iacute;as libres</p>
         </div>
-        <div class="about__card-hint">Toca para explorar</div>
       </div>
-      <div class="about__card about__card--center" data-index="1" data-cat="salidas" onclick="handleCardClick(1)">
+      <div class="about__card" onclick="openGallery('salidas')">
         <img src="img/Foto - Web 25.png" alt="Salidas Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Salidas</p>
           <p class="about__card-sub">Imperio al aire libre</p>
           <p class="about__card-desc">Conquistamos fuera del centro</p>
         </div>
-        <div class="about__card-hint">Toca para explorar</div>
       </div>
-      <div class="about__card about__card--right" data-index="2" data-cat="clases" onclick="handleCardClick(2)">
+      <div class="about__card" onclick="openGallery('clases')">
         <img src="img/Foto - Web 15.png" alt="Clases Imperio">
         <div class="about__card-overlay">
           <p class="about__card-title">Clases</p>
           <p class="about__card-sub">Beats &amp; grupales</p>
           <p class="about__card-desc">M&uacute;sica y energ&iacute;a en cada sesi&oacute;n</p>
         </div>
-        <div class="about__card-hint">Toca para explorar</div>
       </div>
-    </div>
-    <div class="about__nav-dots">
-      <div class="about__nav-dot" data-index="0" onclick="setActiveCard(0)"></div>
-      <div class="about__nav-dot active" data-index="1" onclick="setActiveCard(1)"></div>
-      <div class="about__nav-dot" data-index="2" onclick="setActiveCard(2)"></div>
     </div>
   </div>
 </section>
-<!-- ABOUT FULLSCREEN -->
-<div class="about__fullscreen" id="aboutFullscreen" onclick="if(event.target===this)closeAboutFullscreen()">
-  <button class="about__fullscreen-close" onclick="closeAboutFullscreen()">&times;</button>
-  <div class="about__fullscreen-content">
-    <img class="about__fullscreen-img" id="aboutFsImg" src="" alt="">
-    <h3 class="about__fullscreen-title" id="aboutFsTitle"></h3>
-    <p class="about__fullscreen-sub" id="aboutFsSub"></p>
-    <p class="about__fullscreen-desc" id="aboutFsDesc"></p>
-    <button class="about__fullscreen-btn" id="aboutFsBtn" onclick="openGalleryFromFs()">Ver galer&iacute;a completa &rarr;</button>
-  </div>
-</div>
 
 <!-- CLASES -->
 <section id="programs" class="section">
@@ -777,13 +740,13 @@
       <div style="display:flex;justify-content:center;gap:1.5rem;align-items:center;">
         <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;">
           <div style="width:52px;height:52px;border:1.5px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;background:var(--surface);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-            <span style="font-family:'Helvetica Neue',Arial,sans-serif;font-weight:800;font-size:1.25rem;color:#00C9B7;letter-spacing:-.03em;line-height:1;">fiti</span>
+            <span style="font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.3rem;color:var(--silver-light);letter-spacing:.02em;">fiti</span>
           </div>
           <span style="font-size:.55rem;color:var(--text-dim);letter-spacing:.05em;font-family:'Lora',serif;">iPhone</span>
         </a>
         <a href="#" style="display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none;">
           <div style="width:52px;height:52px;border:1.5px solid var(--border);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;background:var(--surface);transition:border-color .3s;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
-            <span style="font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.65rem;color:var(--silver-light);letter-spacing:.12em;text-transform:uppercase;line-height:1.1;text-align:center;">IMPERIO<br><span style="font-size:.35rem;letter-spacing:.08em;color:var(--text-dim);font-family:'Lora',serif;text-transform:uppercase;">Elite Fitness</span></span>
+            <span style="font-family:'Times New Roman',Times,serif;font-weight:700;font-size:.5rem;color:var(--silver-light);letter-spacing:.08em;text-transform:uppercase;line-height:1.2;text-align:center;">IMPERIO<br><span style="font-size:.3rem;letter-spacing:.05em;color:var(--text-dim);font-family:'Lora',serif;text-transform:uppercase;">Elite Fitness</span></span>
           </div>
           <span style="font-size:.55rem;color:var(--text-dim);letter-spacing:.05em;font-family:'Lora',serif;">Android</span>
         </a>
@@ -1480,66 +1443,6 @@
       {img:'img/blanco/1.png',caption:'<strong>imperioelitefitness</strong> Ambiente nocturno &uacute;nico. Las luces neon hacen que cada clase sea una experiencia.',tags:'#NeonFitness #ClaseNocturna #ImperioVibes'}
     ]
   };
-  // === ABOUT CARD CAROUSEL ===
-  let aboutActiveIndex=1;
-  const aboutCardData=[
-    {cat:'atletas',img:'img/Foto - Web 1.png',title:'Atletas',sub:'Nuestros guerreros',desc:'El equipo que demuestra que el compromiso no tiene d\u00edas libres. Cada repetici\u00f3n, cada gota de sudor construye algo m\u00e1s grande.'},
-    {cat:'salidas',img:'img/Foto - Web 25.png',title:'Salidas',sub:'Imperio al aire libre',desc:'Cuando el espacio se queda peque\u00f1o, salimos a conquistar. Las salidas Imperio forjan comunidad m\u00e1s all\u00e1 de las paredes.'},
-    {cat:'clases',img:'img/Foto - Web 15.png',title:'Clases',sub:'Beats & grupales',desc:'M\u00fasica, energ\u00eda y conexi\u00f3n. Nuestras clases grupales son el coraz\u00f3n del centro — cada sesi\u00f3n es una experiencia \u00fanica.'}
-  ];
-  const positions=['left','center','right'];
-  function setActiveCard(idx){
-    aboutActiveIndex=idx;
-    const cards=document.querySelectorAll('.about__card');
-    const dots=document.querySelectorAll('.about__nav-dot');
-    const order=[(idx+2)%3,idx,(idx+1)%3];
-    cards.forEach(c=>{c.className='about__card'});
-    cards[order[0]].classList.add('about__card--left');
-    cards[order[1]].classList.add('about__card--center');
-    cards[order[2]].classList.add('about__card--right');
-    dots.forEach((d,i)=>d.classList.toggle('active',i===idx));
-  }
-  function handleCardClick(idx){
-    if(idx===aboutActiveIndex){openAboutFullscreen(idx)}
-    else{setActiveCard(idx)}
-  }
-  let aboutFsCat='';
-  function openAboutFullscreen(idx){
-    const d=aboutCardData[idx];
-    aboutFsCat=d.cat;
-    document.getElementById('aboutFsImg').src=d.img;
-    document.getElementById('aboutFsTitle').textContent=d.title;
-    document.getElementById('aboutFsSub').textContent=d.sub;
-    document.getElementById('aboutFsDesc').textContent=d.desc;
-    document.getElementById('aboutFullscreen').classList.add('active');
-    document.body.style.overflow='hidden';
-  }
-  function closeAboutFullscreen(){
-    document.getElementById('aboutFullscreen').classList.remove('active');
-    document.body.style.overflow='';
-  }
-  function openGalleryFromFs(){
-    closeAboutFullscreen();
-    setTimeout(()=>openGallery(aboutFsCat),300);
-  }
-  // Touch swipe for about carousel
-  (function(){
-    const el=document.getElementById('aboutCarousel');
-    if(!el)return;
-    let startX=0,startY=0,moved=false;
-    el.addEventListener('touchstart',e=>{startX=e.touches[0].clientX;startY=e.touches[0].clientY;moved=false},{passive:true});
-    el.addEventListener('touchmove',e=>{moved=true},{passive:true});
-    el.addEventListener('touchend',e=>{
-      if(!moved)return;
-      const dx=e.changedTouches[0].clientX-startX;
-      const dy=e.changedTouches[0].clientY-startY;
-      if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){
-        if(dx<0)setActiveCard((aboutActiveIndex+1)%3);
-        else setActiveCard((aboutActiveIndex+2)%3);
-      }
-    },{passive:true});
-  })();
-
   const galleryTitles={atletas:'Nuestros Atletas',salidas:'Salidas Imperio',clases:'Clases'};
   function openGallery(cat){
     document.getElementById('galleryTitle').textContent=galleryTitles[cat]||cat;
