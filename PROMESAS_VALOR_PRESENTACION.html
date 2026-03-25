@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promesas de Valor — Imperio Elite Fitness Club</title>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#08080A;--surface:#111113;--surface-alt:#19191C;--border:#252528;--border-gold:rgba(201,168,76,0.3);--text:#E8E6E3;--text-muted:#9A9A9E;--text-dim:#5A5A5E;--silver:#C0C0C0;--silver-light:#D4D4D4;--gold:#C9A84C;--gold-light:#D4B85A;--gold-glow:rgba(201,168,76,0.15);--red:#E05252;--green:#4CAF50;--radius:8px}
+    html{scroll-behavior:smooth}
+    body{font-family:Georgia,serif;font-size:16px;line-height:1.7;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    h1,h2,h3,h4{font-family:'Times New Roman',Times,serif;font-weight:700;letter-spacing:-0.01em}
+    .label{font-family:Georgia,serif;font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+    .section{padding:clamp(3rem,6vh,5rem) clamp(1.5rem,6vw,5rem);border-bottom:1px solid var(--border);position:relative}
+    .container{max-width:1100px;margin:0 auto}
+    /* NAV */
+    .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem clamp(1.5rem,6vw,5rem);display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,10,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(201,168,76,.1)}
+    .nav__logo{font-family:'Times New Roman',Times,serif;font-weight:700;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase;color:var(--silver-light)}
+    .nav__sub{font-size:.6rem;letter-spacing:.15em;color:var(--text-dim);text-transform:uppercase}
+    .nav__date{font-size:.68rem;color:var(--text-dim);letter-spacing:.05em}
+    /* COVER */
+    .cover{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem clamp(1.5rem,6vw,5rem) 5rem;background:radial-gradient(ellipse at 50% 40%,rgba(201,168,76,.06) 0%,transparent 70%),linear-gradient(180deg,var(--bg),var(--surface));border-bottom:1px solid var(--border)}
+    .cover h1{font-size:clamp(2.8rem,7vw,5.5rem);line-height:.95;letter-spacing:-.02em;text-transform:uppercase;color:var(--silver-light);margin-bottom:1.5rem}
+    .cover h1 span{color:var(--gold)}
+    .cover p{font-size:clamp(1rem,2vw,1.3rem);color:var(--text-muted);max-width:560px;margin:0 auto 1rem;font-style:italic}
+    .divider{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:2rem auto}
+    .cover-meta{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;margin-top:3rem}
+    .cover-meta .n{font-family:'Times New Roman',Times,serif;font-size:2.5rem;font-weight:700;color:var(--gold);line-height:1}
+    .cover-meta .d{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-top:.3rem}
+    /* HEADERS */
+    .sh{margin-bottom:2.5rem}
+    .sh .label{display:block;margin-bottom:.6rem}
+    .sh h2{font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--silver-light);line-height:1.1}
+    .sh p{color:var(--text-muted);margin-top:.8rem;max-width:680px;font-size:1rem}
+    .sn{font-family:'Times New Roman',Times,serif;font-size:.75rem;color:var(--gold);letter-spacing:.1em;margin-bottom:.3rem;display:block}
+    /* BOXES */
+    .alert{background:rgba(224,82,82,.08);border:1px solid rgba(224,82,82,.3);border-left:3px solid var(--red);border-radius:var(--radius);padding:1.5rem 2rem;margin:2rem 0}
+    .alert h4{color:var(--red);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+    .alert p{color:var(--text-muted);font-size:.95rem}
+    .info{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:var(--radius);padding:1.5rem 2rem;margin:2rem 0}
+    .info h4{color:var(--gold);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+    .info p{color:var(--text-muted);font-size:.95rem}
+    /* TABLE */
+    .tw{overflow-x:auto;margin:1.5rem 0}
+    table{width:100%;border-collapse:collapse;font-size:.9rem}
+    thead th{background:var(--surface);color:var(--gold);font-family:Georgia,serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:1rem 1.2rem;text-align:left;border-bottom:1px solid var(--border-gold)}
+    tbody td{padding:.9rem 1.2rem;border-bottom:1px solid var(--border);color:var(--text);vertical-align:top}
+    tbody tr:hover{background:rgba(201,168,76,.04)}
+    .ct th,.ct td{text-align:center}.ct td:first-child,.ct th:first-child{text-align:left}
+    .ck{color:var(--green);font-weight:700}.cx{color:var(--red)}.na{color:var(--text-dim)}
+    /* BADGES */
+    .b{display:inline-block;padding:.2rem .6rem;border-radius:4px;font-size:.65rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-family:Georgia,serif;white-space:nowrap}
+    .b-ac{background:rgba(201,168,76,.15);color:var(--gold);border:1px solid rgba(201,168,76,.3)}
+    .b-in{background:rgba(100,149,237,.12);color:#6495ED;border:1px solid rgba(100,149,237,.3)}
+    .b-fl{background:rgba(76,175,80,.12);color:#4CAF50;border:1px solid rgba(76,175,80,.3)}
+    .b-ad{background:rgba(156,39,176,.12);color:#CE93D8;border:1px solid rgba(156,39,176,.3)}
+    .b-pr{background:rgba(255,152,0,.12);color:#FFB74D;border:1px solid rgba(255,152,0,.3)}
+    .b-co{background:rgba(244,67,54,.12);color:#EF9A9A;border:1px solid rgba(244,67,54,.3)}
+    .b-ex{background:rgba(0,188,212,.12);color:#4DD0E1;border:1px solid rgba(0,188,212,.3)}
+    .b-pm{background:rgba(255,215,0,.12);color:#FFD700;border:1px solid rgba(255,215,0,.3)}
+    .b-dg{background:rgba(139,195,74,.12);color:#AED581;border:1px solid rgba(139,195,74,.3)}
+    .b-ax{background:rgba(121,134,203,.12);color:#9FA8DA;border:1px solid rgba(121,134,203,.3)}
+    /* FILTERS */
+    .filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.5rem}
+    .fb{padding:.4rem 1rem;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-family:Georgia,serif;font-size:.75rem;cursor:pointer;transition:all .2s;letter-spacing:.04em}
+    .fb:hover{border-color:var(--gold);color:var(--gold)}
+    .fb.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+    /* TRANSCRIPT */
+    .transcript{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 2.5rem;max-height:600px;overflow-y:auto;line-height:1.9;color:var(--text-muted);font-size:.95rem}
+    .transcript p{margin-bottom:1rem}
+    .transcript::-webkit-scrollbar{width:6px}.transcript::-webkit-scrollbar-track{background:var(--surface)}.transcript::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+    /* FLOW */
+    .flow{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;font-family:'Courier New',monospace;font-size:.85rem;color:var(--text-muted);line-height:1.8;overflow-x:auto;white-space:pre}
+    .flow .h{color:var(--gold);font-weight:700}.flow .g{color:var(--green)}.flow .r{color:var(--red)}.flow .s{color:var(--silver)}
+    /* PRIORITY CARDS */
+    .pc{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin:1.5rem 0}
+    .pc-h{display:flex;align-items:center;gap:1rem;margin-bottom:1rem}
+    .pc-n{font-family:'Times New Roman',Times,serif;font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+    .pc-t{font-family:'Times New Roman',Times,serif;font-size:1.2rem;color:var(--silver-light)}
+    .pc-r{color:var(--text-muted);font-size:.9rem;margin-bottom:1.2rem;padding-bottom:1.2rem;border-bottom:1px solid var(--border)}
+    .pc ul{list-style:none}.pc ul li{padding:.6rem 0;border-bottom:1px solid rgba(37,37,40,.6);color:var(--text);font-size:.9rem}.pc ul li:last-child{border-bottom:none}
+    .pn{color:var(--gold);font-weight:700;font-family:'Times New Roman',Times,serif;margin-right:.5rem}
+    /* PRIORITY GRID */
+    .pg{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin-top:2rem}
+    @media(max-width:768px){.pg{grid-template-columns:1fr}}
+    .ps{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem}
+    .ps h4{font-size:.9rem;color:var(--silver-light);margin-bottom:.5rem}
+    .ps p{font-size:.85rem;color:var(--text-muted)}
+    .ps ul{list-style:none;margin-top:.5rem}.ps ul li{font-size:.8rem;color:var(--text-dim);padding:.2rem 0}
+    /* SOLUTION CARDS */
+    .sol{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin:1.5rem 0}
+    .sol h4{font-size:1rem;color:var(--silver-light);margin-bottom:.5rem}
+    .sol-num{display:inline-block;background:var(--gold);color:var(--bg);font-family:'Times New Roman',serif;font-weight:700;font-size:.8rem;width:28px;height:28px;line-height:28px;text-align:center;border-radius:50%;margin-right:.5rem}
+    .sol p,.sol li{color:var(--text-muted);font-size:.9rem;line-height:1.7}
+    .sol ul{list-style:none;margin:.5rem 0}.sol ul li{padding:.3rem 0;padding-left:1rem;position:relative}
+    .sol ul li::before{content:'>';color:var(--gold);position:absolute;left:0;font-weight:700}
+    /* TIMELINE */
+    .tl{position:relative;padding-left:2rem;margin:1.5rem 0}
+    .tl::before{content:'';position:absolute;left:.5rem;top:0;bottom:0;width:2px;background:var(--border)}
+    .tl-i{position:relative;padding:1rem 0 1rem 1.5rem}
+    .tl-i::before{content:'';position:absolute;left:-1.55rem;top:1.4rem;width:12px;height:12px;border-radius:50%;border:2px solid var(--gold);background:var(--bg)}
+    .tl-d{font-family:'Times New Roman',serif;font-weight:700;font-size:1rem;color:var(--gold)}
+    .tl-a{color:var(--text-muted);font-size:.9rem;margin-top:.3rem}
+    .tl-m{background:var(--surface-alt);border:1px solid var(--border);border-radius:var(--radius);padding:.8rem 1rem;margin-top:.5rem;font-size:.85rem;color:var(--text);font-style:italic}
+    /* COMPARISON */
+    .comp{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:2rem 0}
+    @media(max-width:768px){.comp{grid-template-columns:1fr}}
+    .comp-box{border-radius:var(--radius);padding:2rem;font-size:.9rem;line-height:1.8}
+    .comp-old{background:rgba(224,82,82,.05);border:1px solid rgba(224,82,82,.2)}
+    .comp-new{background:rgba(76,175,80,.05);border:1px solid rgba(76,175,80,.2)}
+    .comp-box h4{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+    .comp-old h4{color:var(--red)}.comp-new h4{color:var(--green)}
+    .comp-box p{color:var(--text-muted);margin-bottom:.8rem}
+    .comp-why{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 2rem;margin:1rem 0}
+    .comp-why h4{color:var(--gold);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.8rem}
+    .comp-why ul{list-style:none}.comp-why ul li{color:var(--text-muted);font-size:.88rem;padding:.4rem 0;padding-left:1.2rem;position:relative}
+    .comp-why ul li::before{content:'>';color:var(--gold);position:absolute;left:0;font-weight:700}
+    /* CYCLE */
+    .cycle{display:flex;gap:1.5rem;align-items:center;justify-content:center;flex-wrap:wrap;margin:2rem 0}
+    .cyc{background:var(--surface);border:1px solid rgba(224,82,82,.4);border-radius:var(--radius);padding:1.5rem 2rem;text-align:center;min-width:160px}
+    .cyc h4{font-size:.9rem;color:var(--red);margin-bottom:.3rem}.cyc p{font-size:.8rem;color:var(--text-muted)}
+    .cya{font-size:1.5rem;color:var(--text-dim)}
+    /* NOTES SYSTEM - Click anywhere */
+    .note-popup{position:fixed;z-index:200;background:var(--surface);border:1px solid var(--border-gold);border-radius:var(--radius);padding:1rem;width:300px;box-shadow:0 8px 32px rgba(0,0,0,.5);display:none}
+    .note-popup.open{display:block}
+    .note-popup input,.note-popup textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.5rem .7rem;color:var(--text);font-family:Georgia,serif;font-size:.85rem;margin-bottom:.5rem;resize:vertical}
+    .note-popup input:focus,.note-popup textarea:focus{outline:none;border-color:var(--gold)}
+    .note-popup button{padding:.4rem 1rem;background:var(--gold);color:var(--bg);border:none;border-radius:4px;font-family:Georgia,serif;font-size:.75rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase}
+    .note-popup button:hover{background:var(--gold-light)}
+    .note-popup .cancel{background:transparent;color:var(--text-dim);border:1px solid var(--border);margin-left:.5rem}
+    .note-marker{display:inline;background:rgba(201,168,76,.2);border-bottom:2px solid var(--gold);cursor:pointer;position:relative}
+    .note-marker:hover{background:rgba(201,168,76,.35)}
+    .note-tooltip{position:absolute;bottom:calc(100% + 8px);left:0;background:var(--surface);border:1px solid var(--border-gold);border-radius:var(--radius);padding:.8rem 1rem;width:250px;z-index:50;font-size:.8rem;box-shadow:0 4px 16px rgba(0,0,0,.4);display:none}
+    .note-marker:hover .note-tooltip{display:block}
+    .note-tooltip .nt-author{color:var(--gold);font-weight:700;font-size:.7rem;text-transform:uppercase;letter-spacing:.05em}
+    .note-tooltip .nt-date{color:var(--text-dim);font-size:.65rem;margin-left:.3rem}
+    .note-tooltip .nt-text{color:var(--text-muted);margin-top:.3rem}
+    .note-tooltip .nt-del{float:right;background:none;border:none;color:var(--text-dim);cursor:pointer;font-size:.75rem;padding:0}.note-tooltip .nt-del:hover{color:var(--red)}
+    .notes-hint{position:fixed;bottom:1.5rem;right:1.5rem;background:var(--surface);border:1px solid var(--border-gold);border-radius:var(--radius);padding:.6rem 1.2rem;font-size:.72rem;color:var(--gold);letter-spacing:.06em;z-index:90;opacity:.7;pointer-events:none}
+    /* STATUS */
+    .st-p{color:var(--red)}.st-d{color:var(--gold)}.st-ok{color:var(--green)}
+    /* MISC */
+    .mt-2{margin-top:2rem}.mt-1{margin-top:1rem}.mb-2{margin-bottom:2rem}
+    .footer{padding:3rem;text-align:center;color:var(--text-dim);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
+    h3.sub{color:var(--silver-light);margin:2rem 0 1rem;font-size:1.2rem}
+  </style>
+</head>
+<body>
+
+<nav class="nav"><div><div class="nav__logo">IMPERIO</div><div class="nav__sub">Promesas de Valor</div></div><div class="nav__date">Marzo 2026</div></nav>
+
+<!-- 01 PORTADA -->
+<header class="cover">
+  <div class="container">
+    <span class="label">Imperio Elite Fitness Club</span>
+    <h1>Promesas de <span>Valor</span></h1>
+    <p>Analisis del pitch de ventas — Que prometemos, que cumplimos, y como cerrar la brecha</p>
+    <div class="divider"></div>
+    <span class="label" style="font-size:.6rem;color:var(--text-dim)">25 Marzo 2026</span>
+    <div class="cover-meta">
+      <div style="text-align:center"><div class="n">31</div><div class="d">Promesas</div></div>
+      <div style="text-align:center"><div class="n">9</div><div class="d">Categorias</div></div>
+      <div style="text-align:center"><div class="n">4</div><div class="d">Niveles</div></div>
+      <div style="text-align:center"><div class="n">10</div><div class="d">Urgentes</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- 02 PROBLEMA -->
+<section class="section" id="s02">
+  <div class="container">
+    <div class="sh"><span class="sn">02</span><span class="label">Diagnostico</span><h2>El Problema</h2></div>
+    <div class="alert"><h4>Problema critico</h4><p>El pitch de ventas promete cosas que no se cumplen en la operacion. Los clientes compran una experiencia que no reciben. Cancelan y no recomiendan.</p></div>
+    <p style="color:var(--text-muted);margin:1.5rem 0">Se grabo el pitch del mejor closer durante una venta real. Se identificaron todas las promesas y se evaluo cuales se cumplen y cuales no.</p>
+    <div class="cycle">
+      <div class="cyc"><h4>Closer promete</h4><p>31 promesas en el pitch</p></div>
+      <span class="cya">&rarr;</span>
+      <div class="cyc"><h4>Cliente compra</h4><p>Expectativa alta</p></div>
+      <span class="cya">&rarr;</span>
+      <div class="cyc"><h4>No se cumple</h4><p>Sin sistema detras</p></div>
+      <span class="cya">&rarr;</span>
+      <div class="cyc"><h4>Cliente se va</h4><p>Cancela y habla mal</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 TRANSCRIPCION -->
+<section class="section" id="s03">
+  <div class="container">
+    <div class="sh"><span class="sn">03</span><span class="label">Fuente</span><h2>Transcripcion del Pitch</h2><p>Audio de WhatsApp, 24 marzo 2026. Venta real del mejor closer.</p></div>
+    <div class="transcript">
+      <p>Tienes varias ventajas muy grandes. Lo primero son las dos plantas que tenemos y te acompaño por este lado y te comparto el espacio de entrenamiento funcional. Por aca vamos a encontrar lo que es nuestra cafeteria super completa, manejamos todo tipo de suplementos, lo que necesites, batidos, aminoacidos, creatina, snacks, cualquier cosa.</p>
+      <p>Aca una barrita donde puedes estar, degustar los alimentos, de igual forma puedes descansar un rato. Algo de ropa por si necesitas, tambien implementos deportivos para que puedas entrenar sin ningun problema, straps, suplementos, lo que necesites. Aca este espacio vas a ver que es un espacio diferente, un espacio funcional, super amplio, completo.</p>
+      <p>Y es este espacio, listo. Este espacio normalmente se usa para lo que son clases grupales, al igual que entrenamientos funcionales, estiramientos, calentamientos, un ejercicio, un entrenamiento que no conlleve como tal una maquina o un estimulo muy grande. Por aca un consultorio donde normalmente hacemos lo que son valoraciones fisicas, tambien todo el tema de nutricion que sabes que es super importante y fisioterapia, listo.</p>
+      <p>Importante, zona de cardio super completa, bicicletas, caminadoras, trotadora, eliptica, todo este espacio a tu disposicion para que puedas entrenar y la zona que mas gusta aca que es este espacio entrenamiento funcional, hibrido, super completo, maquinas de high ropes, un espacio de coworking para que puedas estar descansando un rato y siempre el entrenador en pro va a poder ayudarles. El es el entrenador de planta que esta muy pendiente de ustedes, de poder guiarlos, ayudarlos, que para nosotros siempre va a ser lo mas importante, listo. ¿Que objetivo fisico tienes? Con mi estatura no me gustaria dormir asi tanto, ya baje hasta la barriga.</p>
+      <p>¿Si? No, pero me voy a bajar. No, importante, el proposito nuestro es siempre brindarte ese acompanamiento en todo tu proceso que es super importante. Y una buena resistencia fisica porque por mis turnos en el aeropuerto, hay unas que tengo que mover dos de la manana y tres de la manana.</p>
+      <p>Es un desgaste. Claro, claro, claro. ¿Alla donde estabas, tienes algun plan activo? No, lo cancele. Si. Entonces, si estoy mirando, digamos que no. Si.</p>
+      <p>Cuando se cancelo el trailer, el desmarque de aqui. Claro. Y todavia me tenia corto.</p>
+      <p>Ok. Entonces si, quisiera mirar. Claro, super bien.</p>
+      <p>Ok, no, super bien. ¿Que plan tenias alla con ellos? Yo tenia uno de 54.000 pesos, que era con el convenio de lo que a la epoca pensabamos. Pero pues si se sube un poquito, no pasa nada.</p>
+      <p>No, claro, esa es la idea. Un lugar donde estes comodo, todo, puedas progresar. Este es el espacio de musculacion, ¿si? Vas a ver que es un espacio super completo.</p>
+      <p>Toda la maquinaria nueva, importada. Los entrenadores siempre van a estar en pro a poder ayudarlos, guiarlos. Zona para trabajar tren superior, espalda, hombro, pecho.</p>
+      <p>Una zona de lockers, banos, destiel. Es un espacio super completo para poder trabajar espalda. ¿Sabes? Importante las maquinas de pecho.</p>
+      <p>Plano, inclinado, las diferentes poleas para que trabajes tren superior, tren inferior. Por este lado, nuestro rack de mancuernas, super completo. Es que no estan llenos, porque el horario es pequeno.</p>
+      <p>Exacto, esa es una ventaja de la esquina que te iba a dar. Y es que no es muy lleno. Como ves, es un lugar diferente, exclusivo.</p>
+      <p>Y el aforo se mantiene super bien. Que es algo que uno busca como cliente, ¿si? Sentirse comodo, tranquilo. Nuevamente, como todo, hay horarios en donde se puede llenar un poquito mas.</p>
+      <p>Pero ves que tenemos ambos espacios donde se complementa super bien. Y no va a estar comodo si estamos acostumbrados al otro lado. Que hay que turnar las maquinas, que es complejo muchas veces.</p>
+      <p>¿Si? Ves que hay igual forma de entrar. Iluminacion natural, ventilacion natural, que es muy importante. Vemos por aca lo que es la zona de pierna.</p>
+      <p>Igual, super completa, con toda la maquinaria a tu disposicion para que entrenes. Al igual que este espacio es super amplio para hacer lo que necesites. ¿Como ves las instalaciones, que tal? ¿Dudas, inquietudes? Super.</p>
+      <p>¿En que horario tendrias la oportunidad de venir a entrenar? Digamos que por mis horarios. Como esta semana que estoy de oficina. Digamos que en la semana como que voy de cuerpo. Normalmente cuando estoy en la manana, salgo a la una, mas o menos una y media, dos estoy aca. Ok. Y en la manana estoy siempre entre las siete y media, ocho.</p>
+      <p>Perfecto. Me voy a entrenar. Ok, te voy a nombrar los dos planes que manejamos para ver cual te sirve mejor.</p>
+      <p>Pienso que por la flexibilidad a horarios, cualquiera de los dos te sirve bien. Pero pues ya hay que evaluar muy bien ambas cosas. ¿Listo? Importante tener muy presente entonces que es un espacio super comodo, tranquilo, completo, no es muy lleno.</p>
+      <p>Toda la maquinaria nueva, importada. Vas a tener acompanamiento semi personalizado de los entrenadores que van a estar muy pendientes de ti. Y lo mas importante, ojo, es que no tenemos clausula de permanencia minima.</p>
+      <p>En comparacion de pronto del otro lado, pues no vas a estar atado a ningun tipo de contrato. Ese es el negocio de ellos. Muchas veces para ustedes como clientes, pues es complejo.</p>
+      <p>Si, porque nomas les dije que hicieran el cambio del plan que tenia ya aca. Si. Que no se cancele o que no se... Exacto.</p>
+      <p>Entonces es un chicharron muy grande, muchas ocasiones. Si te quieres salir hay que pagar multas. Si.</p>
+      <p>Entonces nuestro proposito es ser muy flexibles con ustedes y obviamente que esten super comodos. ¿Listo? Planes, tenemos dos planes. Te voy a nombrar el mas completo, ya te nombro el otro que tenemos para ver cual se te ajusta mejor.</p>
+      <p>El mas completo es el plan Platinum. ¿Que contiene ese plan? Lo primero es ingreso completo a las instalaciones en cualquier horario. Puedes venir a la hora que tu quieras, estar el tiempo que es desde las instalaciones.</p>
+      <p>Por ejemplo, entrenar doble jornada en la manana, en la noche venir a una clase grupal, como tu quieras. ¿Si? Segundo, vas a tener una app donde vas a encontrar entrenamientos guiados que puedes ejecutar de acuerdo a tus objetivos. Obviamente la idea es que siempre te apoyes con los entrenadores y adicional vas a poder apartar clases grupales.</p>
+      <p>Clases muy completas de las cuales vas a tener acceso a ese plan. Baile, entrenamiento funcional, abdomen, vamos a tener clases de boxeo. Es una forma diferente de entrenar y son clases que gustan bastante, bastante.</p>
+      <p>Son arriba del espacio que vimos. ¿Si? Trimestralmente esto es importante porque vas a tener una valoracion muy completa que es con un InBody. No se si ya has escuchado el InBody.</p>
+      <p>No. El InBody es una maquina que te mide tu indice de grasa corporal, visceral, peso, masa muscular, para poder ver todo tu proceso. Como inicias y como vas evolucionando.</p>
+      <p>Es importante eso para nosotros. Normalmente del otro lado creo que eso lo cobran. Si, eso lo cobran.</p>
+      <p>Aqui viene incluido con el plan. Es una valoracion que normalmente, con el profesionalismo que le hacemos, esta alrededor de unos 150.000 pesos. Aca esta en el plan.</p>
+      <p>Por ultimo tienes cuatro invitados al mes totalmente gratis. Cuatro agencias para que traigas a alguna persona de la misma diferente, te acompane y entre contigo. ¿Si? Importante recalcar que no hay clausula de permanencia, no hay cobros por mantenimiento y no hay cobros por inscripcion.</p>
+      <p>Simplemente se maneja la mensualidad como lo manejabas alla con el debito pero sin ningun tipo de clausula. Ese plan te sale en 139.900. ¿Listo? Sin ningun tipo de clausula, te debita mes a mes y esperemos que no, pero no se, te trasteas o no puedes continuar, se cancela la suscripcion y ya, no pasa nada. ¿Si? Ese es el plan mas completo que veo que mas te sirve.</p>
+      <p>Te voy a nombrar el otro para que lo puedas evaluar y pues ya miramos cual te sirve mejor. El otro es el plan Silver. Ese plan tiene un tema y es que tu tienes acceso a lo que llamamos la hora valle.</p>
+      <p>La hora valle, la franja horaria de 8.30 de la manana a 4 de la tarde. Solamente puedes venir en esa franja horaria. Sabado y domingo si hay acceso libre en cualquier horario.</p>
+      <p>Puedes venir a la hora que tu quieras, esta el tiempo que desees, no hay lio por esa parte. Este plan puntualmente no tiene la valoracion, las clases ni los invitados. Simplemente es el acceso, obviamente siempre el apoyo de un entrenador y ya.</p>
+      <p>Basicamente es eso. Tampoco tiene cobros por inscripcion, cobros por mantenimiento ni clausula. ¿Tampoco lo tendria este plan? Exacto, no tendria nada, exactamente.</p>
+      <p>Y su precio mensual es de $79,900 con el debito que te mencione. ¿Y vamos a ir para cobrar rutina de entrenamiento con ese plan? ¿La rutina? Bueno, hay dos formas. La podemos organizar, tendria un pequeno costo adicional, ya lo podriamos revisar en el camino.</p>
+      <p>O lo que te digo, el acompanamiento del entrenador siempre va a estar. Es un acompanamiento semi personalizado que conoce tu caso, te conoce a ti, tus objetivos. Y va a trabajar en prueba para poder ayudarte y poder mejorarte.</p>
+      <p>Digamos que sea de $79,900 por las horas de compania que yo te he ido, me quedaria perfecto. Si, eso estaba pensando. Si, porque muchas veces yo, bueno, no vendria a las 7 y media sino a las 8 estaria aca, 8 y media.</p>
+      <p>Ok, si senor, 8 y media. 8 y media, cuando entro por alguien. Y ese turno lo tengo entrando a las 4 de la tarde, perfecto.</p>
+      <p>Y digamos saliendo a la 1 entrando aca a las 2. Claro, te sirve perfecto. Si, te sirve perfecto. Yo considero que te sirve super bien.</p>
+      <p>Podemos, por ejemplo, ayudarte con el registro y activar tu plan desde manana. Hacer todo el proceso para que puedas iniciar, ya te organizaste. Puedes iniciar, que es lo mas importante.</p>
+      <p>¿Te parece bien? Si, con el debito y no hay clausula, que es una ventaja gigante, gigante, gigante. Pues ahi lo podemos revisar, lo podemos revisar. Estoy seguro que con los entrenadores es mas que suficiente.</p>
+      <p>Pero en el camino lo vamos organizando, yo te puedo ir ayudando. Ya vamos mirando rutinas. Lo importante es que tomes la iniciativa, busques un lugar diferente e iniciemos.</p>
+      <p>De una. Ya mi companera Selena esta ayudando con la inscripcion.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 LAS 31 PROMESAS -->
+<section class="section" id="s04">
+  <div class="container">
+    <div class="sh"><span class="sn">04</span><span class="label">Inventario</span><h2>Las 31 Promesas Identificadas</h2><p>En orden cronologico, tal como aparecen en el pitch.</p></div>
+    <div class="filters" id="cf">
+      <button class="fb active" data-f="all">Todas (31)</button>
+      <button class="fb" data-f="ac">Acompanamiento (5)</button>
+      <button class="fb" data-f="in">Infraestructura (7)</button>
+      <button class="fb" data-f="fl">Flexibilidad (5)</button>
+      <button class="fb" data-f="ad">Serv. adicional (4)</button>
+      <button class="fb" data-f="pr">Precio (3)</button>
+      <button class="fb" data-f="co">Serv. core (2)</button>
+      <button class="fb" data-f="ex">Experiencia (2)</button>
+      <button class="fb" data-f="pm">Serv. premium (2)</button>
+      <button class="fb" data-f="dg">Serv. digital (1)</button>
+    </div>
+    <div class="tw"><table id="pt"><thead><tr><th style="width:40px">#</th><th>Promesa textual</th><th style="width:150px">Categoria</th></tr></thead><tbody>
+      <tr data-c="in"><td>1</td><td>"Las dos plantas que tenemos"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="ad"><td>2</td><td>"Cafeteria super completa, todo tipo de suplementos, batidos, aminoacidos, creatina, snacks"</td><td><span class="b b-ad">Serv. adicional</span></td></tr>
+      <tr data-c="ad"><td>3</td><td>"Ropa e implementos deportivos, straps, suplementos"</td><td><span class="b b-ad">Serv. adicional</span></td></tr>
+      <tr data-c="in"><td>4</td><td>"Espacio diferente, funcional, super amplio, completo"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="co"><td>5</td><td>"Clases grupales, entrenamientos funcionales, estiramientos, calentamientos"</td><td><span class="b b-co">Serv. core</span></td></tr>
+      <tr data-c="pm"><td>6</td><td>"Valoraciones fisicas, nutricion, fisioterapia"</td><td><span class="b b-pm">Serv. premium</span></td></tr>
+      <tr data-c="in"><td>7</td><td>"Zona de cardio super completa: bicicletas, caminadoras, trotadora, eliptica"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="in"><td>8</td><td>"Entrenamiento funcional, hibrido, maquinas de high ropes"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="ad"><td>9</td><td>"Espacio de coworking para descansar"</td><td><span class="b b-ad">Serv. adicional</span></td></tr>
+      <tr data-c="ac"><td>10</td><td>"El entrenador de planta esta muy pendiente de ustedes, guiarlos, ayudarlos"</td><td><span class="b b-ac">Acompanamiento</span></td></tr>
+      <tr data-c="ac"><td>11</td><td>"Acompanamiento en todo tu proceso"</td><td><span class="b b-ac">Acompanamiento</span></td></tr>
+      <tr data-c="in"><td>12</td><td>"Toda la maquinaria nueva, importada"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="ac"><td>13</td><td>"Los entrenadores siempre van a estar en pro a poder ayudarlos, guiarlos"</td><td><span class="b b-ac">Acompanamiento</span></td></tr>
+      <tr data-c="ex"><td>14</td><td>"No es muy lleno, lugar diferente, exclusivo"</td><td><span class="b b-ex">Experiencia</span></td></tr>
+      <tr data-c="ex"><td>15</td><td>"El aforo se mantiene super bien, sentirse comodo, tranquilo"</td><td><span class="b b-ex">Experiencia</span></td></tr>
+      <tr data-c="in"><td>16</td><td>"Iluminacion natural, ventilacion natural"</td><td><span class="b b-in">Infraestructura</span></td></tr>
+      <tr data-c="fl"><td>17</td><td>"No tenemos clausula de permanencia minima"</td><td><span class="b b-fl">Flexibilidad</span></td></tr>
+      <tr data-c="fl"><td>18</td><td>"No vas a estar atado a ningun tipo de contrato"</td><td><span class="b b-fl">Flexibilidad</span></td></tr>
+      <tr data-c="fl"><td>19</td><td>"Ingreso completo a las instalaciones en cualquier horario" (Platinum)</td><td><span class="b b-fl">Flexibilidad</span></td></tr>
+      <tr data-c="dg"><td>20</td><td>"App con entrenamientos guiados de acuerdo a tus objetivos"</td><td><span class="b b-dg">Serv. digital</span></td></tr>
+      <tr data-c="co"><td>21</td><td>"Clases: baile, funcional, abdomen, boxeo"</td><td><span class="b b-co">Serv. core</span></td></tr>
+      <tr data-c="pm"><td>22</td><td>"Valoracion trimestral con InBody (grasa corporal, visceral, peso, masa muscular)"</td><td><span class="b b-pm">Serv. premium</span></td></tr>
+      <tr data-c="pr"><td>23</td><td>"Valoracion que esta alrededor de $150.000, incluida en el plan"</td><td><span class="b b-pr">Precio</span></td></tr>
+      <tr data-c="ad"><td>24</td><td>"4 invitados al mes totalmente gratis"</td><td><span class="b b-ad">Serv. adicional</span></td></tr>
+      <tr data-c="fl"><td>25</td><td>"No hay cobros por mantenimiento ni inscripcion"</td><td><span class="b b-fl">Flexibilidad</span></td></tr>
+      <tr data-c="pr"><td>26</td><td>"Plan Platinum $139.900/mes sin clausula"</td><td><span class="b b-pr">Precio</span></td></tr>
+      <tr data-c="ax"><td>27</td><td>"Plan Silver: acceso hora valle 8:30am-4pm, fines de semana libre"</td><td><span class="b b-ax">Acceso</span></td></tr>
+      <tr data-c="ac"><td>28</td><td>"Siempre el apoyo de un entrenador" (Silver)</td><td><span class="b b-ac">Acompanamiento</span></td></tr>
+      <tr data-c="fl"><td>29</td><td>"Sin cobros inscripcion, mantenimiento ni clausula" (Silver)</td><td><span class="b b-fl">Flexibilidad</span></td></tr>
+      <tr data-c="pr"><td>30</td><td>"Plan Silver $79.900/mes"</td><td><span class="b b-pr">Precio</span></td></tr>
+      <tr data-c="ac"><td>31</td><td>"Acompanamiento semi personalizado que conoce tu caso, tus objetivos"</td><td><span class="b b-ac">Acompanamiento</span></td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- 05 POR CATEGORIA -->
+<section class="section" id="s05">
+  <div class="container">
+    <div class="sh"><span class="sn">05</span><span class="label">Agrupacion</span><h2>Promesas por Categoria</h2></div>
+    <div class="tw"><table><thead><tr><th>Categoria</th><th style="width:80px;text-align:center">Cantidad</th><th>Promesas (#)</th></tr></thead><tbody>
+      <tr><td><span class="b b-in">Infraestructura</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">7</td><td style="color:var(--text-muted);font-size:.85rem">1, 4, 7, 8, 12, 16, 9</td></tr>
+      <tr><td><span class="b b-ac">Acompanamiento</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">5</td><td style="color:var(--text-muted);font-size:.85rem">10, 11, 13, 28, 31</td></tr>
+      <tr><td><span class="b b-fl">Flexibilidad</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">5</td><td style="color:var(--text-muted);font-size:.85rem">17, 18, 19, 25, 29</td></tr>
+      <tr><td><span class="b b-ad">Serv. adicional</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">4</td><td style="color:var(--text-muted);font-size:.85rem">2, 3, 9, 24</td></tr>
+      <tr><td><span class="b b-pr">Precio</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">3</td><td style="color:var(--text-muted);font-size:.85rem">23, 26, 30</td></tr>
+      <tr><td><span class="b b-co">Serv. core</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">2</td><td style="color:var(--text-muted);font-size:.85rem">5, 21</td></tr>
+      <tr><td><span class="b b-ex">Experiencia</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">2</td><td style="color:var(--text-muted);font-size:.85rem">14, 15</td></tr>
+      <tr><td><span class="b b-pm">Serv. premium</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">2</td><td style="color:var(--text-muted);font-size:.85rem">6, 22</td></tr>
+      <tr><td><span class="b b-dg">Serv. digital</span></td><td style="text-align:center;font-weight:700;color:var(--gold)">1</td><td style="color:var(--text-muted);font-size:.85rem">20</td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<!-- 06 PRIORIZACION -->
+<section class="section" id="s06">
+  <div class="container">
+    <div class="sh"><span class="sn">06</span><span class="label">Priorizacion</span><h2>Clasificacion por Prioridad</h2><p>Criterios: frecuencia en el pitch, verificabilidad, impacto en cancelacion.</p></div>
+
+    <div class="info"><h4>Prioridad 1 — Urgente</h4><p>Causan cancelacion inmediata y dano reputacional.</p></div>
+
+    <div class="pc"><div class="pc-h"><span class="pc-n">1.1</span><span class="pc-t">Acompanamiento</span></div>
+      <p class="pc-r">Se repite <strong style="color:var(--gold)">5 veces</strong>. Es el ancla de la venta. Justifica el precio vs un gym de $54k.</p>
+      <ul><li><span class="pn">#10</span>"El entrenador de planta esta muy pendiente de ustedes, guiarlos, ayudarlos"</li><li><span class="pn">#11</span>"Acompanamiento en todo tu proceso"</li><li><span class="pn">#13</span>"Los entrenadores siempre van a estar en pro a poder ayudarlos, guiarlos"</li><li><span class="pn">#28</span>"Siempre el apoyo de un entrenador" (Silver)</li><li><span class="pn">#31</span>"Acompanamiento semi personalizado que conoce tu caso, tus objetivos"</li></ul>
+    </div>
+
+    <div class="pc"><div class="pc-h"><span class="pc-n">1.2</span><span class="pc-t">InBody Trimestral</span></div>
+      <p class="pc-r">Unica promesa con <strong style="color:var(--gold)">numero concreto ($150.000)</strong>. Verificable: te lo hicieron o no.</p>
+      <ul><li><span class="pn">#22</span>"Valoracion trimestral con InBody (grasa corporal, visceral, peso, masa muscular)"</li><li><span class="pn">#23</span>"Valoracion que esta alrededor de $150.000, incluida en el plan"</li></ul>
+    </div>
+
+    <div class="pc"><div class="pc-h"><span class="pc-n">1.3</span><span class="pc-t">Clases Grupales</span></div>
+      <p class="pc-r">Justifican los <strong style="color:var(--gold)">$60.000 de diferencia</strong> entre Platinum y Silver.</p>
+      <ul><li><span class="pn">#5</span>"Clases grupales, entrenamientos funcionales, estiramientos, calentamientos"</li><li><span class="pn">#21</span>"Clases: baile, funcional, abdomen, boxeo"</li></ul>
+    </div>
+
+    <div class="pc"><div class="pc-h"><span class="pc-n">1.4</span><span class="pc-t">App con Rutinas</span></div>
+      <p class="pc-r">Puente entre entrenador y cliente. Sin rutina en la app, el cliente <strong style="color:var(--gold)">no sabe que hacer cuando entrena solo</strong>.</p>
+      <ul><li><span class="pn">#20</span>"App con entrenamientos guiados de acuerdo a tus objetivos"</li></ul>
+    </div>
+
+    <div class="pg">
+      <div class="ps"><h4 style="color:var(--gold)">Prioridad 2 — Alta</h4><p>Erosionan confianza con el tiempo.</p><ul><li>#14, #15 — Experiencia (aforo)</li><li>#6 — Consultorio (nutricion, fisio)</li></ul></div>
+      <div class="ps"><h4 style="color:var(--text-muted)">Prioridad 3 — Media</h4><p>No causan cancelacion.</p><ul><li>#2, #3 — Cafeteria, implementos</li><li>#24 — 4 invitados/mes</li></ul></div>
+      <div class="ps"><h4 style="color:var(--text-dim)">Prioridad 4 — Mantenimiento</h4><p>Ya se cumplen.</p><ul><li>#1,4,7,8,12,16,9 — Infraestructura</li><li>#17,18,19,25,29 — Flexibilidad</li><li>#26,27,30 — Precio</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SOLUCIONES 1.1 -->
+<section class="section" id="s07">
+  <div class="container">
+    <div class="sh"><span class="sn">07</span><span class="label">Solucion 1.1</span><h2>Acompanamiento — Como se Cumple</h2><p>Soluciones para las promesas 10, 11, 13, 28 y 31.</p></div>
+
+    <!-- #10 y #13 -->
+    <div class="sol">
+      <h4><span class="sol-num">#10</span><span class="sol-num">#13</span> Entrenador pendiente, guiarlos, ayudarlos</h4>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Que se necesita:</strong> Los entrenadores deben saber el nombre, objetivo, y limitaciones de cada miembro. Para eso necesitan acceso a un perfil completo en EVO.</p>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Como se hace:</strong> Al inscribirse, cada miembro llena un formulario de perfil (via QR en counter o link por WhatsApp). Las respuestas se convierten en PDF y se suben al perfil del miembro en EVO. El entrenador consulta ese perfil en su celular antes de interactuar.</p>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Preguntas del formulario de perfil:</strong></p>
+      <ul>
+        <li>Nombre completo</li>
+        <li>Objetivo principal (bajar peso / ganar musculo / resistencia / tonificar / salud general / rehabilitacion)</li>
+        <li>Objetivo secundario (abierta)</li>
+        <li>Tiempo entrenando (nunca / menos de 6 meses / 6 meses-2 anos / mas de 2 anos)</li>
+        <li>Lesion actual o pasada (rodilla / hombro / espalda baja / cuello / muneca / tobillo / cadera / otra / ninguna)</li>
+        <li>Cirugia en los ultimos 12 meses (si/no + cual)</li>
+        <li>Horario en que planea entrenar</li>
+        <li>Dias a la semana que puede venir</li>
+      </ul>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Para los 351 miembros actuales:</strong> Se envia el link del formulario por WhatsApp masivo. A quienes no lo llenen en 7 dias, se les recuerda en persona cuando vengan.</p>
+    </div>
+
+    <!-- #11 -->
+    <div class="sol">
+      <h4><span class="sol-num">#11</span> Acompanamiento en todo tu proceso</h4>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Que significa:</strong> El cliente entiende que estamos para el, pero no es personalizado. Hay mas personas.</p>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Como se hace:</strong></p>
+      <ul>
+        <li>En el pitch se dice claramente: "No es un entrenamiento 1 a 1, pero si es un equipo de profesionales que sabe quien eres y esta pendiente de ti"</li>
+        <li>El entrenador saluda por nombre (gracias al perfil en EVO)</li>
+        <li>Si ve que el miembro hace un ejercicio mal, se acerca y corrige</li>
+        <li>Pregunta "¿como vas?" al pasar</li>
+        <li>Si no viene en 3 dias, recibe mensaje automatico por WhatsApp</li>
+      </ul>
+    </div>
+
+    <!-- #13 y #28 -->
+    <div class="sol">
+      <h4><span class="sol-num">#13</span><span class="sol-num">#28</span> Entrenadores en pro de ayudarlos / Siempre el apoyo</h4>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Que se necesita:</strong> Un estandar de comportamiento para los entrenadores. No depender de la actitud individual.</p>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Como se hace:</strong> Compromiso de servicio firmado por cada entrenador:</p>
+      <ul>
+        <li>Presentacion: uniforme limpio, buena higiene, actitud positiva</li>
+        <li>Proactividad: no esperar a que el miembro pregunte. Acercarse minimo 1 vez por miembro por sesion</li>
+        <li>Conocimiento: consultar el perfil del miembro en EVO antes de guiarlo</li>
+        <li>Correccion: si ve mala tecnica, corregir de forma respetuosa inmediatamente</li>
+        <li>Disponibilidad: celular solo para consultar EVO, no uso personal</li>
+        <li>Actitud: nunca rechazar una pregunta, nunca hacer sentir al miembro que estorba</li>
+      </ul>
+    </div>
+
+    <!-- #31 -->
+    <div class="sol">
+      <h4><span class="sol-num">#31</span> Acompanamiento semi personalizado que conoce tu caso</h4>
+      <p style="margin:.8rem 0"><strong style="color:var(--silver-light)">Como se cumple:</strong> Combinacion de las soluciones anteriores:</p>
+      <ul>
+        <li>Perfil del miembro en EVO (formulario de 8 preguntas subido como PDF)</li>
+        <li>Entrenador consulta EVO en su celular antes de interactuar</li>
+        <li>Para quienes pagan los $49.900: valoracion fisica completa + rutina personalizada en la app = acompanamiento realmente semi personalizado</li>
+      </ul>
+    </div>
+
+    <h3 class="sub">Flujo Completo del Nuevo Miembro</h3>
+
+    <div class="flow"><span class="h">INSCRIPCION</span> (Counter/Closer)
+  |
+  |--&gt; PAR-Q en EVO <span class="s">(7 preguntas medicas, ya existe)</span>
+  |--&gt; Formulario de perfil <span class="s">(QR o link WhatsApp, 8 preguntas)</span>
+  |    --&gt; Respuestas se convierten a PDF
+  |    --&gt; PDF se sube al perfil del miembro en EVO
+  |
+  |--&gt; <span class="h">¿Es PLATINUM?</span>
+  |      <span class="g">SI</span> --&gt; Se agenda nutricion + InBody para proximo cupo
+  |           CRM manda recordatorio 24h antes por WhatsApp
+  |      <span class="r">NO</span> --&gt; Nada adicional obligatorio
+  |
+  |--&gt; <span class="h">¿Quiere rutina personalizada?</span> (+$49.900)
+         <span class="g">SI</span> --&gt; Counter programa segun disponibilidad
+              --&gt; Valoracion fisica con el profesional
+              --&gt; Resultados se suben a EVO como PDF
+              --&gt; Entrenador arma rutina y la sube a la app
+              --&gt; Renovacion trimestral
+         <span class="r">NO</span> --&gt; Acompanamiento semi-personalizado
+              del entrenador de turno (con perfil en EVO)</div>
+
+    <h3 class="sub">Que Incluye Cada Plan</h3>
+
+    <div class="tw"><table class="ct"><thead><tr><th></th><th>Silver<br><span style="color:var(--text-dim);font-size:.6rem;font-weight:400">$79.900/mes</span></th><th>Platinum<br><span style="color:var(--text-dim);font-size:.6rem;font-weight:400">$139.900/mes</span></th><th>Upsell Rutina<br><span style="color:var(--text-dim);font-size:.6rem;font-weight:400">+$49.900</span></th></tr></thead><tbody>
+      <tr><td>PAR-Q</td><td class="ck">Si</td><td class="ck">Si</td><td class="ck">Si</td></tr>
+      <tr><td>Formulario de perfil</td><td class="ck">Si</td><td class="ck">Si</td><td class="ck">Si</td></tr>
+      <tr><td>Entrenador de turno te guia</td><td class="ck">Si</td><td class="ck">Si</td><td class="ck">Si</td></tr>
+      <tr><td>Nutricion + InBody</td><td class="cx">No</td><td class="ck">Incluido</td><td class="na">Aparte</td></tr>
+      <tr><td>Valoracion fisica</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Incluido</td></tr>
+      <tr><td>Rutina personalizada en app</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Incluido</td></tr>
+      <tr><td>Renovacion trimestral rutina</td><td class="cx">No</td><td class="cx">No</td><td class="ck">Incluido</td></tr>
+      <tr><td>Clases grupales</td><td class="cx">No</td><td class="ck">Incluido</td><td class="na">N/A</td></tr>
+      <tr><td>4 invitados/mes</td><td class="cx">No</td><td class="ck">Incluido</td><td class="na">N/A</td></tr>
+    </tbody></table></div>
+
+    <h3 class="sub">Protocolo de Inactividad</h3>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:1rem">Mensajes automaticos via WhatsApp Business cuando no se registra asistencia en EVO.</p>
+    <div class="tl">
+      <div class="tl-i"><div class="tl-d">3 dias sin venir</div><div class="tl-a">WhatsApp automatico + Etiqueta: INACTIVO_3_DIAS</div><div class="tl-m">"Hola [nombre], te extranamos en Imperio. ¿Todo bien? Te esperamos manana."</div></div>
+      <div class="tl-i"><div class="tl-d">7 dias sin venir</div><div class="tl-a">WhatsApp automatico + Notificacion al entrenador para que llame + Etiqueta: INACTIVO_7_DIAS</div><div class="tl-m">"Hey [nombre], llevas una semana sin venir. ¿Necesitas que ajustemos algo? Estamos para ayudarte."</div></div>
+      <div class="tl-i"><div class="tl-d">14 dias sin venir</div><div class="tl-a">WhatsApp automatico + Notificacion al admin + Etiqueta: INACTIVO_14_DIAS</div><div class="tl-m">"Hola [nombre], notamos que no has venido en 2 semanas. ¿Quieres que pausemos tu plan o te ayudamos a retomar?"</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 PITCH MEJORADO -->
+<section class="section" id="s08">
+  <div class="container">
+    <div class="sh"><span class="sn">08</span><span class="label">Propuesta</span><h2>Pitch Mejorado — Completo</h2><p>Comparacion lado a lado del pitch actual vs el pitch propuesto, con explicacion de cada mejora.</p></div>
+
+    <!-- FASE 1: DESCUBRIMIENTO -->
+    <h3 class="sub">Fase 1: Descubrimiento</h3>
+    <div class="comp">
+      <div class="comp-box comp-old">
+        <h4>Pitch actual</h4>
+        <p>Arranca directo con el tour. Muestra la cafeteria, el espacio funcional, las maquinas. Le pregunta el objetivo al final, de pasada: "¿Que objetivo fisico tienes?" y sigue caminando.</p>
+      </div>
+      <div class="comp-box comp-new">
+        <h4>Pitch mejorado</h4>
+        <p>"Antes de mostrarte el espacio, quiero entender tu situacion para ver como te podemos ayudar. ¿Que te trajo hoy aca?"</p>
+        <p>"¿Hace cuanto llevas con ese tema?"</p>
+        <p>"¿Que has intentado antes para resolverlo?"</p>
+        <p>"¿Donde entrenabas y por que dejaste?"</p>
+        <p>"¿En que horario podrias venir?"</p>
+      </div>
+    </div>
+    <div class="comp-why"><h4>Por que es mejor</h4><ul>
+      <li>El closer entiende el dolor ANTES de mostrar nada. Puede conectar cada espacio con el problema real del cliente.</li>
+      <li>El cliente se siente escuchado. No es un tour generico — es para el.</li>
+      <li>Se obtiene informacion que permite prescribir la solucion, no solo mostrar features.</li>
+    </ul></div>
+
+    <!-- FASE 2: TOUR CON PROPOSITO -->
+    <h3 class="sub">Fase 2: Tour</h3>
+    <div class="comp">
+      <div class="comp-box comp-old">
+        <h4>Pitch actual</h4>
+        <p>"Cafeteria super completa, suplementos, batidos, aminoacidos, creatina, snacks."</p>
+        <p>"Espacio funcional, super amplio, completo."</p>
+        <p>"Zona de cardio super completa, bicicletas, caminadoras, trotadora, eliptica."</p>
+        <p>"Maquinaria nueva, importada."</p>
+        <p>"No es muy lleno, lugar diferente, exclusivo."</p>
+      </div>
+      <div class="comp-box comp-new">
+        <h4>Pitch mejorado</h4>
+        <p>"Esta es la cafeteria — suplementos, batidos, snacks, lo que necesites para complementar tu entrenamiento."</p>
+        <p>"Aca hacemos las clases grupales — tenemos 8 clases: Extreme Abs, Beats, Pilates, Fit Combat, Flow, Rush Lab, Boom, GAP. Para tu objetivo de [X], las de [Y] y [Z] son las que mas te van a servir."</p>
+        <p>"Esta zona de cardio es donde vas a trabajar tu resistencia. Con tus turnos de madrugada, que tu cuerpo aguante mas con menos desgaste es clave."</p>
+        <p>"Toda la maquinaria es nueva. Pero lo importante no es la maquina — es que el entrenador te va a decir cual usar, cuantas repeticiones, cuanto peso."</p>
+        <p>"Como ves, no es un gym saturado. Puedes entrenar tranquilo sin turnar maquinas."</p>
+      </div>
+    </div>
+    <div class="comp-why"><h4>Por que es mejor</h4><ul>
+      <li>Cada espacio se conecta con el objetivo del cliente, no es un catalogo de features.</li>
+      <li>Se mencionan las 8 clases reales (el pitch actual solo nombra 4, subvendiendo).</li>
+      <li>Se vende el resultado ("que tu cuerpo aguante mas") no el fierro ("trotadora, eliptica").</li>
+    </ul></div>
+
+    <!-- FASE 3: ACOMPANAMIENTO -->
+    <h3 class="sub">Fase 3: Acompanamiento</h3>
+    <div class="comp">
+      <div class="comp-box comp-old">
+        <h4>Pitch actual</h4>
+        <p>"Siempre el entrenador en pro va a poder ayudarles. El es el entrenador de planta que esta muy pendiente de ustedes, de poder guiarlos, ayudarlos."</p>
+        <p>"Acompanamiento semi personalizado que conoce tu caso, te conoce a ti, tus objetivos."</p>
+      </div>
+      <div class="comp-box comp-new">
+        <h4>Pitch mejorado</h4>
+        <p>"Algo que nos diferencia es que nuestros entrenadores te van a conocer. Al inscribirte, llenas un perfil rapido con tu objetivo, si tienes alguna lesion, y en que horario vienes. Eso queda en tu perfil y todos los entrenadores lo pueden ver."</p>
+        <p>"Cuando llegas, no eres un desconocido — saben que quieres lograr y como ayudarte. No es un entrenamiento 1 a 1, pero si es un equipo de profesionales que sabe quien eres y esta pendiente de ti."</p>
+        <p>"Si quieres ir un paso mas alla, tenemos una valoracion fisica completa donde un profesional te evalua, te arma una rutina disenada para ti, y te la sube a la app para que siempre sepas que hacer. Eso tiene un valor de $49.900 y se renueva cada 3 meses."</p>
+      </div>
+    </div>
+    <div class="comp-why"><h4>Por que es mejor</h4><ul>
+      <li>Es honesto: no promete personalizacion que no va a cumplir. Dice claramente "no es 1 a 1".</li>
+      <li>Es concreto: explica COMO van a conocer tu caso (formulario, perfil, entrenador lo consulta).</li>
+      <li>Gestiona la expectativa: el cliente sabe exactamente que esperar. No se va a decepcionar.</li>
+      <li>Abre el upsell naturalmente: la rutina personalizada ($49.900) aparece como el siguiente nivel, no como un extra inesperado.</li>
+      <li>Es verificable: el cliente puede comprobar que lleno un perfil y que el entrenador sabe su nombre.</li>
+    </ul></div>
+
+    <!-- FASE 4: PLANES -->
+    <h3 class="sub">Fase 4: Planes</h3>
+    <div class="comp">
+      <div class="comp-box comp-old">
+        <h4>Pitch actual</h4>
+        <p>Lista features uno por uno: acceso, app, clases, InBody, invitados. Dice el precio al final. Pregunta "¿Te parece bien?"</p>
+      </div>
+      <div class="comp-box comp-new">
+        <h4>Pitch mejorado</h4>
+        <p>"Esto es lo que vas a recibir con el plan Platinum:</p>
+        <p>Acceso completo en cualquier horario. Con tus turnos rotativos puedes venir a las 8am o a las 8pm.</p>
+        <p>Clases grupales ilimitadas — 8 clases diferentes. Son las que mas te van a ayudar con tu objetivo.</p>
+        <p>Valoracion con InBody cada 3 meses para que VEAS tu progreso con numeros. Esto normalmente cuesta $150.000 por sesion. Aca viene incluido.</p>
+        <p>Sesion de nutricion incluida para que tu alimentacion acompane tu entrenamiento.</p>
+        <p>App con contenido de entrenamiento.</p>
+        <p>4 pases de invitado al mes.</p>
+        <p>Y lo mas importante: sin clausula de permanencia. Sin contrato. Sin cobros de inscripcion ni mantenimiento. Si necesitas cancelar, cancelas y ya.</p>
+        <p>Tu inversion es $139.900 al mes. Menos de $5.000 al dia."</p>
+      </div>
+    </div>
+    <div class="comp-why"><h4>Por que es mejor</h4><ul>
+      <li>Conecta cada beneficio con la situacion del cliente ("con tus turnos rotativos").</li>
+      <li>Ancla el valor del InBody ($150k) antes de dar el precio total.</li>
+      <li>Reencuadra el precio: "$5.000 al dia" se siente diferente a "$139.900 al mes".</li>
+      <li>La flexibilidad (sin clausula) se posiciona como diferenciador contra la competencia, no como un dato mas.</li>
+    </ul></div>
+
+    <!-- FASE 5: CIERRE -->
+    <h3 class="sub">Fase 5: Cierre</h3>
+    <div class="comp">
+      <div class="comp-box comp-old">
+        <h4>Pitch actual</h4>
+        <p>"¿Te parece bien?" — espera respuesta. Si el cliente duda, dice "lo podemos revisar, lo podemos revisar." Cierre pasivo.</p>
+      </div>
+      <div class="comp-box comp-new">
+        <h4>Pitch mejorado</h4>
+        <p>"Para arrancarte solo necesito tu cedula y el metodo de pago. ¿La trajiste?"</p>
+        <p>Si hay objecion de precio: "Entiendo. ¿Cuanto pagabas alla donde no te funciono? ¿$54.000? La pregunta no es si $139.900 es mucho. La pregunta es: ¿prefieres seguir pagando barato por algo que no funciona, o invertir en algo que si te va a dar resultados?"</p>
+        <p>Si elige Silver: "Perfecto, con ese plan arrancas ya. Y si en el camino quieres subir a Platinum para las clases y las valoraciones, lo hacemos sin problema. Lo importante es que empieces hoy."</p>
+      </div>
+    </div>
+    <div class="comp-why"><h4>Por que es mejor</h4><ul>
+      <li>Cierre transicional: asume la venta en vez de pedir permiso.</li>
+      <li>Tiene respuesta preparada para la objecion de precio mas comun.</li>
+      <li>Si elige el plan menor, no lo hace sentir mal — lo valida y deja la puerta abierta al upgrade.</li>
+      <li>Genera urgencia: "lo importante es que empieces hoy".</li>
+    </ul></div>
+  </div>
+</section>
+
+<!-- 09 PENDIENTES -->
+<section class="section" id="s09">
+  <div class="container">
+    <div class="sh"><span class="sn">09</span><span class="label">Proximos pasos</span><h2>Que Falta por Resolver</h2></div>
+    <div class="tw"><table><thead><tr><th style="width:40px">#</th><th>Pendiente</th><th style="width:130px">Estado</th></tr></thead><tbody>
+      <tr><td>1</td><td><strong>Formulario de perfil:</strong> Crear Google Form con las 8 preguntas + generar QR para counter</td><td><span class="st-p">Por crear</span></td></tr>
+      <tr><td>2</td><td><strong>Automatizacion PDF:</strong> Respuestas del formulario se convierten a PDF y se suben a EVO via API</td><td><span class="st-p">Por implementar</span></td></tr>
+      <tr><td>3</td><td><strong>Envio masivo:</strong> Mandar formulario a los 351 miembros actuales por WhatsApp</td><td><span class="st-p">Por ejecutar</span></td></tr>
+      <tr><td>4</td><td><strong>Compromiso de servicio:</strong> Redactar documento para firma de entrenadores</td><td><span class="st-p">Por redactar</span></td></tr>
+      <tr><td>5</td><td><strong>CRM:</strong> Elegir uno que se integre con EVO para automatizaciones</td><td><span class="st-p">Por definir</span></td></tr>
+      <tr><td>6</td><td><strong>Automatizacion inactividad:</strong> Mensajes WhatsApp a 3/7/14 dias sin asistencia</td><td><span class="st-p">Depende del CRM</span></td></tr>
+      <tr><td>7</td><td><strong>Precio en EVO:</strong> Corregir "Rutina Personalizada" de $1.000.000 a $49.900</td><td><span class="st-p">Por corregir</span></td></tr>
+      <tr><td>8</td><td><strong>Prioridad 1.2:</strong> InBody trimestral — sistema de agendamiento + comparativas</td><td><span class="st-d">Siguiente</span></td></tr>
+      <tr><td>9</td><td><strong>Prioridad 1.3:</strong> Clases grupales — horario fijo, backups, que no se cancelen</td><td><span class="st-d">Siguiente</span></td></tr>
+      <tr><td>10</td><td><strong>Prioridad 1.4:</strong> App con rutinas — verificar funcionalidad en EVO</td><td><span class="st-d">Siguiente</span></td></tr>
+    </tbody></table></div>
+  </div>
+</section>
+
+<footer class="footer">Documento interno — Imperio Elite Fitness Club — Marzo 2026</footer>
+
+<!-- NOTES HINT -->
+<div class="notes-hint">Selecciona texto para agregar una nota</div>
+
+<div class="note-popup" id="notePopup">
+  <input type="text" id="npAuthor" placeholder="Tu nombre">
+  <textarea id="npText" rows="2" placeholder="Tu comentario..."></textarea>
+  <div>
+    <button onclick="saveNote()">Guardar</button>
+    <button class="cancel" onclick="closePopup()">Cancelar</button>
+  </div>
+</div>
+
+<script>
+// FILTERS
+document.querySelectorAll('.fb').forEach(b=>{b.addEventListener('click',()=>{document.querySelectorAll('.fb').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.f;document.querySelectorAll('#pt tbody tr').forEach(r=>{r.style.display=(f==='all'||r.dataset.c===f)?'':'none'})})});
+
+// NOTES SYSTEM - Select text anywhere
+const NK='imperio_notes_v2';
+let selectedRange=null;
+let noteCounter=0;
+
+function loadNotes(){try{return JSON.parse(localStorage.getItem(NK))||[]}catch{return[]}}
+function saveNotes(n){localStorage.setItem(NK,JSON.stringify(n))}
+
+document.addEventListener('mouseup',e=>{
+  if(e.target.closest('.note-popup')||e.target.closest('.note-tooltip'))return;
+  const sel=window.getSelection();
+  if(sel.rangeCount>0&&sel.toString().trim().length>2){
+    selectedRange=sel.getRangeAt(0).cloneRange();
+    const r=sel.getRangeAt(0).getBoundingClientRect();
+    const popup=document.getElementById('notePopup');
+    popup.style.top=(r.bottom+window.scrollY+8)+'px';
+    popup.style.left=Math.min(r.left,window.innerWidth-320)+'px';
+    popup.classList.add('open');
+    document.getElementById('npAuthor').focus();
+  }
+});
+
+document.addEventListener('mousedown',e=>{
+  if(!e.target.closest('.note-popup')&&!e.target.closest('.note-marker')){
+    closePopup();
+  }
+});
+
+function closePopup(){
+  document.getElementById('notePopup').classList.remove('open');
+  document.getElementById('npText').value='';
+}
+
+function saveNote(){
+  const author=document.getElementById('npAuthor').value.trim();
+  const text=document.getElementById('npText').value.trim();
+  if(!author||!text||!selectedRange)return;
+
+  const id='n'+Date.now();
+  const selText=selectedRange.toString();
+
+  // Wrap selected text
+  const marker=document.createElement('span');
+  marker.className='note-marker';
+  marker.dataset.noteId=id;
+  marker.innerHTML=selectedRange.toString()+
+    '<span class="note-tooltip">'+
+    '<button class="nt-del" onclick="deleteNote(\''+id+'\',this)">x</button>'+
+    '<span class="nt-author">'+author+'</span>'+
+    '<span class="nt-date">'+new Date().toLocaleDateString('es-CO',{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'})+'</span>'+
+    '<div class="nt-text">'+text+'</div></span>';
+
+  selectedRange.deleteContents();
+  selectedRange.insertNode(marker);
+
+  // Save to storage
+  const notes=loadNotes();
+  notes.push({id,author,text,selectedText:selText,date:new Date().toISOString()});
+  saveNotes(notes);
+
+  closePopup();
+  window.getSelection().removeAllRanges();
+}
+
+function deleteNote(id,btn){
+  const marker=btn.closest('.note-marker');
+  if(marker){
+    const text=document.createTextNode(marker.dataset.noteId?marker.firstChild.textContent:marker.textContent);
+    marker.parentNode.replaceChild(text,marker);
+  }
+  const notes=loadNotes().filter(n=>n.id!==id);
+  saveNotes(notes);
+}
+</script>
+</body>
+</html>
