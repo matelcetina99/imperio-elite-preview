@@ -143,12 +143,57 @@
     .mt-2{margin-top:2rem}.mt-1{margin-top:1rem}.mb-2{margin-bottom:2rem}
     .footer{padding:3rem;text-align:center;color:var(--text-dim);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase}
     h3.sub{color:var(--silver-light);margin:2rem 0 1rem;font-size:1.2rem}
+    /* TABS */
+    .nav__tabs{display:flex;gap:.3rem}
+    .nav__tab{padding:.5rem 1.2rem;border:1px solid var(--border);border-radius:20px;background:transparent;color:var(--text-muted);font-family:Georgia,serif;font-size:.72rem;cursor:pointer;transition:all .2s;letter-spacing:.06em}
+    .nav__tab:hover{border-color:var(--gold);color:var(--gold)}
+    .nav__tab.active{background:var(--gold);color:var(--bg);border-color:var(--gold);font-weight:700}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    /* PROCESS STYLES */
+    .proc-hero{padding:6rem clamp(1.5rem,6vw,5rem) 3rem;text-align:center;background:radial-gradient(ellipse at 50% 40%,rgba(201,168,76,.06) 0%,transparent 70%)}
+    .proc-hero h1{font-size:clamp(2rem,5vw,3.5rem);color:var(--silver-light);text-transform:uppercase;letter-spacing:-.01em}
+    .proc-hero h1 span{color:var(--gold)}
+    .proc-hero p{color:var(--text-muted);font-style:italic;margin-top:.8rem}
+    .proc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem 2.5rem;margin:1.5rem 0}
+    .proc-card h3{color:var(--silver-light);font-size:1.1rem;margin-bottom:1rem}
+    .proc-card ul{list-style:none;margin:.5rem 0}
+    .proc-card ul li{color:var(--text-muted);font-size:.9rem;padding:.4rem 0;padding-left:1.2rem;position:relative;line-height:1.7}
+    .proc-card ul li::before{content:'>';color:var(--gold);position:absolute;left:0;font-weight:700}
+    .proc-step{display:flex;gap:1.5rem;align-items:flex-start;margin:1.5rem 0}
+    .proc-step-n{min-width:44px;height:44px;line-height:44px;text-align:center;border-radius:50%;background:var(--gold);color:var(--bg);font-family:'Times New Roman',serif;font-weight:700;font-size:1.1rem}
+    .proc-step-body{flex:1}
+    .proc-step-body h4{color:var(--silver-light);font-size:1rem;margin-bottom:.4rem}
+    .proc-step-body p,.proc-step-body li{color:var(--text-muted);font-size:.9rem;line-height:1.7}
+    .proc-rule{background:rgba(224,82,82,.06);border:1px solid rgba(224,82,82,.25);border-left:3px solid var(--red);border-radius:var(--radius);padding:1.2rem 1.8rem;margin:1rem 0}
+    .proc-rule h4{color:var(--red);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+    .proc-rule p{color:var(--text-muted);font-size:.88rem}
+    .proc-ok{background:rgba(76,175,80,.06);border:1px solid rgba(76,175,80,.25);border-left:3px solid var(--green);border-radius:var(--radius);padding:1.2rem 1.8rem;margin:1rem 0}
+    .proc-ok h4{color:var(--green);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+    .proc-ok p{color:var(--text-muted);font-size:.88rem}
+    .proc-pending{background:rgba(255,152,0,.06);border:1px solid rgba(255,152,0,.25);border-left:3px solid #FFB74D;border-radius:var(--radius);padding:1.2rem 1.8rem;margin:1rem 0}
+    .proc-pending h4{color:#FFB74D;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.4rem}
+    .proc-pending p{color:var(--text-muted);font-size:.88rem}
+    .proc-index{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.2rem;margin:2rem 0}
+    .proc-index-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;cursor:pointer;transition:all .25s}
+    .proc-index-card:hover{border-color:var(--gold);transform:translateY(-2px)}
+    .proc-index-card h4{color:var(--silver-light);font-size:1rem;margin-bottom:.4rem}
+    .proc-index-card p{color:var(--text-dim);font-size:.8rem}
+    .proc-index-card .status{margin-top:.8rem}
   </style>
 </head>
 <body>
 
-<nav class="nav"><div><div class="nav__logo">IMPERIO</div><div class="nav__sub">Promesas de Valor</div></div><div class="nav__date">Marzo 2026</div></nav>
+<nav class="nav">
+  <div><div class="nav__logo">IMPERIO</div><div class="nav__sub">Centro de Operaciones</div></div>
+  <div class="nav__tabs">
+    <button class="nav__tab active" onclick="switchTab('promesas')">Promesas de Valor</button>
+    <button class="nav__tab" onclick="switchTab('procesos')">Procesos Operativos</button>
+  </div>
+  <div class="nav__date">Marzo 2026</div>
+</nav>
 
+<div id="tab-promesas" class="tab-content active">
 <!-- 01 PORTADA -->
 <header class="cover">
   <div class="container">
@@ -603,6 +648,281 @@
 </section>
 
 <footer class="footer">Documento interno — Imperio Elite Fitness Club — Marzo 2026</footer>
+</div><!-- /tab-promesas -->
+
+<div id="tab-procesos" class="tab-content">
+
+<div class="proc-hero">
+  <div class="container">
+    <span class="label">Imperio Elite Fitness Club</span>
+    <h1>Procesos <span>Operativos</span></h1>
+    <p>Documentacion interna de procesos implementados</p>
+    <div class="divider"></div>
+  </div>
+</div>
+
+<!-- INDICE DE PROCESOS -->
+<div class="section">
+  <div class="container">
+    <div class="sh">
+      <span class="label">Indice</span>
+      <h2>Procesos Documentados</h2>
+      <p>Click en cualquier proceso para ver el detalle completo</p>
+    </div>
+    <div class="proc-index">
+      <div class="proc-index-card" onclick="document.getElementById('proc-inbody').scrollIntoView({behavior:'smooth',block:'start'})">
+        <span class="sn">01</span>
+        <h4>Sesion InBody — Plan Platinum</h4>
+        <p>Valoracion nutricional, test de fuerza y resistencia, asignacion de rutina</p>
+        <div class="status"><span class="b b-pr">En implementacion</span></div>
+      </div>
+      <!-- Futuros procesos se agregan aqui -->
+    </div>
+  </div>
+</div>
+
+<!-- ============================================ -->
+<!-- PROCESO 01: SESION INBODY PLATINUM           -->
+<!-- ============================================ -->
+<div id="proc-inbody" class="section">
+  <div class="container">
+    <div class="sh">
+      <span class="label">Proceso 01</span>
+      <h2>Sesion InBody — Plan Platinum</h2>
+      <p>Proceso completo desde la compra del plan hasta el seguimiento post-valoracion</p>
+    </div>
+
+    <!-- PASO 1 -->
+    <div class="proc-step">
+      <div class="proc-step-n">1</div>
+      <div class="proc-step-body">
+        <h4>Activacion del Proceso</h4>
+        <p><strong>Trigger:</strong> Cliente compra Plan Platinum. Inmediatamente despues de la compra se procede a programar su sesion de InBody.</p>
+        <ul style="list-style:none;margin:.5rem 0">
+          <li style="color:var(--text-muted);font-size:.9rem;padding:.3rem 0;padding-left:1.2rem;position:relative"><span style="color:var(--gold);position:absolute;left:0;font-weight:700">></span>Se programa la sesion de valoracion (InBody + Test de Fuerza)</li>
+          <li style="color:var(--text-muted);font-size:.9rem;padding:.3rem 0;padding-left:1.2rem;position:relative"><span style="color:var(--gold);position:absolute;left:0;font-weight:700">></span>Cliente llena el PAR-Q digitalmente</li>
+        </ul>
+        <div class="proc-rule">
+          <h4>Prohibido</h4>
+          <p>El personal de counter NO puede llenar el PAR-Q manualmente por el cliente. Bajo ninguna circunstancia.</p>
+        </div>
+        <div class="proc-pending">
+          <h4>Pendiente — 26 Mar 2026</h4>
+          <p>Esteban entrega preguntas mejoradas del PAR-Q para conocer mejor al cliente y sus limitaciones.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 2 -->
+    <div class="proc-step">
+      <div class="proc-step-n">2</div>
+      <div class="proc-step-body">
+        <h4>Programacion y Notificacion</h4>
+        <p><strong>Dias de sesion:</strong> Sabados, bloques de 30 minutos — 7:00 AM a 2:00 PM (con 30 min de descanso para el profesional)</p>
+        <p style="margin-top:.3rem"><strong>Capacidad:</strong> Si se llena el sabado, se habilita un dia entre semana.</p>
+
+        <div class="info" style="margin-top:1rem">
+          <h4>Notificacion automatica — 48 hrs antes</h4>
+          <p>Se envia plantilla de WhatsApp via CRM de EVO + imagen con requisitos de preparacion y politicas de cancelacion/penalizaciones:</p>
+        </div>
+
+        <div class="proc-card">
+          <h3>Requisitos para el cliente</h3>
+          <ul>
+            <li>Ropa comoda, deportiva, ligera</li>
+            <li>Ayunas o minimo 4-5 horas de ayuno</li>
+            <li>Si es control: intentar siempre el mismo horario</li>
+            <li>Haber orinado antes de la medicion</li>
+            <li>Idealmente haber defecado antes</li>
+            <li>NO actividad fisica en las 12 horas previas</li>
+            <li>NO sauna, NO cafe, NO alcohol</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 3 -->
+    <div class="proc-step">
+      <div class="proc-step-n">3</div>
+      <div class="proc-step-body">
+        <h4>Politica de Cancelacion y Penalizaciones</h4>
+        <p><strong>Plazo para cancelar sin penalidad:</strong> 24 horas antes de la sesion</p>
+
+        <div class="proc-ok">
+          <h4>Cancela a tiempo (dentro de 24 hrs)</h4>
+          <p>Se reprograma segun disponibilidad del proximo dia. Se informan horas y elige. Sin penalidad.</p>
+        </div>
+
+        <div class="proc-rule">
+          <h4>Cancela tarde (despues de 24 hrs)</h4>
+          <p>Se reprograma pero se cobra penalidad de <strong>$20.000</strong>. Solo se permite 1 vez.</p>
+        </div>
+
+        <div class="proc-rule">
+          <h4>No se presenta (no show)</h4>
+          <p>Se cobra penalidad de <strong>$20.000</strong>. Cuenta como su unica oportunidad de reprogramacion.</p>
+        </div>
+
+        <div class="proc-rule">
+          <h4>Tiempo maximo de espera</h4>
+          <p>Si el cliente no llega a su hora, se esperan <strong>maximo 8 minutos</strong>. Despues cuenta como no show.</p>
+        </div>
+
+        <div class="alert">
+          <h4>Regla definitiva — Platinum</h4>
+          <p>Solo se permite <strong>1 reprogramacion</strong> en total. Si falla por segunda vez, pierde definitivamente la sesion incluida en su plan. La penalidad debe estar pagada antes de reprogramar.</p>
+        </div>
+
+        <div class="tw">
+          <table>
+            <thead><tr><th>Concepto</th><th>Platinum (incluida)</th><th>Pagada aparte ($130k)</th></tr></thead>
+            <tbody>
+              <tr><td>Contenido</td><td>InBody + Test de Fuerza + rutina generica</td><td>Servicio completo de nutricion</td></tr>
+              <tr><td>Cancelacion tardia</td><td>$20k + 1 oportunidad</td><td>$20k + reprogramacion</td></tr>
+              <tr><td>No show</td><td>$20k, 2da vez pierde</td><td>$20k + reprogramacion</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 4 -->
+    <div class="proc-step">
+      <div class="proc-step-n">4</div>
+      <div class="proc-step-body">
+        <h4>Dia de la Valoracion</h4>
+
+        <div class="proc-card">
+          <h3>4.1 — Registro en counter</h3>
+          <ul>
+            <li>Cliente se presenta en counter</li>
+            <li>Counter marca presencia/asistencia en el sistema</li>
+            <li>Counter llama al nutricionista</li>
+            <li>Nutricionista baja a recibir a la persona</li>
+          </ul>
+        </div>
+
+        <div class="proc-card">
+          <h3>4.2 — Revision PAR-Q</h3>
+          <ul>
+            <li>Nutricionista revisa/complementa informacion del PAR-Q</li>
+            <li>El documento de Test de Fuerza tiene espacio para complementar respuestas del PAR-Q</li>
+          </ul>
+        </div>
+
+        <div class="info">
+          <h4>Documento de Conclusiones Finales</h4>
+          <p>Se genera un tercer documento que contiene: extension de las respuestas del PAR-Q, resultados del InBody, resultados del Test de Fuerza, y recomendaciones finales personalizadas para el cliente.</p>
+        </div>
+
+        <div class="proc-card">
+          <h3>4.3 — Medicion InBody (dentro del bloque de 30 min)</h3>
+          <ul>
+            <li>Se realiza la medicion InBody (sobre tabla de madera como soporte)</li>
+            <li>Se muestran y explican los resultados al cliente</li>
+            <li>Se dan recomendaciones basadas en el InBody</li>
+            <li>Se dan recomendaciones de tipo de entrenamiento</li>
+          </ul>
+        </div>
+
+        <div class="proc-card">
+          <h3>4.4 — Test de Fuerza y Resistencia (mismo bloque de 30 min)</h3>
+          <ul>
+            <li><strong>Abdominales</strong> — 1 minuto</li>
+            <li><strong>Flexiones de pecho</strong> — 1 minuto</li>
+            <li><strong>Sentadillas</strong> — 1 minuto</li>
+            <li><strong>Fuerza de agarre</strong></li>
+          </ul>
+          <p style="color:var(--text-muted);font-size:.88rem;margin-top:.8rem">El nutricionista lleva el conteo en tiempo real. Los resultados se registran en plantilla Excel que calcula automaticamente el tipo de entrenamiento asignado.</p>
+        </div>
+
+        <div class="proc-card">
+          <h3>4.5 — Resultado: 4 Tipos de Entrenamiento</h3>
+          <p style="color:var(--text-muted);font-size:.9rem">Segun los resultados del test, se asigna 1 de 4 niveles de entrenamiento. Los nombres deben ser positivos y motivacionales — nada que haga sentir mal al cliente.</p>
+          <div class="proc-pending" style="margin-top:1rem">
+            <h4>Pendientes</h4>
+            <p>Counter: Disenar plantilla Excel del test. Nicolas + equipo: Disenar rutinas por nivel. Definir nombres de los 4 niveles.</p>
+          </div>
+        </div>
+
+        <div class="proc-card">
+          <h3>4.6 — Cierre de la Sesion (Nutricionista)</h3>
+          <ul>
+            <li>El nutricionista explica resultados completos al cliente</li>
+            <li>Informa que puede ver sus resultados en la <strong>app de Imperio</strong></li>
+            <li>Menciona servicios de nutricion y entrenamiento mas personalizados (mapeados, por definir)</li>
+            <li>Cliente baja</li>
+          </ul>
+          <div class="info">
+            <h4>Nota</h4>
+            <p>El cierre lo realiza el nutricionista directamente. Por esto las sesiones son de 30 minutos (InBody + Test + Cierre).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 5 -->
+    <div class="proc-step">
+      <div class="proc-step-n">5</div>
+      <div class="proc-step-body">
+        <h4>Post-Sesion (Counter)</h4>
+        <p><strong>Nutricionista sube:</strong> Resultado InBody + Test de Fuerza y Resistencia</p>
+        <div class="proc-card">
+          <h3>Accion de counter</h3>
+          <ul>
+            <li>Revisa documentos subidos por el nutricionista</li>
+            <li>Identifica el tipo de entrenamiento asignado</li>
+            <li>Le monta al cliente la rutina correspondiente en el sistema</li>
+            <li>Counter debe conocer los servicios adicionales por si el cliente pregunta</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO 6 -->
+    <div class="proc-step">
+      <div class="proc-step-n">6</div>
+      <div class="proc-step-body">
+        <h4>Seguimiento Post-Valoracion</h4>
+        <p><strong>A los 4 dias:</strong> Se envia survey por WhatsApp — como le fue en la sesion.</p>
+        <p style="margin-top:.3rem">Segun la respuesta, se ofrecen productos/servicios adicionales relevantes.</p>
+      </div>
+    </div>
+
+    <!-- PENDIENTES -->
+    <div style="margin-top:3rem">
+      <div class="sh">
+        <span class="label">Seguimiento</span>
+        <h2>Pendientes de Implementacion</h2>
+      </div>
+      <div class="tw">
+        <table>
+          <thead><tr><th>#</th><th>Que</th><th>Quien</th><th>Cuando</th><th>Estado</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Preguntas mejoradas PAR-Q</td><td>Esteban</td><td>26 Mar 2026</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>2</td><td>Plantilla Excel Test de Fuerza</td><td>Counter</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>3</td><td>Nombres de los 4 niveles de entrenamiento</td><td>Por definir</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>4</td><td>Rutinas genericas por nivel</td><td>Nicolas + equipo</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>5</td><td>Tabla de madera soporte InBody</td><td>Operaciones</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>6</td><td>Plantilla WhatsApp en CRM EVO</td><td>Mateo / Claude</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>7</td><td>Survey a los 4 dias</td><td>Mateo / Claude</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+            <tr><td>8</td><td>Capacitar counter servicios adicionales</td><td>Nicolas</td><td>Por definir</td><td><span class="b b-pr">Pendiente</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div style="padding:3rem clamp(1.5rem,6vw,5rem);text-align:center;border-top:1px solid var(--border)">
+  <div style="max-width:600px;margin:0 auto;padding:2rem;border:1px solid rgba(224,82,82,.3);border-radius:var(--radius);background:rgba(224,82,82,.04)">
+    <p style="color:var(--red);font-family:'Times New Roman',serif;font-size:.85rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.8rem">Documento Confidencial</p>
+    <p style="color:var(--text-muted);font-size:.82rem;line-height:1.6">Este documento es propiedad exclusiva de <strong style="color:var(--silver-light)">Imperio Elite Fitness Club</strong> y es de uso estrictamente interno. Queda prohibida su reproduccion, distribucion o divulgacion parcial o total a terceros sin autorizacion expresa de la gerencia. El incumplimiento de esta clausula podra acarrear sanciones disciplinarias y/o acciones legales conforme a la normativa vigente de proteccion de informacion confidencial.</p>
+  </div>
+</div>
+<footer class="footer">Documento interno — Imperio Elite Fitness Club — Marzo 2026</footer>
+</div><!-- /tab-procesos -->
 
 <!-- NOTES HINT -->
 <div class="notes-hint">Selecciona texto para agregar una nota</div>
@@ -682,6 +1002,14 @@ function saveNote(){
 
   closePopup();
   window.getSelection().removeAllRanges();
+}
+
+function switchTab(tab){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav__tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0,0);
 }
 
 function deleteNote(id,btn){
