@@ -804,54 +804,62 @@
         </div>
 
         <div class="proc-card">
-          <h3>4.2 — Revision PAR-Q</h3>
+          <h3>4.2 — PAR-Q (Google Form)</h3>
           <ul>
-            <li>Nutricionista revisa/complementa informacion del PAR-Q</li>
-            <li>El documento de Test de Fuerza tiene espacio para complementar respuestas del PAR-Q</li>
+            <li>El nutricionista llena el <strong>Google Form del PAR-Q</strong> con las respuestas del cliente</li>
+            <li>El form esta en el Drive de la cuenta de imperiohealth</li>
+            <li>Se sube como documento PAR-Q al perfil del cliente en EVO</li>
           </ul>
         </div>
 
-        <div class="info">
-          <h4>Documento de Conclusiones Finales</h4>
-          <p>Se genera un tercer documento que contiene: extension de las respuestas del PAR-Q, resultados del InBody, resultados del Test de Fuerza, y recomendaciones finales personalizadas para el cliente.</p>
+        <div class="proc-card">
+          <h3>4.3 — Notas Generales / Conclusiones Finales (Google Form)</h3>
+          <ul>
+            <li>Se llena el <strong>Google Form de Notas Generales</strong> con observaciones de interes para el entrenador</li>
+            <li>Se sube como documento al perfil del cliente en EVO</li>
+            <li>La idea es complementar con notas relevantes que el entrenador necesite saber</li>
+          </ul>
         </div>
 
         <div class="proc-card">
-          <h3>4.3 — Medicion InBody (dentro del bloque de 30 min)</h3>
+          <h3>4.4 — Medicion InBody (dentro del bloque de 30 min)</h3>
           <ul>
             <li>Se realiza la medicion InBody (sobre tabla de madera como soporte)</li>
             <li>Se muestran y explican los resultados al cliente</li>
+            <li>Se toma <strong>foto/pantallazo del resultado</strong> y se sube como imagen al perfil del cliente en EVO</li>
             <li>Se dan recomendaciones basadas en el InBody</li>
-            <li>Se dan recomendaciones de tipo de entrenamiento</li>
           </ul>
         </div>
 
         <div class="proc-card">
-          <h3>4.4 — Test de Fuerza y Resistencia (mismo bloque de 30 min)</h3>
+          <h3>4.5 — Test de Fuerza y Resistencia (mismo bloque de 30 min)</h3>
           <ul>
             <li><strong>Abdominales</strong> — 1 minuto</li>
             <li><strong>Flexiones de pecho</strong> — 1 minuto</li>
             <li><strong>Sentadillas</strong> — 1 minuto</li>
             <li><strong>Fuerza de agarre</strong></li>
           </ul>
-          <p style="color:var(--text-muted);font-size:.88rem;margin-top:.8rem">El nutricionista lleva el conteo en tiempo real. Los resultados se registran en plantilla Excel que calcula automaticamente el tipo de entrenamiento asignado.</p>
+          <p style="color:var(--text-muted);font-size:.88rem;margin-top:.8rem">El nutricionista lleva el conteo en tiempo real. Los resultados se registran en la plantilla Excel que calcula automaticamente el nivel: Amateur, Intermedio o Pro. Se toma <strong>recorte de pantalla del Excel</strong> y se sube como documento al perfil del cliente en EVO.</p>
         </div>
 
         <div class="proc-card">
-          <h3>4.5 — Resultado: 4 Tipos de Entrenamiento</h3>
-          <p style="color:var(--text-muted);font-size:.9rem">Segun los resultados del test, se asigna 1 de 3 niveles de entrenamiento: Amateur, Intermedio o Pro.</p>
+          <h3>4.6 — Asignacion de Entrenamiento (Nutricionista)</h3>
+          <ul>
+            <li>Segun el resultado del test (Amateur/Intermedio/Pro), el <strong>nutricionista asigna el tipo de entrenamiento directamente</strong></li>
+            <li>Va a la seccion de Entrenamientos en EVO y lo asigna a la persona</li>
+          </ul>
           <div class="proc-pending" style="margin-top:1rem">
-            <h4>Pendientes</h4>
-            <p>Plantilla Excel del test ya creada (Amateur/Intermedio/Pro). Nicolas + equipo: Disenar rutinas por nivel.</p>
+            <h4>Pendiente</h4>
+            <p>Nicolas + equipo: Disenar las rutinas genericas por nivel que estaran cargadas en el sistema.</p>
           </div>
         </div>
 
         <div class="proc-card">
-          <h3>4.6 — Cierre de la Sesion (Nutricionista)</h3>
+          <h3>4.7 — Cierre de la Sesion (Nutricionista)</h3>
           <ul>
             <li>El nutricionista explica resultados completos al cliente</li>
             <li>Informa que puede ver sus resultados en la <strong>app de Imperio</strong></li>
-            <li>Menciona servicios de nutricion y entrenamiento mas personalizados (mapeados, por definir)</li>
+            <li>Menciona servicios de nutricion y entrenamiento mas personalizados</li>
             <li>Cliente baja</li>
           </ul>
           <div class="info">
@@ -866,15 +874,24 @@
     <div class="proc-step">
       <div class="proc-step-n">5</div>
       <div class="proc-step-body">
-        <h4>Post-Sesion (Counter)</h4>
-        <p><strong>Nutricionista sube:</strong> Resultado InBody + Test de Fuerza y Resistencia</p>
+        <h4>Post-Sesion</h4>
+
+        <div class="proc-card">
+          <h3>Documentos que sube el nutricionista al perfil del cliente en EVO:</h3>
+          <ul>
+            <li>PAR-Q (desde Google Form)</li>
+            <li>Notas Generales / Conclusiones Finales (desde Google Form)</li>
+            <li>Imagen del resultado InBody (foto/pantallazo)</li>
+            <li>Recorte de pantalla del Test de Fuerza (Excel)</li>
+          </ul>
+        </div>
+
         <div class="proc-card">
           <h3>Accion de counter</h3>
           <ul>
-            <li>Revisa documentos subidos por el nutricionista</li>
-            <li>Identifica el tipo de entrenamiento asignado</li>
-            <li>Le monta al cliente la rutina correspondiente en el sistema</li>
-            <li>Counter debe conocer los servicios adicionales por si el cliente pregunta</li>
+            <li>Pregunta al cliente como le fue en la sesion</li>
+            <li>Ofrece los servicios complementarios avanzados segun vea oportunidad (nutricion personalizada, entrenamiento personalizado, etc.)</li>
+            <li>Counter debe conocer estos servicios — referencia: video de Esteban sobre planes complementarios</li>
           </ul>
         </div>
       </div>
